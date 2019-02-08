@@ -27,56 +27,43 @@
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label for="fname">Full Name</label>
-                                        <input type="text" class="form-control required" value="<?php echo set_value('fname'); ?>" id="fname" name="fname" maxlength="128">
+                                        <label for="equip_name">Equipment Name:</label>
+                                        <input type="text" class="form-control required" value="<?php echo set_value('equip_name'); ?>" id="equip_name" name="equip_name" maxlength="128" placeholder="Equipment Name">
                                     </div>
                                     
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="email">Email address</label>
-                                        <input type="text" class="form-control required email" id="email" value="<?php echo set_value('email'); ?>" name="email" maxlength="128">
+                                        <label for="brand">Brand:</label>
+                                        <input type="text" class="form-control required " id="brand" value="<?php echo set_value('brand'); ?>" name="brand" maxlength="128" placeholder="Brand">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="password">Password</label>
-                                        <input type="password" class="form-control required" id="password" name="password" maxlength="20">
+                                        <label for="password">Model:</label>
+                                        <input type="text" class="form-control required" id="password" name="password" maxlength="20" placeholder="Model">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="cpassword">Confirm Password</label>
-                                        <input type="password" class="form-control required equalTo" id="cpassword" name="cpassword" maxlength="20">
+                                        <label for="serial_no">Serial Number:</label>
+                                        <input type="text" class="form-control required" id="serial_no" name="serial_no" maxlength="20" placeholder="Serial Number">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="mobile">Mobile Number</label>
-                                        <input type="text" class="form-control required digits" id="mobile" value="<?php echo set_value('mobile'); ?>" name="mobile" maxlength="10" placeholder="Mobile Number">
+                                        <label for="type">Type:</label>
+                                        <input type="text" class="form-control required" id="type" value="<?php echo set_value('type'); ?>" name="type" maxlength="10" placeholder="Type">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="role">Role</label>
-                                        <select class="form-control required" id="role" name="role">
-                                            <option value="0">Select Role</option>
-                                            <?php
-                                            if(!empty($roles))
-                                            {
-                                                foreach ($roles as $rl)
-                                                {
-                                                    ?>
-                                                    <option value="<?php echo $rl->roleId ?>" <?php if($rl->roleId == set_value('role')) {echo "selected=selected";} ?>><?php echo $rl->role ?></option>
-                                                    <?php
-                                                }
-                                            }
-                                            ?>
-                                        </select>
+                                        <label for="year_acc">Year Acquired:</label>
+                                        <input type="text" class="form-control required" id="year_acc" value="<?php echo set_value('year_acc'); ?>" name="year_acc" maxlength="10" placeholder="Year Acquired">
                                     </div>
                                 </div>    
                             </div>
