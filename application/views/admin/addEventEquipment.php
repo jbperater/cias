@@ -2,8 +2,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-users"></i> User Management
-        <small>Add / Edit User</small>
+        <i class="fa fa-users"></i> Event Equipment Management
+        <small>Add Event Equipment</small>
       </h1>
     </section>
     

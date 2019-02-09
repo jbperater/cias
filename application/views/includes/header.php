@@ -156,7 +156,7 @@
                <a href="javascript:;" data-toggle="collapse" data-target="#demo3"><i class="fa fa-fw fa-file"></i> Equipements <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo3" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>Main/addNewEquipment"> Add Equipments</a>
+                                <a href="<?php echo base_url(); ?>Main/viewAddNewEquipment"> Add Equipments</a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url(); ?>blank_page/blank_page2"> View Equipments</a>
@@ -166,7 +166,7 @@
                <a href="javascript:;" data-toggle="collapse" data-target="#demo4"><i class="fa fa-fw fa-file"></i> Event Equipments <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo4" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Add Event Equipments</a>
+                                <a href="<?php echo base_url(); ?>Main/viewAddNewEventEquipment"> Add Event Equipments</a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url(); ?>blank_page/blank_page2"> View Event Equipments</a>
@@ -176,7 +176,7 @@
                <a href="javascript:;" data-toggle="collapse" data-target="#demo5"><i class="fa fa-fw fa-file"></i> Venue <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo5" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Add Venue</a>
+                                <a href="<?php echo base_url(); ?>Main/viewAddNewVenue"> Add Venue</a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url(); ?>blank_page/blank_page2"> View Venue</a>
