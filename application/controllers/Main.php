@@ -7,7 +7,7 @@
  * @version : 1.1
  * @since : 15 November 2016
  */
-class Login extends CI_Controller
+class Main extends CI_Controller
 {
     /**
      * This is default constructor of the class
