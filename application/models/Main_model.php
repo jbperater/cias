@@ -7,7 +7,7 @@
  * @version : 1.1
  * @since : 15 November 2016
  */
-class Login_model extends CI_Model
+class Main_model extends CI_Model
 {
     
     
