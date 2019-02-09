@@ -123,10 +123,10 @@
             {
             ?>
             <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-file"></i> View Requests <i class="fa fa-fw fa-caret-down"></i></a>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-thumb-tack"></i> View Requests <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page1">  View Event Requests</a>
+                                <a href="<?php echo base_url(); ?>userListing">  View Event Requests</a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url(); ?>blank_page/blank_page2"> View Repair Requests</a>
