@@ -241,24 +241,84 @@
                 <i class="fa fa-users"></i>
                 <span>Accounts</span>
               </a>
-            </li>
+            </li>-->
             <?php
             }
             if($role ==ROLE_MANAGER)
             {
             ?>
             <li class="treeview">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-thumb-tack"></i>Request <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>Main/eventRequest">  Add Event Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>Main/jobRequest"> Add Repair Requests</a>
+                            </li>
+                          </ul>
+            <li class="treeview">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i> View Requests <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo1" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Approved Event Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Approved Repair Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Declined Event Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Declined Repair Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Pending Event Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Pending Repair Requests</a>
+                            </li>
+                          </ul>
+             <li class="treeview">
               <a href="<?php echo base_url(); ?>userListing">
                 <i class="fa fa-users"></i>
-                <span>Users</span>
+                <span>Event Schedules</span>
               </a>
             </li>
+            <?php
+            }
+            if($role ==ROLE_STUDENT)
+            {
+            ?>
             <li class="treeview">
-              <a href="#" >
-                <i class="fa fa-files-o"></i>
-                <span>Reports</span>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-thumb-tack"></i>Request <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>Main/Requests">  Add Event Requests</a>
+                            </li>
+                          </ul>
+            <li class="treeview">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i> View Requests <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo1" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> All Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Approved Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Pending Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Declined Requests</a>
+                            </li>
+                          </ul>
+             <li class="treeview">
+              <a href="<?php echo base_url(); ?>userListing">
+                <i class="fa fa-users"></i>
+                <span>Event Schedules</span>
               </a>
-            </li> -->
+            </li>-->
             <?php
             }
             ?>

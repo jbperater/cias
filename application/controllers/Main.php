@@ -38,6 +38,32 @@ class Main extends BaseController
         
         $this->loadViews("admin/addEquipment", $this->global, NULL, NULL);
     }
+
+    public function jobRequest(){
+
+        $this->load->model('user_model');
+
+        $this->global['name'] =$this->session->userdata('name');
+        $this->global['role'] =$this->session->userdata('role');
+        
+        // exit();
+        $this->global['pageTitle'] = 'CodeInsect : Dashboard';
+        
+        $this->loadViews("jobRequest", $this->global, NULL, NULL);
+    }
+
+     public function eventRequest(){
+
+        $this->load->model('user_model');
+
+        $this->global['name'] =$this->session->userdata('name');
+        $this->global['role'] =$this->session->userdata('role');
+        
+        // exit();
+        $this->global['pageTitle'] = 'CodeInsect : Dashboard';
+        
+        $this->loadViews("eventRequest", $this->global, NULL, NULL);
+    }
 }
 
 ?>
