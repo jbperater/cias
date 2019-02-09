@@ -106,7 +106,7 @@
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
               </a>
             </li>
-            <li class="treeview">
+           <!--  <li class="treeview">
               <a href="#" >
                 <i class="fa fa-plane"></i>
                 <span>New Task</span>
@@ -117,26 +117,134 @@
                 <i class="fa fa-ticket"></i>
                 <span>My Tasks</span>
               </a>
-            </li>
+            </li> -->
             <?php
-            if($role == ROLE_ADMIN || $role == ROLE_MANAGER)
+            if($role == ROLE_ADMIN)
             {
             ?>
             <li class="treeview">
-              <a href="#" >
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-file"></i> View Requests <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page1">  View Event Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> View Repair Requests</a>
+                            </li>
+                          </ul>
+            <li class="treeview">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i> Set Schedules <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo1" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Set Event Schedule</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Set Repair Schedule</a>
+                            </li>
+                          </ul>
+             <li class="treeview">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-file"></i> View Schedules<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo2" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Event Schedules</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Repair Schedules</a>
+                            </li>
+                          </ul>
+            <li class="treeview">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo3"><i class="fa fa-fw fa-file"></i> Equipements <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo3" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>AddNewEquipment"> Add Equipments</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> View Equipments</a>
+                            </li>
+                          </ul>
+             <li class="treeview">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo4"><i class="fa fa-fw fa-file"></i> Event Equipments <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo4" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Add Event Equipments</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> View Event Equipments</a>
+                            </li>
+                          </ul>
+            <li class="treeview">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo5"><i class="fa fa-fw fa-file"></i> Venue <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo5" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Add Venue</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> View Venue</a>
+                            </li>
+                          </ul>
+             <li class="treeview">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo6"><i class="fa fa-fw fa-file"></i> Forecasts <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo6" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> View Forecasts</a>
+                            </li>
+                        </ul>
+           <li class="treeview">
+              <a href="<?php echo base_url(); ?>userListing">
+                <i class="fa fa-users"></i>
+                <span>Accounts</span>
+              </a>
+            </li>
+              <!-- <a href="#" >
                 <i class="fa fa-thumb-tack"></i>
-                <span>Task Status</span>
+                <span>View Requests</span>
               </a>
             </li>
             <li class="treeview">
               <a href="#" >
                 <i class="fa fa-upload"></i>
-                <span>Task Uploads</span>
+                <span>Set Schedules</span>
+              </a>
+            </li>
+             <li class="treeview">
+              <a href="#" >
+                <i class="fa fa-thumb-tack"></i>
+                <span>View Schedules</span>
+              </a>
+            </li>
+            <li class="treeview">
+              <a href="#" >
+                <i class="fa fa-upload"></i>
+                <span>Equipment</span>
+              </a>
+            </li>
+             <li class="treeview">
+              <a href="#" >
+                <i class="fa fa-thumb-tack"></i>
+                <span>Event Equipment</span>
+              </a>
+            </li>
+            <li class="treeview">
+              <a href="#" >
+                <i class="fa fa-upload"></i>
+                <span>Venue</span>
+              </a>
+            </li>
+             <li class="treeview">
+              <a href="#" >
+                <i class="fa fa-thumb-tack"></i>
+                <span>Forecast</span>
+              </a>
+            </li>
+             <li class="treeview">
+              <a href="<?php echo base_url(); ?>userListing">
+                <i class="fa fa-users"></i>
+                <span>Accounts</span>
               </a>
             </li>
             <?php
             }
-            if($role == ROLE_ADMIN)
+            if($role ==ROLE_MANAGER)
             {
             ?>
             <li class="treeview">
@@ -150,7 +258,7 @@
                 <i class="fa fa-files-o"></i>
                 <span>Reports</span>
               </a>
-            </li>
+            </li> -->
             <?php
             }
             ?>
