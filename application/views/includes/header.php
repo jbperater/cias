@@ -156,7 +156,7 @@
                <a href="javascript:;" data-toggle="collapse" data-target="#demo3"><i class="fa fa-fw fa-file"></i> Equipements <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo3" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>AddNewEquipment"> Add Equipments</a>
+                                <a href="<?php echo base_url(); ?>Main/addNewEquipment"> Add Equipments</a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url(); ?>blank_page/blank_page2"> View Equipments</a>
