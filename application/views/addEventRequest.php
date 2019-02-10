@@ -2,8 +2,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-users"></i> Equipment Management
-        <small>Add Equipment</small>
+        <i class="fa fa-users"></i> Add Event Reservation
+        <small>Add Reservation</small>
       </h1>
     </section>
     
@@ -18,7 +18,7 @@
                 
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Enter User Details</h3>
+                        <h3 class="box-title">Enter Details</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
@@ -28,7 +28,7 @@
                                 <div class="col-md-6">                                
                                     <div class="form-group">
                                         <label for="no_participants">Number of Participants:</label>
-                                        <input type="text" class="form-control required" value="<?php echo set_value('no_participants'); ?>" id="no_participants" name="no_participants" maxlength="128" placeholder="Number of Participants">
+                                        <input type="Number" class="form-control required" value="<?php echo set_value('no_participants'); ?>" id="no_participants" name="no_participants" maxlength="128" placeholder="Number of Participants">
                                     </div>
                                     
                                 </div>
@@ -43,13 +43,13 @@
                                 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="dateTimeActual">Date Time Actual Use:</label>
+                                        <label for="dateTimeActual">Date And Time Actual Use:</label>
                                         <input type="datetime-local" name="dateTimeActual" id="dateTimeActual" class='form-control' required placeholder="Date Time Actual Use" value="<?php echo date('Y-m-d'); ?>" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="dateTimeEnd">Date Time End Use:</label>
+                                        <label for="dateTimeEnd">Date And Time End Use:</label>
                                         <input type="datetime-local" name="dateTimeEnd" id="dateTimeEnd" class='form-control' required placeholder="Date Time Actual End" value="<?php echo date('Y-m-d'); ?>" />
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@
                                 </div>
                                 <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="department">Department: (please check)</label>
+                                            <label for="department">Department: (please select)</label>
                                             <select name="department" id="" class="form-control">
                                                   <?php foreach($option as $option){?>
                                                 <option value=<?=$option->departId;?>><?=$option->acroname;?> - &nbsp<?=$option->name;?></option>

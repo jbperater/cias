@@ -42,9 +42,9 @@
         <!-- Logo -->
         <a href="<?php echo base_url(); ?>" class="logo" style="background-color: #fff">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini" ><b>USTP</b></span style="background-color: #fbb414">
+          <span class="logo-mini" ><img src="http://localhost/cias/assets/images/logo.png" height="50" width="50"></span style="background-color: #fbb414">
           <!-- logo for regular state and mobile devices -->
-          <span class="logo" style="background-color: #fff"><img src="http://localhost/cias/assets/images/logo.png" height="50" width="70" ></span>
+          <span class="logo" style="background-color: #fff"><h4><b style="color:  #1A1851"> Mechanical And Electrical Unit</b></h4></span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation" style="background-color: #fbb414">
@@ -269,7 +269,7 @@
                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-thumb-tack"></i>Request <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>Main/eventRequest">  Add Event Requests</a>
+                                <a href="<?php echo base_url(); ?>Main/viewAddNewEventRequest">  Add Event Requests</a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url(); ?>Main/jobRequest"> Add Repair Requests</a>
@@ -313,7 +313,7 @@
                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-thumb-tack"></i>Request <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>Main/Requests">  Add Event Requests</a>
+                                <a href="<?php echo base_url(); ?>Main/viewAddNewEventRequest">  Add Event Requests</a>
                             </li>
                           </ul>
             <li class="treeview">

@@ -20,7 +20,7 @@
   <body class="hold-transition login-page">
     <div class="login-box">
       <div class="login-logo">
-        <a href="#"><b>CodeInsect</b><br>Admin System</a>
+        <a href="#"><img src="http://localhost/cias/assets/images/logo.png" height="300" width="300"><h5><b>AMS: Assisstive Management System For Mechanical And Electrical Work Unit of USTP</b></h5></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Sign In</p>
