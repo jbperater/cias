@@ -22,13 +22,13 @@
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
-                    <form role="form" id="addUser" action="<?php echo base_url() ?>addNewUser" method="post" role="form">
+                    <form role="form" id="addUser" action="<?php echo base_url() ?>Main/equipmentInsert" method="post" role="form">
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label for="equip_name">Equipment Name:</label>
-                                        <input type="text" class="form-control required" value="<?php echo set_value('equip_name'); ?>" id="equip_name" name="equip_name" maxlength="128" placeholder="Equipment Name">
+                                        <label for="equipName">Equipment Name:</label>
+                                        <input type="text" class="form-control required" value="<?php echo set_value('equipName'); ?>" id="equipName" name="equipName" maxlength="128" placeholder="Equipment Name">
                                     </div>
                                     
                                 </div>
@@ -42,16 +42,30 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="password">Model:</label>
-                                        <input type="text" class="form-control required" id="password" name="password" maxlength="20" placeholder="Model">
+                                        <label for="model">Model:</label>
+                                        <input type="text" class="form-control required" id="model" name="model" maxlength="20" placeholder="Model">
+                                    </div>  
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="serialNo">Serial Number:</label>
+                                        <input type="text" class="form-control required" id="serialNo" name="serialNo" maxlength="20" placeholder="Serial Number">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="office">Office:</label>
+                                        <input type="text" class="form-control required" id="office" value="<?php echo set_value('office'); ?>" name="office" maxlength="10" placeholder="Office">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="serial_no">Serial Number:</label>
-                                        <input type="text" class="form-control required" id="serial_no" name="serial_no" maxlength="20" placeholder="Serial Number">
+                                        <label for="department">Department:</label>
+                                        <input type="text" class="form-control required" id="department" value="<?php echo set_value('department'); ?>" name="department" maxlength="10" placeholder="Department">
                                     </div>
-                                </div>
+                                </div>    
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
@@ -62,8 +76,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="year_acc">Year Acquired:</label>
-                                        <input type="text" class="form-control required" id="year_acc" value="<?php echo set_value('year_acc'); ?>" name="year_acc" maxlength="10" placeholder="Year Acquired">
+                                        <label for="yearAcc">Year Acquired:</label>
+                                        <input type="text" class="form-control required" id="yearAcc" value="<?php echo set_value('yearAcc'); ?>" name="yearAcc" maxlength="10" placeholder="Year Acquired">
                                     </div>
                                 </div>    
                             </div>

@@ -89,6 +89,10 @@ $route['resetPasswordConfirmUser/(:any)/(:any)'] = "login/resetPasswordConfirmUs
 $route['createPasswordUser'] = "login/createPasswordUser";
 
 $route['viewEquipment'] = 'main/viewEquipment';
+$route['viewVenue'] = 'user/viewVenue';
+$route['viewEventEquipment'] = 'user/viewEventEquipment';
+$route['viewEquipment'] = 'user/viewEquipment';
+$route['viewDepartment'] = 'user/viewDepartment';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

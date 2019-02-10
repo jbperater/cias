@@ -414,6 +414,47 @@ class User_model extends CI_Model
         return $result;
     }
 
+    function viewDepartmentCount($searchText = '')
+    {
+        $this->db->select('BaseTbl.departId, BaseTbl.acroname, BaseTbl.name');
+        $this->db->from('tbl_department as BaseTbl');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.bldgNo  LIKE '%".$searchText."%'
+                            OR  BaseTbl.name  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $query = $this->db->get();
+        
+        return $query->num_rows();
+    }
+    
+    /**
+     * This function is used to get the user listing count
+     * @param string $searchText : This is optional search text
+     * @param number $page : This is pagination offset
+     * @param number $segment : This is pagination limit
+     * @return array $result : This is result
+     */
+    function viewDepartment($searchText = '', $page, $segment)
+    {
+        $this->db->select('BaseTbl.departId, BaseTbl.acroname, BaseTbl.name');
+        $this->db->from('tbl_department as BaseTbl');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.departId  LIKE '%".$searchText."%'
+                            OR  BaseTbl.acroname  LIKE '%".$searchText."%')
+                            OR  BaseTbl.name  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $this->db->order_by('BaseTbl.departId', 'DESC');
+        $this->db->limit($page, $segment);
+        $query = $this->db->get();
+        
+        $result = $query->result();        
+        return $result;
+    }
+
 
 }
 

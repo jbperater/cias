@@ -132,16 +132,18 @@
                                 <a href="<?php echo base_url(); ?>blank_page/blank_page2"> View Repair Requests</a>
                             </li>
                           </ul>
+            </li>
             <li class="treeview">
                <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i> Set Schedules <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo1" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>Main/eventRequest"> Set Event Schedule</a>
+                                <a href="<?php echo base_url(); ?>Main/viewAddNewEventRequest"> Set Event Schedule</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>Main/jobRequest"> Set Repair Schedule</a>
+                                <a href="<?php echo base_url(); ?>Main/viewAddjobRequest"> Set Repair Schedule</a>
                             </li>
                           </ul>
+              </li>
              <li class="treeview">
                <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-file"></i> View Schedules<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo2" class="collapse">
@@ -152,6 +154,7 @@
                                 <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Repair Schedules</a>
                             </li>
                           </ul>
+            </li>
             <li class="treeview">
                <a href="javascript:;" data-toggle="collapse" data-target="#demo3"><i class="fa fa-fw fa-file"></i> Equipments <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo3" class="collapse">
@@ -162,6 +165,7 @@
                                 <a href="<?php echo base_url(); ?>User/viewEquipment"> View Equipments</a>
                             </li>
                           </ul>
+              </li>
              <li class="treeview">
                <a href="javascript:;" data-toggle="collapse" data-target="#demo4"><i class="fa fa-fw fa-file"></i> Event Equipments <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo4" class="collapse">
@@ -172,6 +176,7 @@
                                 <a href="<?php echo base_url(); ?>User/viewEventEquipment"> View Event Equipments</a>
                             </li>
                           </ul>
+            </li>
             <li class="treeview">
                <a href="javascript:;" data-toggle="collapse" data-target="#demo5"><i class="fa fa-fw fa-file"></i> Venue <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo5" class="collapse">
@@ -182,6 +187,18 @@
                                 <a href="<?php echo base_url(); ?>User/viewVenue"> View Venue</a>
                             </li>
                           </ul>
+              </li>
+              <li class="treeview">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo20"><i class="fa fa-fw fa-file"></i> Department <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo20" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>Main/viewAddNewDepartment"> Add Department</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>User/viewDepartment"> View Department</a>
+                            </li>
+                          </ul>
+              </li>
              <li class="treeview">
                <a href="javascript:;" data-toggle="collapse" data-target="#demo6"><i class="fa fa-fw fa-file"></i> Forecasts <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo6" class="collapse">
@@ -189,6 +206,7 @@
                                 <a href="<?php echo base_url(); ?>blank_page/blank_page1"> View Forecasts</a>
                             </li>
                         </ul>
+              </li>
            <li class="treeview">
               <a href="<?php echo base_url(); ?>userListing">
                 <i class="fa fa-users"></i>
@@ -257,6 +275,7 @@
                                 <a href="<?php echo base_url(); ?>Main/jobRequest"> Add Repair Requests</a>
                             </li>
                           </ul>
+            </li>
             <li class="treeview">
                <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i> View Requests <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo1" class="collapse">

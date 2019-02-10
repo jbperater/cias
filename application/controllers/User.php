@@ -450,7 +450,7 @@ class User extends BaseController
             
             $data['userRecords'] = $this->user_model->viewEquipment($searchText, $returns["page"], $returns["segment"]);
             
-            $this->global['pageTitle'] = 'CodeInsect : View Equipments';
+            $this->global['pageTitle'] = 'MEWU : View Equipments';
             
             $this->loadViews("admin/viewEquipment", $this->global, $data, NULL);
         }
@@ -475,7 +475,7 @@ class User extends BaseController
             
             $data['userRecords'] = $this->user_model->viewEventEquipment($searchText, $returns["page"], $returns["segment"]);
             
-            $this->global['pageTitle'] = 'CodeInsect : View Event Equipments';
+            $this->global['pageTitle'] = 'MEWU : View Event Equipments';
             
             $this->loadViews("admin/viewEventEquipment", $this->global, $data, NULL);
         }
@@ -500,9 +500,34 @@ class User extends BaseController
             
             $data['userRecords'] = $this->user_model->viewVenue($searchText, $returns["page"], $returns["segment"]);
             
-            $this->global['pageTitle'] = 'CodeInsect : View Venue';
+            $this->global['pageTitle'] = 'MEWU : View Venue';
             
             $this->loadViews("admin/viewVenue", $this->global, $data, NULL);
+        }
+    }
+
+        function viewDepartment()
+    {
+        if($this->isAdmin() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {        
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewDepartmentCount($searchText);
+
+            $returns = $this->paginationCompress ( "viewDepartment/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewDepartment($searchText, $returns["page"], $returns["segment"]);
+            
+            $this->global['pageTitle'] = 'MEWU : View Department';
+            
+            $this->loadViews("admin/viewDepartment", $this->global, $data, NULL);
         }
     }
 }

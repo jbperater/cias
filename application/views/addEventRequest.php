@@ -22,56 +22,71 @@
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
-                    <form role="form" id="addUser" action="<?php echo base_url() ?>addNewUser" method="post" role="form">
+                    <form role="form" id="addUser" action="<?php echo base_url() ?>Main/" method="post" role="form">
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
                                         <label for="no_participants">Number of Participants:</label>
-                                        <input type="text" class="form-control required" value="<?php echo set_value('no_participants'); ?>" id="no_participants" name="no_participants" maxlength="128" placeholder="Equipment Name">
+                                        <input type="text" class="form-control required" value="<?php echo set_value('no_participants'); ?>" id="no_participants" name="no_participants" maxlength="128" placeholder="Number of Participants">
                                     </div>
                                     
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="venue">Venue: (please check)</label>
-                                        <?php foreach($venuedata as $venuedata){?>
-                                              <input type="checkbox" name="venue[]" value="<?=$venuedata->venue_id;?>"><?=$venuedata->bldg_no;?>&nbsp<?=$venuedata->name;?> <br>
-                                            <?php }?>
+                                        <label for="tittle">Tittle Of Event:</label>
+                                        <input type="text" name="tittle" id="tittle" class='form-control' required placeholder="Tittle" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="dateTimeActual">Date Time Actual Use:</label>
+                                        <input type="datetime-local" name="dateTimeActual" id="dateTimeActual" class='form-control' required placeholder="Date Time Actual Use" value="<?php echo date('Y-m-d'); ?>" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="dateTimeEnd">Date Time End Use:</label>
+                                        <input type="datetime-local" name="dateTimeEnd" id="dateTimeEnd" class='form-control' required placeholder="Date Time Actual End" value="<?php echo date('Y-m-d'); ?>" />
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="department">Department: (please check)</label>
-                                        <select name="department" id="" class="form-control">
-                                              <?php foreach($option as $option){?>
-                                            <option value=<?=$option->dep_id;?>><?=$option->acroname;?> - &nbsp<?=$option->name;?></option>
-                                            <?php }?>
-                                            </select>
+                                        <label for="purpose">Purpose:</label>
+                                        <input type="text" name="purpose" id="purpose" class='form-control' required placeholder="Purpose">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="date_request">Date Reserved:</label>
-                                        <input type="date" name="date_request" class='form-control' required placeholder="Date Reserved" value="<?php echo date('Y-m-d'); ?>" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="type">Type:</label>
-                                        <input type="text" class="form-control required" id="type" value="<?php echo set_value('type'); ?>" name="type" maxlength="10" placeholder="Type">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="year_acc">Year Acquired:</label>
-                                        <input type="text" class="form-control required" id="year_acc" value="<?php echo set_value('year_acc'); ?>" name="year_acc" maxlength="10" placeholder="Year Acquired">
+                                        <label for="contactNo">Contact No:</label>
+                                        <input type="text" class="form-control required" id="contactNo" value="<?php echo set_value('contactNo'); ?>" name="contactNo" maxlength="10" placeholder="Contact Number">
                                     </div>
                                 </div>    
+                            </div>
+                            <div class="row">
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="venue">Venue: (please check)</label><br>
+                                        <?php foreach($venuedata as $venuedata){?>
+                                              <input type="checkbox" id="venue" name="venue[]" value="<?=$venuedata->venID;?>"><?=$venuedata->bldgNo;?>&nbsp<?=$venuedata->name;?>&nbsp<?=$venuedata->type;?><br>
+                                            <?php }?>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="department">Department: (please check)</label>
+                                            <select name="department" id="" class="form-control">
+                                                  <?php foreach($option as $option){?>
+                                                <option value=<?=$option->departId;?>><?=$option->acroname;?> - &nbsp<?=$option->name;?></option>
+                                                <?php }?>
+                                                </select>
+                                        </div>
+                                    </div>
                             </div>
                         </div><!-- /.box-body -->
     

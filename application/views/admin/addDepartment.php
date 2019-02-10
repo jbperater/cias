@@ -22,13 +22,13 @@
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
-                    <form role="form" id="addUser" action="<?php echo base_url() ?>Main/venueInsert" method="post" role="form">
+                    <form role="form" id="addUser" action="<?php echo base_url() ?>Main/departmentInsert" method="post" role="form">
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label for="RoomNo">Room No:</label>
-                                        <input type="text" class="form-control required" value="<?php echo set_value('RoomNo'); ?>" id="RoomNo" name="RoomNo" maxlength="128" placeholder="Room Number">
+                                        <label for="acroname">Acroname:</label>
+                                        <input type="text" class="form-control required" value="<?php echo set_value('acroname'); ?>" id="acroname" name="acroname" maxlength="128" placeholder="Acroname">
                                     </div>
                                     
                                 </div>
@@ -38,14 +38,6 @@
                                     <div class="form-group">
                                         <label for="name">Name:</label>
                                         <input type="text" class="form-control required " id="name" value="<?php echo set_value('name'); ?>" name="name" maxlength="128" placeholder="Name">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="type">Type:</label>
-                                        <input type="text" class="form-control required" id="type" name="type" maxlength="20" placeholder="Model">
                                     </div>
                                 </div>
                             </div>
@@ -91,4 +83,4 @@
     </section>
     
 </div>
-<script src="<?php echo base_url(); ?>assets/js/addUser.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/js/addUser.js" type="text/javascript"></script>   
