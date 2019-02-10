@@ -26,50 +26,18 @@ class Main extends BaseController
         $this->isLoggedIn();
     }
     
-    public function viewAddNewEquipment(){
+    public function addNewEquipment(){
 
-        if ($this->session->userdata('name')== TRUE){
-            $this->global['name'] =$this->session->userdata('name');
-            $this->global['role'] =$this->session->userdata('role');
-            $this->global['role_text'] =$this->session->userdata('roleText');
-            $this->global['name'] =$this->session->userdata('name');
-            $this->global['pageTitle'] = 'Mewu : Add Equipments';
-            $this->loadViews("admin/addEquipment", $this->global, NULL, NULL);
-        }
-        else{
-            $this->isLoggedIn();
-        }
+        $this->load->model('user_model');
+
+        $this->global['name'] =$this->session->userdata('name');
+        $this->global['role'] =$this->session->userdata('role');
         
+        // exit();
+        $this->global['pageTitle'] = 'CodeInsect : Dashboard';
+        
+        $this->loadViews("admin/addEquipment", $this->global, NULL, NULL);
     }
-
-    public function viewAddNewEventEquipment(){
-        if ($this->session->userdata('name')== TRUE){
-            $this->global['name'] =$this->session->userdata('name');
-            $this->global['role'] =$this->session->userdata('role');
-            $this->global['role_text'] =$this->session->userdata('roleText');
-            $this->global['name'] =$this->session->userdata('name');
-            $this->global['pageTitle'] = 'Mewu : Add Equipments';
-            $this->loadViews("admin/addEventEquipment", $this->global, NULL, NULL);
-        }
-        else{
-            $this->isLoggedIn();
-        }
-    }
-
-    public function viewAddNewVenue(){
-        if ($this->session->userdata('name')== TRUE){
-            $this->global['name'] =$this->session->userdata('name');
-            $this->global['role'] =$this->session->userdata('role');
-            $this->global['role_text'] =$this->session->userdata('roleText');
-            $this->global['name'] =$this->session->userdata('name');
-            $this->global['pageTitle'] = 'Mewu : Add Equipments';
-            $this->loadViews("admin/addVenue", $this->global, NULL, NULL);
-        }
-        else{
-            $this->isLoggedIn();
-        }
-    }
-
     public function jobRequest(){
 
         $this->load->model('user_model');
@@ -83,18 +51,8 @@ class Main extends BaseController
         $this->loadViews("jobRequest", $this->global, NULL, NULL);
     }
 
-     public function eventRequest(){
+     
 
-        $this->load->model('user_model');
-
-        $this->global['name'] =$this->session->userdata('name');
-        $this->global['role'] =$this->session->userdata('role');
-        
-        // exit();
-        $this->global['pageTitle'] = 'CodeInsect : Dashboard';
-        
-        $this->loadViews("eventRequest", $this->global, NULL, NULL);
-    }
 }
 
 ?>

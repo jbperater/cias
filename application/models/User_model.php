@@ -292,6 +292,129 @@ class User_model extends CI_Model
         return $query->row();
     }
 
+     function viewEquipmentCount($searchText = '')
+    {
+        $this->db->select('BaseTbl.equipName, BaseTbl.brand, BaseTbl.model, BaseTbl.serialNo, BaseTbl.office,BaseTbl.department,BaseTbl.type,BaseTbl.yearAcc');
+        $this->db->from('tbl_equipment as BaseTbl');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.equipName  LIKE '%".$searchText."%'
+                            OR  BaseTbl.brand  LIKE '%".$searchText."%'
+                            OR  BaseTbl.model  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $query = $this->db->get();
+        
+        return $query->num_rows();
+    }
+    
+    /**
+     * This function is used to get the user listing count
+     * @param string $searchText : This is optional search text
+     * @param number $page : This is pagination offset
+     * @param number $segment : This is pagination limit
+     * @return array $result : This is result
+     */
+    function viewEquipment($searchText = '', $page, $segment)
+    {
+        $this->db->select('BaseTbl.equipName, BaseTbl.brand, BaseTbl.model, BaseTbl.serialNo, BaseTbl.office,BaseTbl.department,BaseTbl.type,BaseTbl.yearAcc');
+        $this->db->from('tbl_equipment as BaseTbl');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.equipName  LIKE '%".$searchText."%'
+                            OR  BaseTbl.brand  LIKE '%".$searchText."%'
+                            OR  BaseTbl.model  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $this->db->order_by('BaseTbl.equipId', 'DESC');
+        $this->db->limit($page, $segment);
+        $query = $this->db->get();
+        
+        $result = $query->result();        
+        return $result;
+    }
+
+     function viewEventEquipmentCount($searchText = '')
+    {
+        $this->db->select('BaseTbl.name, BaseTbl.type');
+        $this->db->from('tbl_event_equip as BaseTbl');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.name  LIKE '%".$searchText."%'
+                            OR  BaseTbl.type  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $query = $this->db->get();
+        
+        return $query->num_rows();
+    }
+    
+    /**
+     * This function is used to get the user listing count
+     * @param string $searchText : This is optional search text
+     * @param number $page : This is pagination offset
+     * @param number $segment : This is pagination limit
+     * @return array $result : This is result
+     */
+    function viewEventEquipment($searchText = '', $page, $segment)
+    {
+        $this->db->select('BaseTbl.name, BaseTbl.type');
+        $this->db->from('tbl_event_equip as BaseTbl');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.name  LIKE '%".$searchText."%'
+                            OR  BaseTbl.type  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $this->db->order_by('BaseTbl.equipId', 'DESC');
+        $this->db->limit($page, $segment);
+        $query = $this->db->get();
+        
+        $result = $query->result();        
+        return $result;
+    }
+
+     function viewVenueCount($searchText = '')
+    {
+        $this->db->select('BaseTbl.bldgNo, BaseTbl.name, BaseTbl.type');
+        $this->db->from('tbl_venue as BaseTbl');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.bldgNo  LIKE '%".$searchText."%'
+                            OR  BaseTbl.name  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $query = $this->db->get();
+        
+        return $query->num_rows();
+    }
+    
+    /**
+     * This function is used to get the user listing count
+     * @param string $searchText : This is optional search text
+     * @param number $page : This is pagination offset
+     * @param number $segment : This is pagination limit
+     * @return array $result : This is result
+     */
+    function viewVenue($searchText = '', $page, $segment)
+    {
+        $this->db->select('BaseTbl.bldgNo, BaseTbl.name, BaseTbl.type');
+        $this->db->from('tbl_venue as BaseTbl');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.bldgNo  LIKE '%".$searchText."%'
+                            OR  BaseTbl.name  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $this->db->order_by('BaseTbl.venID', 'DESC');
+        $this->db->limit($page, $segment);
+        $query = $this->db->get();
+        
+        $result = $query->result();        
+        return $result;
+    }
+
+
 }
 
   
