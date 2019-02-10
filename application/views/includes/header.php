@@ -40,14 +40,14 @@
       
       <header class="main-header">
         <!-- Logo -->
-        <a href="<?php echo base_url(); ?>" class="logo">
+        <a href="<?php echo base_url(); ?>" class="logo" style="background-color: #fff">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>CI</b>AS</span>
+          <span class="logo-mini" ><b>USTP</b></span style="background-color: #fbb414">
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>CodeInsect</b>AS</span>
+          <span class="logo" style="background-color: #fff"><img src="http://localhost/cias/assets/images/logo.png" height="50" width="70" ></span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top" role="navigation">
+        <nav class="navbar navbar-static-top" role="navigation" style="background-color: #fbb414">
           <!-- Sidebar toggle button-->
           <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
             <span class="sr-only">Toggle navigation</span>
@@ -63,7 +63,7 @@
                 </ul>
               </li>
               <!-- User Account: style can be found in dropdown.less -->
-              <li class="dropdown user user-menu">
+              <li class="dropdown user user-menu" style="background-color: #1A1851">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="<?php echo base_url(); ?>assets/dist/img/avatar.png" class="user-image" alt="User Image"/>
                   <span class="hidden-xs"><?php echo $name; ?></span>
@@ -95,7 +95,7 @@
         </nav>
       </header>
       <!-- Left side column. contains the logo and sidebar -->
-      <aside class="main-sidebar">
+      <aside class="main-sidebar" style="background-color: #1A1851">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
           <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -136,10 +136,10 @@
                <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i> Set Schedules <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo1" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Set Event Schedule</a>
+                                <a href="<?php echo base_url(); ?>Main/eventRequest"> Set Event Schedule</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Set Repair Schedule</a>
+                                <a href="<?php echo base_url(); ?>Main/jobRequest"> Set Repair Schedule</a>
                             </li>
                           </ul>
              <li class="treeview">
@@ -153,13 +153,13 @@
                             </li>
                           </ul>
             <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo3"><i class="fa fa-fw fa-file"></i> Equipements <i class="fa fa-fw fa-caret-down"></i></a>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo3"><i class="fa fa-fw fa-file"></i> Equipments <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo3" class="collapse">
                             <li>
                                 <a href="<?php echo base_url(); ?>Main/viewAddNewEquipment"> Add Equipments</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> View Equipments</a>
+                                <a href="<?php echo base_url(); ?>User/viewEquipment"> View Equipments</a>
                             </li>
                           </ul>
              <li class="treeview">
@@ -169,7 +169,7 @@
                                 <a href="<?php echo base_url(); ?>Main/viewAddNewEventEquipment"> Add Event Equipments</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> View Event Equipments</a>
+                                <a href="<?php echo base_url(); ?>User/viewEventEquipment"> View Event Equipments</a>
                             </li>
                           </ul>
             <li class="treeview">
@@ -179,7 +179,7 @@
                                 <a href="<?php echo base_url(); ?>Main/viewAddNewVenue"> Add Venue</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> View Venue</a>
+                                <a href="<?php echo base_url(); ?>User/viewVenue"> View Venue</a>
                             </li>
                           </ul>
              <li class="treeview">
@@ -241,24 +241,84 @@
                 <i class="fa fa-users"></i>
                 <span>Accounts</span>
               </a>
-            </li>
+            </li>-->
             <?php
             }
             if($role ==ROLE_MANAGER)
             {
             ?>
             <li class="treeview">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-thumb-tack"></i>Request <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>Main/eventRequest">  Add Event Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>Main/jobRequest"> Add Repair Requests</a>
+                            </li>
+                          </ul>
+            <li class="treeview">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i> View Requests <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo1" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Approved Event Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Approved Repair Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Declined Event Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Declined Repair Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Pending Event Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Pending Repair Requests</a>
+                            </li>
+                          </ul>
+             <li class="treeview">
               <a href="<?php echo base_url(); ?>userListing">
                 <i class="fa fa-users"></i>
-                <span>Users</span>
+                <span>Event Schedules</span>
               </a>
             </li>
+            <?php
+            }
+            if($role ==ROLE_STUDENT)
+            {
+            ?>
             <li class="treeview">
-              <a href="#" >
-                <i class="fa fa-files-o"></i>
-                <span>Reports</span>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-thumb-tack"></i>Request <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>Main/Requests">  Add Event Requests</a>
+                            </li>
+                          </ul>
+            <li class="treeview">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i> View Requests <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo1" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> All Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Approved Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Pending Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Declined Requests</a>
+                            </li>
+                          </ul>
+             <li class="treeview">
+              <a href="<?php echo base_url(); ?>userListing">
+                <i class="fa fa-users"></i>
+                <span>Event Schedules</span>
               </a>
-            </li> -->
+            </li>-->
             <?php
             }
             ?>

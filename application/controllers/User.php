@@ -430,6 +430,81 @@ class User extends BaseController
 
         return $return;
     }
+
+     function viewEquipment()
+    {
+        if($this->isAdmin() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {        
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewEquipmentCount($searchText);
+
+            $returns = $this->paginationCompress ( "viewEquipment/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewEquipment($searchText, $returns["page"], $returns["segment"]);
+            
+            $this->global['pageTitle'] = 'CodeInsect : View Equipments';
+            
+            $this->loadViews("admin/viewEquipment", $this->global, $data, NULL);
+        }
+    }
+
+     function viewEventEquipment()
+    {
+        if($this->isAdmin() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {        
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewEventEquipmentCount($searchText);
+
+            $returns = $this->paginationCompress ( "viewEventEquipment/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewEventEquipment($searchText, $returns["page"], $returns["segment"]);
+            
+            $this->global['pageTitle'] = 'CodeInsect : View Event Equipments';
+            
+            $this->loadViews("admin/viewEventEquipment", $this->global, $data, NULL);
+        }
+    }
+
+      function viewVenue()
+    {
+        if($this->isAdmin() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {        
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewVenueCount($searchText);
+
+            $returns = $this->paginationCompress ( "viewVenue/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewVenue($searchText, $returns["page"], $returns["segment"]);
+            
+            $this->global['pageTitle'] = 'CodeInsect : View Venue';
+            
+            $this->loadViews("admin/viewVenue", $this->global, $data, NULL);
+        }
+    }
 }
 
 ?>
