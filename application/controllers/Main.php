@@ -77,6 +77,7 @@ class Main extends BaseController
     public function viewAddNewEventRequest(){
 
         $this->load->model('main_model');
+        $data['equipment']=$this->main_model->getEventEquipment();
         $data['venuedata']=$this->main_model->getVenue();
         $data['option']=$this->main_model->getDepartment();
         $this->global['name'] =$this->session->userdata('name');
@@ -189,7 +190,7 @@ class Main extends BaseController
         
         // set validation rules
         
-        $this->form_validation->set_rules('equipName', 'Name', 'required');
+        $this->form_validation->set_rules('tittleEvent', 'Tittle', 'required');
         
 
         
@@ -198,24 +199,33 @@ class Main extends BaseController
             $this->viewAddNewEventRequest();
             
             } else {
-                
-                $this->load->model('main_model');
-            
+            $venue = $this->input->post('venue[]');
+            $equipment = $this->input->post('equipment[]');
+            //echo var_dump($venue);
+           
+            $tableNo = $this->input->post('tableNo');
+            $chairNo = $this->input->post('chairNo');
             $data = array(  
-                'noParticipants' => $this->input->post('noParticipants'),
+                'noParticipant' => $this->input->post('noParticipants'),
                 'dateTimeActual' => $this->input->post('dateTimeActual'),
                 'dateTimeEnd' => $this->input->post('dateTimeEnd'),
                 'purpose' => $this->input->post('purpose'),
                 'tittleEvent' => $this->input->post('tittleEvent'),
-                'status' => $this->input->post('status'),
+                'status' => 'pending',
                 'contactNo' => $this->input->post('contactNo'),
-                'departmentID' => $this->input->post('department')
+                'departmentID' => $this->input->post('department'),
+                'resBy' => $this->session->userdata('userId')
             );  
             $this->main_model->eventRequestInsert($data);
+            $lastId = $this->main_model->getLastId();
+            $this->main_model->eventVenueInsert($lastId,$venue);
+            $this->main_model->eventEquipmentInsert($lastId,$equipment,$tableNo,$chairNo);
             $this->viewAddNewEventRequest();
             // redirect('/viewDepartment');   
             }
     }
+
+
      
 
 }
