@@ -27,15 +27,15 @@
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label for="no_participants">Number of Participants:</label>
-                                        <input type="Number" class="form-control required" value="<?php echo set_value('no_participants'); ?>" id="no_participants" name="no_participants" maxlength="128" placeholder="Number of Participants">
+                                        <label for="no_participants">Number of Participants</label>
+                                        <input type="Number" class="form-control required" value="<?php echo set_value('noParticipant'); ?>" id="no_participants" name="noParticipant" maxlength="128" placeholder="Number of Participants">
                                     </div>
                                     
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="tittle">Tittle Of Event:</label>
-                                        <input type="text" name="tittle" id="tittle" class='form-control' required placeholder="Tittle" value="" />
+                                        <label for="tittle">Title Of Event</label>
+                                        <input type="text" name="tittleEvent" id="tittle" class='form-control' required placeholder="Title of Event" value="" />
                                     </div>
                                 </div>
                             </div>
@@ -43,13 +43,13 @@
                                 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="dateTimeActual">Date And Time Actual Use:</label>
-                                        <input type="datetime-local" name="dateTimeActual" id="dateTimeActual" class='form-control' required placeholder="Date Time Actual Use" value="<?php echo date('Y-m-d'); ?>" />
+                                        <label for="dateTimeActual">Date And Time Actual Use</label>
+                                        <input type="datetime-local" name="dateTimeActual" id="dateTimeActual" class='form-control' required placeholder="Date And Time Actual Use" value="<?php echo date('Y-m-d'); ?>" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="dateTimeEnd">Date And Time End Use:</label>
+                                        <label for="dateTimeEnd">Date And Time End Use</label>
                                         <input type="datetime-local" name="dateTimeEnd" id="dateTimeEnd" class='form-control' required placeholder="Date Time Actual End" value="<?php echo date('Y-m-d'); ?>" />
                                     </div>
                                 </div>
@@ -57,13 +57,13 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="purpose">Purpose:</label>
+                                        <label for="purpose">Purpose</label>
                                         <input type="text" name="purpose" id="purpose" class='form-control' required placeholder="Purpose">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="contactNo">Contact No:</label>
+                                        <label for="contactNo">Contact No</label>
                                         <input type="text" class="form-control required" id="contactNo" value="<?php echo set_value('contactNo'); ?>" name="contactNo" maxlength="10" placeholder="Contact Number">
                                     </div>
                                 </div>    

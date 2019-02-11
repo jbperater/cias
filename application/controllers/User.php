@@ -530,6 +530,48 @@ class User extends BaseController
             $this->loadViews("admin/viewDepartment", $this->global, $data, NULL);
         }
     }
+
+     function addJobRequest()
+    {
+        if($this->isAdmin() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {
+            $this->load->library('form_validation');
+            
+            $this->form_validation->set_rules('itemNo','Number of Items','trim|required|max_length[128]');
+            $this->form_validation->set_rules('location','Location','trim|required|valid_email|max_length[128]');
+            $this->form_validation->set_rules('workDescript','Work Description','required|max_length[128]');
+            if($this->form_validation->run() == FALSE)
+            {
+                $this->addJobRequest();
+            }
+            else
+            {
+                $itemNo = $this->input->post('itemNo');
+                $location = $this->input->post('location');
+                $workDescript = $this->input->post('workDescript');
+                
+                $jobInfo = array('itemNo'=>$itemNo, 'location'=>$location, 'workDescript'=> $workDescript,);
+                
+                $this->load->model('user_model');
+                $result = $this->user_model->addjobRequest($jobInfo);
+                
+                if($result > 0)
+                {
+                    $this->session->set_flashdata('success', 'Added successfully');
+                }
+                else
+                {
+                    $this->session->set_flashdata('error', 'Added failed');
+                }
+                
+                redirect('jobRequest');
+            }
+        }
+    }
 }
 
 ?>

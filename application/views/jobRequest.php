@@ -27,23 +27,23 @@
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label for="equip_name">Item Number:</label>
-                                        <input type="text" class="form-control required" value="<?php echo set_value('equip_name'); ?>" id="equip_name" name="equip_name" maxlength="128" placeholder="Item NUmber">
+                                        <label for="equip_name">Number of Items</label>
+                                        <input type="Number" class="form-control required" value="<?php echo set_value('itemNo'); ?>" id="equip_name" name="itemNo" maxlength="128" placeholder="Number of Items">
                                     </div>
                                     
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="brand">Work Description:</label>
-                                        <input type="text" class="form-control required " id="brand" value="<?php echo set_value('brand'); ?>" name="brand" maxlength="128" placeholder="Work Description">
+                                        <label for="brand">Work Description</label>
+                                        <input type="text" class="form-control required " id="brand" value="<?php echo set_value('workDescript'); ?>" name="workDescript" maxlength="128" placeholder="Work Description">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="password">Location:</label>
-                                        <input type="text" class="form-control required" id="password" name="password" maxlength="20" placeholder="Location">
+                                        <label for="password">Location</label>
+                                       <input type="text" class="form-control required " id="location" value="<?php echo set_value('location'); ?>" name="location" maxlength="128" placeholder="Work Description">
                                     </div>
                                 </div>
                             </div>

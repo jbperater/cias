@@ -119,7 +119,7 @@
               </a>
             </li> -->
             <?php
-            if($role == ROLE_ADMIN)
+            if($role == ROLE_ADMIN )
             {
             ?>
             <li class="treeview">
