@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2019 at 03:49 PM
+-- Generation Time: Feb 12, 2019 at 12:48 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -35,6 +35,43 @@ CREATE TABLE `ass_reserve_equip_need` (
   `chairNo` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `ass_reserve_equip_need`
+--
+
+INSERT INTO `ass_reserve_equip_need` (`formNo`, `equipId`, `tableNo`, `chairNo`) VALUES
+(0, 100, 100, 100),
+(0, 2019, 100, 100),
+(0, 2019, 100, 100),
+(0, 0, 100, 100),
+(0, 0, 100, 100),
+(0, 0, 100, 100),
+(0, 3164975, 100, 100),
+(0, 1, 100, 100),
+(0, 1, 100, 100),
+(3, 100, 100, 100),
+(3, 2019, 100, 100),
+(3, 2019, 100, 100),
+(3, 0, 100, 100),
+(3, 0, 100, 100),
+(3, 0, 100, 100),
+(3, 3164975, 100, 100),
+(3, 1, 100, 100),
+(3, 1, 100, 100),
+(4, 100, 100, 100),
+(4, 2019, 100, 100),
+(4, 2019, 100, 100),
+(4, 0, 100, 100),
+(4, 0, 100, 100),
+(4, 0, 100, 100),
+(4, 3164975, 100, 100),
+(4, 1, 100, 100),
+(4, 1, 100, 100),
+(5, 0, 100, 100),
+(5, 0, 100, 100),
+(6, 0, 100, 100),
+(6, 0, 100, 100);
+
 -- --------------------------------------------------------
 
 --
@@ -45,6 +82,43 @@ CREATE TABLE `ass_reserve_venue` (
   `formNo` int(11) NOT NULL,
   `venID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ass_reserve_venue`
+--
+
+INSERT INTO `ass_reserve_venue` (`formNo`, `venID`) VALUES
+(2, 100),
+(2, 2019),
+(2, 2019),
+(2, 0),
+(2, 0),
+(2, 0),
+(2, 3164975),
+(2, 1),
+(2, 1),
+(3, 100),
+(3, 2019),
+(3, 2019),
+(3, 0),
+(3, 0),
+(3, 0),
+(3, 3164975),
+(3, 1),
+(3, 1),
+(4, 100),
+(4, 2019),
+(4, 2019),
+(4, 0),
+(4, 0),
+(4, 0),
+(4, 3164975),
+(4, 1),
+(4, 1),
+(5, 1),
+(5, 3),
+(6, 1),
+(6, 3);
 
 -- --------------------------------------------------------
 
@@ -156,14 +230,21 @@ CREATE TABLE `tbl_job_request` (
   `itemNo` int(11) NOT NULL,
   `workDescript` varchar(50) NOT NULL,
   `location` varchar(50) NOT NULL,
-  `dateTimeStart` datetime NOT NULL,
-  `dateTimeEnd` datetime NOT NULL,
+  `dateTimeStart` datetime DEFAULT NULL,
+  `dateTimeEnd` datetime DEFAULT NULL,
   `remark` varchar(50) NOT NULL,
-  `personAtend` int(11) NOT NULL,
+  `personAtend` int(11) DEFAULT NULL,
   `resBy` int(11) NOT NULL,
-  `AppBy` int(11) NOT NULL,
+  `AppBy` int(11) DEFAULT NULL,
   `dateReq` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_job_request`
+--
+
+INSERT INTO `tbl_job_request` (`jobId`, `itemNo`, `workDescript`, `location`, `dateTimeStart`, `dateTimeEnd`, `remark`, `personAtend`, `resBy`, `AppBy`, `dateReq`) VALUES
+(1, 4, 'guba ang plaka', 'Bldg 23', NULL, NULL, 'pending', NULL, 1, NULL, '2019-02-11 16:38:19');
 
 -- --------------------------------------------------------
 
@@ -209,7 +290,20 @@ INSERT INTO `tbl_last_login` (`id`, `userId`, `sessionData`, `machineIp`, `userA
 (20, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 71.0.3578.98', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36', 'Windows 10', '2019-02-10 01:39:17'),
 (21, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 71.0.3578.98', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36', 'Windows 10', '2019-02-10 01:45:01'),
 (22, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 71.0.3578.98', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36', 'Windows 10', '2019-02-10 06:08:48'),
-(23, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 71.0.3578.98', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36', 'Windows 10', '2019-02-10 11:22:29');
+(23, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 71.0.3578.98', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36', 'Windows 10', '2019-02-10 11:22:29'),
+(24, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 71.0.3578.98', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36', 'Windows 10', '2019-02-11 01:32:27'),
+(25, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 71.0.3578.98', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36', 'Windows 10', '2019-02-11 23:49:26'),
+(26, 3, '{\"role\":\"3\",\"roleText\":\"Employee\",\"name\":\"Employee\"}', '::1', 'Chrome 71.0.3578.98', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36', 'Windows 10', '2019-02-12 00:03:50'),
+(27, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 71.0.3578.98', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36', 'Windows 10', '2019-02-12 00:05:05'),
+(28, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 71.0.3578.98', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36', 'Windows 10', '2019-02-12 01:25:04'),
+(29, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 71.0.3578.98', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36', 'Windows 10', '2019-02-12 01:37:52'),
+(30, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 71.0.3578.98', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36', 'Windows 10', '2019-02-12 03:14:50'),
+(31, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 71.0.3578.98', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36', 'Windows 10', '2019-02-12 03:20:06'),
+(32, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 71.0.3578.98', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36', 'Windows 10', '2019-02-12 03:24:02'),
+(33, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 71.0.3578.98', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36', 'Windows 10', '2019-02-12 03:30:09'),
+(34, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 71.0.3578.98', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36', 'Windows 10', '2019-02-12 03:32:37'),
+(35, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 71.0.3578.98', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36', 'Windows 10', '2019-02-12 03:54:29'),
+(36, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 71.0.3578.98', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36', 'Windows 10', '2019-02-12 07:30:42');
 
 -- --------------------------------------------------------
 
@@ -220,8 +314,10 @@ INSERT INTO `tbl_last_login` (`id`, `userId`, `sessionData`, `machineIp`, `userA
 CREATE TABLE `tbl_reserve_request` (
   `formNo` int(11) NOT NULL,
   `noParticipant` int(11) NOT NULL,
-  `dateTimeActual` datetime NOT NULL,
-  `dateTimeEnd` datetime NOT NULL,
+  `dateActual` date NOT NULL,
+  `timeActual` time DEFAULT NULL,
+  `dateEnd` date NOT NULL,
+  `timeEnd` time DEFAULT NULL,
   `purpose` varchar(64) NOT NULL,
   `tittleEvent` varchar(64) NOT NULL,
   `status` varchar(32) NOT NULL,
@@ -232,6 +328,18 @@ CREATE TABLE `tbl_reserve_request` (
   `conBy` int(11) DEFAULT NULL,
   `dateReq` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_reserve_request`
+--
+
+INSERT INTO `tbl_reserve_request` (`formNo`, `noParticipant`, `dateActual`, `timeActual`, `dateEnd`, `timeEnd`, `purpose`, `tittleEvent`, `status`, `contactNo`, `departmentID`, `venueID`, `resBy`, `conBy`, `dateReq`) VALUES
+(1, 100, '2019-02-01', NULL, '2019-02-14', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 0, 1, NULL, '2019-02-10 18:39:05'),
+(2, 100, '2019-02-01', NULL, '2019-02-14', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 0, 1, NULL, '2019-02-10 18:39:50'),
+(3, 100, '2019-02-01', NULL, '2019-02-14', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 0, 1, NULL, '2019-02-10 18:40:21'),
+(4, 100, '2019-02-16', NULL, '2019-02-05', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 0, 1, NULL, '2019-02-10 18:41:54'),
+(5, 100, '2019-02-11', NULL, '2019-02-12', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', 1, 0, 1, NULL, '2019-02-11 15:50:48'),
+(6, 100, '2019-02-11', '11:11:00', '2019-02-12', '11:11:00', 'wala ko kabalo', 'saba', 'pending', '03164975', 1, 0, 1, NULL, '2019-02-11 21:05:03');
 
 -- --------------------------------------------------------
 
@@ -347,6 +455,12 @@ ALTER TABLE `tbl_equipment`
   ADD PRIMARY KEY (`equipId`);
 
 --
+-- Indexes for table `tbl_job_request`
+--
+ALTER TABLE `tbl_job_request`
+  ADD PRIMARY KEY (`jobId`);
+
+--
 -- Indexes for table `tbl_last_login`
 --
 ALTER TABLE `tbl_last_login`
@@ -397,15 +511,20 @@ ALTER TABLE `tbl_department`
 ALTER TABLE `tbl_equipment`
   MODIFY `equipId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
+-- AUTO_INCREMENT for table `tbl_job_request`
+--
+ALTER TABLE `tbl_job_request`
+  MODIFY `jobId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `tbl_last_login`
 --
 ALTER TABLE `tbl_last_login`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT for table `tbl_reserve_request`
 --
 ALTER TABLE `tbl_reserve_request`
-  MODIFY `formNo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `formNo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tbl_reset_password`
 --

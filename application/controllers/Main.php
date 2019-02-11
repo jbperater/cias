@@ -87,6 +87,15 @@ class Main extends BaseController
         $this->loadViews("addEventRequest", $this->global, $data, NULL);
     }
 
+    public function viewEventSchedule(){
+
+        $this->global['name'] =$this->session->userdata('name');
+        $this->global['role'] =$this->session->userdata('role');
+        $this->global['role_text'] =$this->session->userdata('role_text');
+        $this->global['pageTitle'] = 'MEWU : Add New Department';
+        $this->loadViews("viewEventSchedule", $this->global, NULL, NULL);
+    }
+
     public function venueInsert(){
 
         $this->load->helper('form');
@@ -206,9 +215,11 @@ class Main extends BaseController
             $tableNo = $this->input->post('tableNo');
             $chairNo = $this->input->post('chairNo');
             $data = array(  
-                'noParticipant' => $this->input->post('noParticipants'),
-                'dateTimeActual' => $this->input->post('dateTimeActual'),
-                'dateTimeEnd' => $this->input->post('dateTimeEnd'),
+                'noParticipant' => $this->input->post('noParticipant'),
+                'dateActual' => $this->input->post('dateActual'),
+                'timeActual' => $this->input->post('timeActual'),
+                'dateEnd' => $this->input->post('dateEnd'),
+                'timeEnd' => $this->input->post('timeEnd'),
                 'purpose' => $this->input->post('purpose'),
                 'tittleEvent' => $this->input->post('tittleEvent'),
                 'status' => 'pending',
