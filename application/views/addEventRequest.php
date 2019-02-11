@@ -22,20 +22,20 @@
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
-                    <form role="form" id="addUser" action="<?php echo base_url() ?>Main/" method="post" role="form">
+                    <form role="form" id="addUser" action="<?php echo base_url() ?>Main/eventRequestInsert" method="post" role="form">
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label for="no_participants">Number of Participants:</label>
-                                        <input type="Number" class="form-control required" value="<?php echo set_value('no_participants'); ?>" id="no_participants" name="no_participants" maxlength="128" placeholder="Number of Participants">
+                                        <label for="noParticipants">Number of Participants:</label>
+                                        <input type="Number" class="form-control required" value="<?php echo set_value('noParticipants'); ?>" id="noParticipants" name="noParticipants" maxlength="128" placeholder="Number of Participants">
                                     </div>
                                     
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="tittle">Tittle Of Event:</label>
-                                        <input type="text" name="tittle" id="tittle" class='form-control' required placeholder="Tittle" value="" />
+                                        <label for="tittleEvent">Tittle Of Event:</label>
+                                        <input type="text" name="tittleEvent" id="tittleEvent" class='form-control' required placeholder="Tittle" value="" />
                                     </div>
                                 </div>
                             </div>
@@ -87,6 +87,28 @@
                                                 </select>
                                         </div>
                                     </div>
+                            </div>
+                            <div class="row">
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="venue">Equipment: (please check)</label><br>
+                                        <?php foreach($equipment as $equipment){?>
+                                              <input type="checkbox" id="venue" name="equipment[]" value="<?=$equipment->equipId;?>"><?=$equipment->name;?>&nbsp<?=$equipment->type;?><br>
+                                            <?php }?>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="tableNo">Table No:</label>
+                                        <input type="text" class="form-control required" id="tableNo" value="<?php echo set_value('tableNo'); ?>" name="tableNo" maxlength="10" placeholder="Table No">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="chairNo">Chair No:</label>
+                                        <input type="text" class="form-control required" id="chairNo" value="<?php echo set_value('chairNo'); ?>" name="chairNo" maxlength="10" placeholder="Chair No">
+                                    </div>
+                                </div>   
                             </div>
                         </div><!-- /.box-body -->
     
