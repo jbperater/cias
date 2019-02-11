@@ -36,10 +36,11 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="tittle">Title Of Event</label>
-                                        <input type="text" name="tittleEvent" id="tittle" class='form-control' required placeholder="Title of Event" value="" />
+                                        
+
                                         <label for="tittleEvent">Tittle Of Event:</label>
                                         <input type="text" name="tittleEvent" id="tittleEvent" class='form-control' required placeholder="Tittle" value="" />
+
                                     </div>
                                 </div>
                             </div>

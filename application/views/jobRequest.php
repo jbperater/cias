@@ -27,16 +27,21 @@
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
+
                                         <label for="itemNo">Item Number:</label>
                                         <input type="text" class="form-control required" value="<?php echo set_value('itemNo'); ?>" id="itemNo" name="itemNo" maxlength="128" placeholder="Item NUmber">
+
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
+<
                                         <label for="location">Location:</label>
-                                        <input type="text" class="form-control required" id="location" name="location" maxlength="20" placeholder="
+                                        <input type="text" class="form-control required" id="location" name="location" maxlength="20" placeholder="">
+
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -44,8 +49,10 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
 
+
                                         <label for="description">Work Description:</label>
                                         <input type="textarea" class="form-control required " id="description" value="<?php echo set_value('description'); ?>" name="description" maxlength="128" placeholder="Work Description" style="height: 50px;">
+
                                     </div>
                                 </div>
                             </div>
