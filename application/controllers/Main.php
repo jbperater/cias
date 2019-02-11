@@ -225,6 +225,39 @@ class Main extends BaseController
             }
     }
 
+    public function jobRequestInsert(){
+
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $this->load->library('session');
+        
+        // set validation rules
+        $this->form_validation->set_rules('itemNo', 'Item Number', 'required|alpha_numeric');
+        $this->form_validation->set_rules('location', 'Location', 'required');
+        $this->form_validation->set_rules('description', 'Description', 'required');
+        
+        if ($this->form_validation->run() == false) {
+            
+            $this->viewAddNewVenue();
+            
+            } else {
+                
+                $this->load->model('main_model');
+            
+            $data = array(  
+                'itemNo' => $this->input->post('itemNo'),
+                'location' => $this->input->post('location'),
+                'workDescript' => $this->input->post('description'),
+                'resBy' => $this->session->userdata('userId'),
+                'remark' => 'pending'
+            );  
+
+            $this->main_model->jobRequestInsert($data);
+            redirect('main/jobRequestInsert'); 
+            }
+    }
+
+
 
      
 

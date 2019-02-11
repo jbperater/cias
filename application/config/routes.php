@@ -94,5 +94,6 @@ $route['viewEventEquipment'] = 'user/viewEventEquipment';
 $route['viewEquipment'] = 'user/viewEquipment';
 $route['viewDepartment'] = 'user/viewDepartment';
 
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

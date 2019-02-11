@@ -455,6 +455,13 @@ class User_model extends CI_Model
         return $result;
     }
 
+     function addJobRequest($requestInfo)
+    {
+        $this->db->insert('tbl_job_request', $requestInfo);
+        
+        return $result;
+    }
+
 
 }
 

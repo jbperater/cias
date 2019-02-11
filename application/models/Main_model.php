@@ -45,6 +45,10 @@ class Main_model extends CI_Model
 		$this->db->insert('tbl_equipment',$data);		
 	}
 
+	function jobRequestInsert($data) {
+		$this->db->insert('tbl_job_request',$data);		
+	}
+
 	function eventRequestInsert($data) {
 		$this->db->insert('tbl_reserve_request',$data);		
 	}
