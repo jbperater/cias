@@ -38,9 +38,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="location">Location:</label>
+<<<<<<< HEAD
                                         <input type="text" class="form-control required" id="location" name="location" maxlength="20" placeholder="Location">
 
                                        
+=======
+                                        <input type="text" class="form-control required" id="location" name="location" maxlength="20" placeholder="Location">    
+>>>>>>> 71e838c7c94d815c834689e05ec1d3aebcf3900e
                                     </div>
                                 </div>
                             </div>

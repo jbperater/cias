@@ -16,6 +16,8 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins 
          folder instead of downloading all of them to reduce the load. -->
     <link href="<?php echo base_url(); ?>assets/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <!-- fullcalendar -->
+    <link href="<?php echo base_url() ?>assets/bower_components/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
     <style>
     	.error{
     		color:red;
@@ -23,6 +25,7 @@
     	}
     </style>
     <script src="<?php echo base_url(); ?>assets/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         var baseURL = "<?php echo base_url(); ?>";
     </script>
@@ -148,10 +151,13 @@
                <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-file"></i> View Schedules<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo2" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Event Schedules</a>
+                                <a href="<?php echo base_url(); ?>main/viewEventSchedule"> Event Schedules</a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Repair Schedules</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>Calendar/get_events"> Troubleshot</a>
                             </li>
                           </ul>
             </li>
