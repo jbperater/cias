@@ -85,9 +85,14 @@
                                  <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="venue">Venue: (please check)</label><br>
-                                        <?php foreach($venuedata as $venuedata){?>
-                                              <input type="checkbox" id="venue" name="venue[]" value="<?=$venuedata->venID;?>"><?=$venuedata->bldgNo;?>&nbsp<?=$venuedata->name;?>&nbsp<?=$venuedata->type;?><br>
-                                            <?php }?>
+                                       
+                                              <!-- <input type="checkbox" id="venue" name="venue[]" value="<?=$venuedata->venID;?>"><?=$venuedata->bldgNo;?>&nbsp<?=$venuedata->name;?>&nbsp<?=$venuedata->type;?><br> -->
+                                            <select name="venue" id="" class="form-control">
+                                                  <?php foreach($venuedata as $venuedata){?>
+                                                <option value=<?=$venuedata->venID;?>><?=$venuedata->bldgNo;?> - &nbsp<?=$venuedata->name;?></option>
+                                                <?php }?>
+                                            </select>
+                                            
                                     </div>
                                 </div>
                                 <div class="col-md-6">
