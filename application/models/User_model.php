@@ -464,7 +464,7 @@ class User_model extends CI_Model
 
      function viewEventRequestCount($searchText = '')
     {
-        $this->db->select('BaseTbl.formNo, BaseTbl.noParticipant, BaseTbl.dateTimeActual,BaseTbl.dateTimeEnd,BaseTbl.purpose,BaseTbl.tittleEvent,BaseTbl.contactNo,BaseTbl.departmentID,BaseTbl.venueID,BaseTbl.resBy,BaseTbl.dateReq');
+        $this->db->select('BaseTbl.formNo, BaseTbl.noParticipant, BaseTbl.dateActual, BaseTbl.timeActual, BaseTbl.dateEnd, BaseTbl.timeEnd, BaseTbl.purpose,BaseTbl.tittleEvent,BaseTbl.contactNo,BaseTbl.departmentID,BaseTbl.venueID,BaseTbl.resBy,BaseTbl.dateReq');
         $this->db->from('tbl_reserve_request as BaseTbl');
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.tittleEvent  LIKE '%".$searchText."%'
@@ -486,7 +486,7 @@ class User_model extends CI_Model
      */
     function viewEventRequest($searchText = '', $page, $segment)
     {
-        $this->db->select('BaseTbl.formNo, BaseTbl.noParticipant, BaseTbl.dateTimeActual,BaseTbl.dateTimeEnd,BaseTbl.purpose,BaseTbl.tittleEvent,BaseTbl.contactNo,BaseTbl.departmentID,BaseTbl.venueID,BaseTbl.resBy,BaseTbl.dateReq');
+        $this->db->select('BaseTbl.formNo, BaseTbl.noParticipant, BaseTbl.dateActual, BaseTbl.timeActual, BaseTbl.dateEnd, BaseTbl.timeEnd, BaseTbl.purpose,BaseTbl.tittleEvent,BaseTbl.contactNo,BaseTbl.departmentID,BaseTbl.venueID,BaseTbl.resBy,BaseTbl.dateReq');
         $this->db->from('tbl_reserve_request as BaseTbl');
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.tittleEvent  LIKE '%".$searchText."%'
