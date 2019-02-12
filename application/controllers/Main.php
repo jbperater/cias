@@ -203,12 +203,17 @@ class Main extends BaseController
         
 
         
-        if ($this->form_validation->run() == false) {
+        if ($this->form_validation->run() == false || $this->input->post('dateActual') <= date('Y-m-d H:i:s')) {
             
-            $this->viewAddNewEventRequest();
+            // $this->viewAddNewEventRequest();
+            echo $this->input->post('dateActual').'/l';
+
+            echo date('Y-m-d H:i:s');
+           
+            echo 'suprise';
             
             } else {
-            $venue = $this->input->post('venue[]');
+            // $venue = $this->input->post('venue[]');
             $equipment = $this->input->post('equipment[]');
             //echo var_dump($venue);
            
@@ -224,12 +229,13 @@ class Main extends BaseController
                 'tittleEvent' => $this->input->post('tittleEvent'),
                 'status' => 'pending',
                 'contactNo' => $this->input->post('contactNo'),
+                'venueID' => $this->input->post('venue'),
                 'departmentID' => $this->input->post('department'),
                 'resBy' => $this->session->userdata('userId')
             );  
             $this->main_model->eventRequestInsert($data);
             $lastId = $this->main_model->getLastId();
-            $this->main_model->eventVenueInsert($lastId,$venue);
+            // $this->main_model->eventVenueInsert($lastId,$venue);
             $this->main_model->eventEquipmentInsert($lastId,$equipment,$tableNo,$chairNo);
             $this->viewAddNewEventRequest();
             // redirect('/viewDepartment');   
