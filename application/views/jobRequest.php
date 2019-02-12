@@ -29,7 +29,7 @@
                                     <div class="form-group">
 
                                         <label for="itemNo">Item Number:</label>
-                                        <input type="text" class="form-control required" value="<?php echo set_value('itemNo'); ?>" id="itemNo" name="itemNo" maxlength="128" placeholder="Item NUmber">
+                                        <input type="text" class="form-control required" value="<?php echo set_value('itemNo'); ?>" id="itemNo" name="itemNo" maxlength="128" placeholder="Item Number">
 
                                     </div>
                                 </div>
@@ -37,9 +37,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-<
                                         <label for="location">Location:</label>
-                                        <input type="text" class="form-control required" id="location" name="location" maxlength="20" placeholder="">
+                                        <input type="text" class="form-control required" id="location" name="location" maxlength="20" placeholder="Location">
 
                                        
                                     </div>

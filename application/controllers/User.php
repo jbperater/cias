@@ -456,6 +456,32 @@ class User extends BaseController
         }
     }
 
+    function viewEquipmentMaintenance()
+    {
+        if($this->isEmployee() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {        
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewEquipmentCount($searchText);
+
+            $returns = $this->paginationCompress ( "viewEquipment/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewEquipment($searchText, $returns["page"], $returns["segment"]);
+            
+            $this->global['pageTitle'] = 'MEWU : View Equipments';
+            
+            $this->loadViews("maintenance/viewEquipment", $this->global, $data, NULL);
+        }
+    }
+
+
      function viewEventEquipment()
     {
         if($this->isAdmin() == TRUE)
@@ -571,6 +597,85 @@ class User extends BaseController
                 redirect('jobRequest');
             }
         }
+    }
+
+     function viewEventRequest()
+    {
+        if($this->isAdmin() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {        
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewEventRequestCount($searchText);
+
+            $returns = $this->paginationCompress ( "viewEventRequest/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewEventRequest($searchText, $returns["page"], $returns["segment"]);
+            
+            $this->global['pageTitle'] = 'MEWU : View Event Request';
+            
+            $this->loadViews("admin/viewEventRequest", $this->global, $data, NULL);
+        }
+    }
+
+     function viewRepairRequest()
+    {
+        if($this->isAdmin() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {        
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewEventRequestCount($searchText);
+
+            $returns = $this->paginationCompress ( "viewEventRequest/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewEventRequest($searchText, $returns["page"], $returns["segment"]);
+            
+            $this->global['pageTitle'] = 'MEWU : View Event Request';
+            
+            $this->loadViews("admin/viewEventRequest", $this->global, $data, NULL);
+        }
+    }
+
+     function viewMySchedule()
+    {
+        if($this->isEmployee() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {        
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewMyScheduleCount($searchText);
+
+            $returns = $this->paginationCompress ( "viewMySchedule/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewMySchedule($searchText, $returns["page"], $returns["segment"]);
+            
+            $this->global['pageTitle'] = 'MEWU : My Schedule';
+            
+            $this->loadViews("maintenance/viewMySchedule", $this->global, $data, NULL);
+        }
+    }
+
+    function updateMySchedule(){
+
     }
 }
 
