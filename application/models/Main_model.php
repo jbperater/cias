@@ -66,6 +66,17 @@ class Main_model extends CI_Model
 			$this->db->query($query);
 		}	
 	}
+
+	function getEquipment(){
+      	$this->db->select('equipName,brand,model,serialNo,office,department,type,yearAcc');
+      	$result = $this->db->get('tbl_equipment');
+     	return $result->result();
+  	}
+
+  	function historyInsert($data) {
+		$this->db->insert('tbl_equipment_history',$data);		
+	}
+	
 }
 
 ?>

@@ -274,6 +274,39 @@ class Main extends BaseController
             }
     }
 
+     public function historyInsert(){
+
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $this->load->library('session');
+        
+        // set validation rules
+        
+        $this->form_validation->set_rules('dateReq', 'dateReq', 'required');
+        
+
+        
+        if ($this->form_validation->run() == false) {
+            
+            $this->historyInsert();
+            
+            } else {
+
+            $data = array(  
+                'dateReq' => $this->input->post('dateReq'),
+                'description' => $this->input->post('description'),
+                'partRep' => $this->input->post('partRep'),
+                'dateRep' => $this->input->post('dateRep'),
+                'timeRep' => $this->input->post('timeRep'),
+                'datefin' => 'datefin',
+                'remark' => $this->input->post('remark'),
+                'performedBy' => $this->input->post('performedBy'),
+            );  
+            $this->main_model->historyInsert($data);
+            redirect('maintenance/addHistory');   
+            }
+    }
+
 
 
      

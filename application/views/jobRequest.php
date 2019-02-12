@@ -13,9 +13,6 @@
             <!-- left column -->
             <div class="col-md-8">
               <!-- general form elements -->
-                
-                
-                
                 <div class="box box-primary">
                     <div class="box-header">
                         <h3 class="box-title">Enter Details</h3>
@@ -29,7 +26,7 @@
                                     <div class="form-group">
 
                                         <label for="itemNo">Item Number:</label>
-                                        <input type="text" class="form-control required" value="<?php echo set_value('itemNo'); ?>" id="itemNo" name="itemNo" maxlength="128" placeholder="Item NUmber">
+                                        <input type="text" class="form-control required" value="<?php echo set_value('itemNo'); ?>" id="itemNo" name="itemNo" maxlength="128" placeholder="Item Number">
 
                                     </div>
                                 </div>
@@ -38,7 +35,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="location">Location:</label>
-                                        <input type="text" class="form-control required" id="location" name="location" maxlength="20" placeholder="Location">    
+                                        <input type="text" class="form-control required" id="location" name="location" maxlength="20" placeholder="Location">
                                     </div>
                                 </div>
                             </div>

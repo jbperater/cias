@@ -71,6 +71,14 @@ class BaseController extends CI_Controller {
 			return false;
 		}
 	}
+
+	function isEmployee() {
+		if ($this->role != ROLE_EMPLOYEE) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	/**
 	 * This function is used to load the set of views

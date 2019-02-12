@@ -129,10 +129,10 @@
                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-thumb-tack"></i> View Requests <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>userListing">  View Event Requests</a>
+                                <a href="<?php echo base_url(); ?>User/viewEventRequest">  View Event Requests</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> View Repair Requests</a>
+                                <a href="<?php echo base_url(); ?>User/viewRepairRequest"> View Repair Requests</a>
                             </li>
                           </ul>
             </li>
@@ -278,7 +278,7 @@
                                 <a href="<?php echo base_url(); ?>Main/viewAddNewEventRequest">  Add Event Requests</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>Main/jobRequest"> Add Repair Requests</a>
+                                <a href="<?php echo base_url(); ?>Main/viewAddjobRequest"> Add Repair Requests</a>
                             </li>
                           </ul>
             </li>
@@ -343,7 +343,30 @@
                 <i class="fa fa-users"></i>
                 <span>Event Schedules</span>
               </a>
-            </li>-->
+            </li>
+            <?php
+            }
+            if($role ==ROLE_EMPLOYEE)
+            {
+            ?>
+             <li class="treeview">
+              <a href="<?php echo base_url(); ?>User/viewEquipmentMaintenance">
+                <i class="fa fa-thumb-tack"></i>
+                <span>Equipments</span>
+              </a>
+            </li>
+             <li class="treeview">
+              <a href="<?php echo base_url(); ?>User/viewMySchedule">
+                <i class="fa fa-thumb-tack"></i>
+                <span>View My Schedule</span>
+              </a>
+            </li>
+             <li class="treeview">
+              <a href="">
+                <i class="fa fa-thumb-tack"></i>
+                <span>View Summary Report</span>
+              </a>
+            </li>
             <?php
             }
             ?>
