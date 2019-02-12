@@ -504,7 +504,7 @@ class User_model extends CI_Model
 
     function viewRepairRequestCount($searchText = '')
     {
-        $this->db->select('BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location,BaseTbl.dateReq');
+        $this->db->select('BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateReq');
         $this->db->from('tbl_job_request as BaseTbl');
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
@@ -526,7 +526,7 @@ class User_model extends CI_Model
      */
     function viewRepairRequest($searchText = '', $page, $segment)
     {
-        $this->db->select('BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location,BaseTbl.dateReq');
+        $this->db->select('BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateReq');
         $this->db->from('tbl_job_request as BaseTbl');
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'

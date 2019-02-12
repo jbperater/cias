@@ -637,15 +637,15 @@ class User extends BaseController
             
             $this->load->library('pagination');
             
-            $count = $this->user_model->viewEventRequestCount($searchText);
+            $count = $this->user_model->viewRepairRequestCount($searchText);
 
-            $returns = $this->paginationCompress ( "viewEventRequest/", $count, 10 );
+            $returns = $this->paginationCompress ( "viewRepairRequest/", $count, 10 );
             
-            $data['userRecords'] = $this->user_model->viewEventRequest($searchText, $returns["page"], $returns["segment"]);
+            $data['userRecords'] = $this->user_model->viewRepairRequest($searchText, $returns["page"], $returns["segment"]);
             
-            $this->global['pageTitle'] = 'MEWU : View Event Request';
+            $this->global['pageTitle'] = 'MEWU :Repair Request';
             
-            $this->loadViews("admin/viewEventRequest", $this->global, $data, NULL);
+            $this->loadViews("admin/viewRepairRequest", $this->global, $data, NULL);
         }
     }
 
