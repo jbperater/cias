@@ -13,9 +13,6 @@
             <!-- left column -->
             <div class="col-md-8">
               <!-- general form elements -->
-                
-                
-                
                 <div class="box box-primary">
                     <div class="box-header">
                         <h3 class="box-title">Enter Details</h3>
@@ -27,25 +24,13 @@
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
-<<<<<<< HEAD
                                         <label for="noParticipants">Number of Participants:</label>
                                         <input type="Number" class="form-control required" value="<?php echo set_value('noParticipants'); ?>" id="noParticipants" name="noParticipants" maxlength="128" placeholder="Number of Participants">
-=======
-                                        <label for="no_participants">Number of Participants</label>
-                                        <input type="Number" class="form-control required" value="<?php echo set_value('noParticipant'); ?>" id="no_participants" name="noParticipant" maxlength="128" placeholder="Number of Participants">
->>>>>>> 71e838c7c94d815c834689e05ec1d3aebcf3900e
                                     </div>
-                                    
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-<<<<<<< HEAD
-                                        
-
                                         <label for="tittleEvent">Title Of Event:</label>
-=======
-                                        <label for="tittleEvent">Tittle Of Event:</label>
->>>>>>> 71e838c7c94d815c834689e05ec1d3aebcf3900e
                                         <input type="text" name="tittleEvent" id="tittleEvent" class='form-control' required placeholder="Tittle" value="" />
                                     </div>
                                 </div>

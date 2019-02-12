@@ -13,9 +13,6 @@
             <!-- left column -->
             <div class="col-md-8">
               <!-- general form elements -->
-                
-                
-                
                 <div class="box box-primary">
                     <div class="box-header">
                         <h3 class="box-title">Enter Details</h3>
@@ -38,13 +35,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="location">Location:</label>
-<<<<<<< HEAD
                                         <input type="text" class="form-control required" id="location" name="location" maxlength="20" placeholder="Location">
-
-                                       
-=======
-                                        <input type="text" class="form-control required" id="location" name="location" maxlength="20" placeholder="Location">    
->>>>>>> 71e838c7c94d815c834689e05ec1d3aebcf3900e
                                     </div>
                                 </div>
                             </div>
