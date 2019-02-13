@@ -73,6 +73,15 @@ class Main_model extends CI_Model
      	return $result->result();
   	}
 
+  	function getNotification($roleId){
+      	$this->db->select('id,type,ownerNotify,adminNotify,resBy');
+      	if($roleId == 1){
+      		$this->db->where('adminNotify',1);
+      	}
+      	$result = $this->db->get('tbl_notification');
+     	return $result->result();
+  	}
+
   	function historyInsert($data) {
 		$this->db->insert('tbl_equipment_history',$data);		
 	}

@@ -18,6 +18,7 @@ class User extends BaseController
     {
         parent::__construct();
         $this->load->model('user_model');
+        $this->load->model('main_model');
         $this->isLoggedIn();   
     }
     
@@ -27,7 +28,8 @@ class User extends BaseController
     public function index()
     {
         $this->global['pageTitle'] = 'CodeInsect : Dashboard';
-        
+        $this->global['notification'] = $this->main_model->getNotification($this->session->userdata('roleid'));
+
         $this->loadViews("dashboard", $this->global, NULL , NULL);
     }
     
