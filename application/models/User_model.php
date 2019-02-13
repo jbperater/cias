@@ -317,7 +317,7 @@ class User_model extends CI_Model
      */
     function viewEquipment($searchText = '', $page, $segment)
     {
-        $this->db->select('BaseTbl.equipName, BaseTbl.brand, BaseTbl.model, BaseTbl.serialNo, BaseTbl.office,BaseTbl.department,BaseTbl.type,BaseTbl.yearAcc');
+        $this->db->select('BaseTbl.equipId,BaseTbl.equipName, BaseTbl.brand, BaseTbl.model, BaseTbl.serialNo, BaseTbl.office,BaseTbl.department,BaseTbl.type,BaseTbl.yearAcc');
         $this->db->from('tbl_equipment as BaseTbl');
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.equipName  LIKE '%".$searchText."%'
@@ -582,6 +582,27 @@ class User_model extends CI_Model
         return $result;
     }
 
+    function viewHistory()
+    {
+        $id =$this->input->get('id');
+        $this->db->select('BaseTbl.dateReq, BaseTbl.description, BaseTbl.partRep,BaseTbl.dateRep,BaseTbl.timeRep,BaseTbl.dateFin,BaseTbl.remark,BaseTb2.name');
+        $this->db->from('tbl_equipment_history as BaseTbl');
+       $this->db->where('BaseTbl.equipId',$id);
+       $this->db->join('tbl_users as BaseTb2','BaseTbl.performedBy = BaseTb2.userId');
+        $this->db->order_by('BaseTbl.dateRep', 'DESC');
+        $query = $this->db->get();
+        
+        $result = $query->result();        
+        return $result;
+    }
+
+    function editSchedule($scheduleInfo, $jobId)
+    {
+        $this->db->where('jobId', $jobId);
+        $this->db->update('tbl_job_request', $scheduleInfo);
+        
+        return TRUE;
+    }
     
 
 

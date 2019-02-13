@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-users"></i> View Equipments
+        <i class="fa fa-users"></i> Equipment History
         <small>View</small>
       </h1>
     </section>
@@ -13,9 +13,9 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Equipments</h3>
+                    <h3 class="box-title">History</h3>
                     <div class="box-tools">
-                        <form action="<?php echo base_url() ?>viewEquipment" method="POST" id="searchList">
+                        <form action="<?php echo base_url() ?>viewHistory" method="POST" id="searchList">
                             <div class="input-group">
                               <input type="text" name="searchText" value="<?php echo $searchText; ?>" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
                               <div class="input-group-btn">
@@ -28,15 +28,14 @@
                 <div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                     <tr>
-                        <th>Equipment Name</th>
-                        <th>Brand</th>
-                        <th>Model</th>
-                        <th>Serial Number</th>
-                        <th>Office</th>
-                        <th>Department</th>
-                        <th>Type</th>
-                        <th>Year Acquired</th>
-                         <th class="text-center">Actions</th>
+                        <th>Date Requested</th>
+                        <th>Description</th>
+                        <th>Parts Used/Repalaced</th>
+                        <th>Date Repaired</th>
+                        <th>Time Repaired</th>
+                        <th>Date Completed</th>
+                        <th>Remarks</th>
+                        <th>Performed By</th>
                     </tr>
                     <?php
                     if(!empty($userRecords))
@@ -45,18 +44,14 @@
                         {
                     ?>
                     <tr>
-                        <td><?php echo $record->equipName ?></td>
-                        <td><?php echo $record->brand ?></td>
-                        <td><?php echo $record->model ?></td>
-                        <td><?php echo $record->serialNo ?></td>
-                        <td><?php echo $record->office ?></td>
-                        <td><?php echo $record->department ?></td>
-                        <td><?php echo $record->type ?></td>
-                        <td><?php echo $record->yearAcc ?></td>
-                        <td class="text-center">
-                            <a class="btn btn-sm btn-info" href="<?= base_url().'main/viewAddNewHistory?id='.$record->equipId; ?>" data-userid="" title="Add History"><i class="fa fa-pencil"></i></a>
-                            <a class="btn btn-sm btn-info" href="<?= base_url().'user/viewHistory?id='.$record->equipId; ?>" data-userid="" title="View History"><i class="fa fa-trash"></i></a>
-                        </td>
+                        <td><?php echo $record->dateReq ?></td>
+                        <td><?php echo $record->description ?></td>
+                        <td><?php echo $record->partRep ?></td>
+                        <td><?php echo $record->dateRep ?></td>
+                        <td><?php echo $record->timeRep ?></td>
+                        <td><?php echo $record->dateFin ?></td>
+                        <td><?php echo $record->remark ?></td>
+                        <td><?php echo $record->name ?></td>
                     </tr>
                     <?php
                         }

@@ -2,8 +2,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-users"></i> User Management
-        <small>Add / Edit User</small>
+        <i class="fa fa-users"></i> History
+        <small>Add History</small>
       </h1>
     </section>
     
@@ -18,52 +18,52 @@
                 
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Enter User Details</h3>
+                        <h3 class="box-title">Enter Details</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
-                    <form role="form" id="addUser" action="<?php echo base_url() ?>addNewUser" method="post" role="form">
+                    <form role="form" id="addHistory" action="<?php echo base_url() ?>Main/historyInsert?id=<?php echo $this->input->get('id') ?>" method="post" role="form">
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label for="date_req">Date Requested:</label>
-                                        <input type="text" class="form-control required" value="<?php echo set_value('date_req'); ?>" id="date_req" name="date_req" maxlength="128" placeholder="Date Requested">
+                                        <label for="dateReq">Date Requested:</label>
+                                        <input type="date" class="form-control required" value="" id="dateReq" name="dateReq" maxlength="128" placeholder="Date Requested">
                                     </div>
                                     
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="description">Description of Equipment:</label>
-                                        <input type="text" class="form-control required " id="description" value="<?php echo set_value('description'); ?>" name="description" maxlength="128" placeholder="Description">
+                                        <input type="text" class="form-control required " id="description" value="" name="description" maxlength="128" placeholder="Description">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="part">Parts Used/Replaced:</label>
-                                        <input type="text" class="form-control required" id="part" name="part" maxlength="20" placeholder="Part Used/Replaced">
+                                        <label for="partRep">Parts Used/Replaced:</label>
+                                        <input type="text" class="form-control required" id="partRep" name="partRep" maxlength="20" placeholder="Part Used/Replaced">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="serial_no">Serial Number:</label>
-                                        <input type="text" class="form-control required" id="serial_no" name="serial_no" maxlength="20" placeholder="Serial Number">
+                                        <label for="dateRep">Date of Repair:</label>
+                                        <input type="date" class="form-control required" id="dateRep" name="dateRep" maxlength="20" placeholder="Date of Repair">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="time_rep">Time of Repair:</label>
-                                        <input type="text" class="form-control required" id="time_rep" value="<?php echo set_value('time_rep'); ?>" name="time_rep" maxlength="10" placeholder="Time of Repair">
+                                        <label for="timeRep">Time of Repair:</label>
+                                        <input type="time" class="form-control required" id="timeRep" value="" name="timeRep" maxlength="10" placeholder="Time of Repair">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="date_fin">Date Completed:</label>
-                                        <input type="text" class="form-control required" id="date_fin" value="<?php echo set_value('date_fin'); ?>" name="date_fin" maxlength="10" placeholder="Date Completed">
+                                        <label for="dateFin">Date Completed:</label>
+                                        <input type="date" class="form-control required" id="dateFin" value="" name="dateFin" maxlength="10" placeholder="Date Completed">
                                     </div>
                                 </div>    
                             </div>
@@ -71,15 +71,17 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="remark">Remarks/Status:</label>
-                                        <input type="text" class="form-control required" id="remark" value="<?php echo set_value('remark'); ?>" name="remark" maxlength="10" placeholder="Time of Repair">
+                                        <input type="text" class="form-control required" id="remark" value="" name="remark" maxlength="10" placeholder="Remarks">
                                     </div>
                                 </div>
-                                <!--   <div class="col-md-6">
+                            </div>
+                             <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="date_fin">Performed By:</label>
-                                        <input type="text" class="form-control required" id="date_fin" value="<?php echo set_value('date_fin'); ?>" name="date_fin" maxlength="10" placeholder="Date Completed">
+                                        <label for="remark">Performed By</label>
+                                        <input type="text" class="form-control required" id="performedBy" value="" name="performedBy" maxlength="10" placeholder="Performed By">
                                     </div>
-                                </div>     -->
+                                </div>
                             </div>
                         </div><!-- /.box-body -->
     

@@ -96,6 +96,15 @@ class Main extends BaseController
         $this->loadViews("viewEventSchedule", $this->global, NULL, NULL);
     }
 
+     public function viewAddNewHistory(){
+
+        $this->global['name'] =$this->session->userdata('name');
+        $this->global['role'] =$this->session->userdata('role');
+        $this->global['role_text'] =$this->session->userdata('role_text');
+        $this->global['pageTitle'] = 'MEWU : Add History';
+        $this->loadViews("maintenance/addHistory", $this->global, NULL, NULL);
+    }
+
     public function venueInsert(){
 
         $this->load->helper('form');
@@ -284,7 +293,7 @@ class Main extends BaseController
         
         $this->form_validation->set_rules('dateReq', 'dateReq', 'required');
         
-
+        
         
         if ($this->form_validation->run() == false) {
             
@@ -293,19 +302,22 @@ class Main extends BaseController
             } else {
 
             $data = array(  
+                'equipId' => $this->input->get('id'),
                 'dateReq' => $this->input->post('dateReq'),
                 'description' => $this->input->post('description'),
                 'partRep' => $this->input->post('partRep'),
                 'dateRep' => $this->input->post('dateRep'),
                 'timeRep' => $this->input->post('timeRep'),
-                'datefin' => 'datefin',
+                'dateFin' => $this->input->post('dateFin'),
                 'remark' => $this->input->post('remark'),
                 'performedBy' => $this->input->post('performedBy'),
             );  
             $this->main_model->historyInsert($data);
-            redirect('maintenance/addHistory');   
+            $this->viewAddNewHistory();
             }
     }
+
+
 
 
 

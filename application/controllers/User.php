@@ -674,9 +674,78 @@ class User extends BaseController
         }
     }
 
-    function updateMySchedule(){
+    function viewHistory()
+    {
+        if($this->isEmployee() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {        
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
 
+            $returns = $this->paginationCompress ( "viewHistory/", 10 );
+            
+            $data['userRecords'] = $this->user_model->viewHistory($searchText, $returns["page"], $returns["segment"]);
+            
+            $this->global['pageTitle'] = 'MEWU : History';
+            
+            $this->loadViews("maintenance/viewhistory", $this->global, $data, NULL);
+        }
     }
+
+     function editSchedule()
+    {
+        if($this->isEmployee() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {
+            $this->load->library('form_validation');
+            
+            $jobId = $this->input->post('jobId');
+            
+            $this->form_validation->set_rules('remark','Remarks','trim|required|max_length[128]');
+            
+            if($this->form_validation->run() == FALSE)
+            {
+                $this->editSchedule($userId);
+            }
+            else
+            {
+                $itemNo = $this->input->get('itemNo');
+                $workDescript = $this->input->get('workDescript');
+                $location = $this->input->get('location');
+                $dateTimeStart = $this->input->get('dateTimeStart');
+                $dateTimeEnd = $this->input->post('dateTimeEnd');
+                $remark = $this->input->post('remark');
+                $dateReq = $this->input->get('dateReq');
+                
+                $scheduleInfo = array();
+                
+                 $userInfo = array('itemNo'=>$itemNo, 'workDescript'=>$workDescript,
+                        'location'=>$location, 'dateTimeStart'=>$dateTimeStart, 'dateTimeEnd'=>$dateTimeEnd, 'remark'=>$remark, 'dateReq'=>$dateReq);
+                
+                $result = $this->user_model->editSchedule($scheduleInfo, $jobId);
+                
+                if($result == true)
+                {
+                    $this->session->set_flashdata('success', 'Updated successfully');
+                }
+                else
+                {
+                    $this->session->set_flashdata('error', 'Updation failed');
+                }
+                
+                redirect('maintenance/editSchedule');
+            }
+        }
+    }
+   
 }
 
 ?>
