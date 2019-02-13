@@ -65,6 +65,18 @@
                   <li class="header"> Last Login : <i class="fa fa-clock-o"></i> <?= empty($last_login) ? "First Time Login" : $last_login; ?></li>
                 </ul>
               </li>
+              <li class="dropdown user user-menu" style="background-color: #1A1851" id="drop1">
+                <a href="#drop1" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o"></i>
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <?php foreach($notification as $notification){?>
+                  <li><a href=<?=$notification->id;?>><?=$notification->type;?> - &nbsp<?=$notification->resBy;?></a></li>
+                  <?php }?>
+                  <li><a href="#">HTML</a></li>
+                  <li><a href="#">CSS</a></li>
+                  <li><a href="#">JavaScript</a></li>
+                </ul>
+              </li>
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu" style="background-color: #1A1851">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -157,7 +169,7 @@
                                 <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Repair Schedules</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>Calendar/get_events"> Troubleshot</a>
+                                <a href="<?php echo base_url(); ?>forecast/forecast"> Troubleshot</a>
                             </li>
                           </ul>
             </li>

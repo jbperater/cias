@@ -18,6 +18,7 @@ class User extends BaseController
     {
         parent::__construct();
         $this->load->model('user_model');
+        $this->load->model('main_model');
         $this->isLoggedIn();   
     }
     
@@ -27,7 +28,8 @@ class User extends BaseController
     public function index()
     {
         $this->global['pageTitle'] = 'CodeInsect : Dashboard';
-        
+        $this->global['notification'] = $this->main_model->getNotification($this->session->userdata('roleid'));
+
         $this->loadViews("dashboard", $this->global, NULL , NULL);
     }
     
@@ -637,15 +639,15 @@ class User extends BaseController
             
             $this->load->library('pagination');
             
-            $count = $this->user_model->viewEventRequestCount($searchText);
+            $count = $this->user_model->viewRepairRequestCount($searchText);
 
-            $returns = $this->paginationCompress ( "viewEventRequest/", $count, 10 );
+            $returns = $this->paginationCompress ( "viewRepairRequest/", $count, 10 );
             
-            $data['userRecords'] = $this->user_model->viewEventRequest($searchText, $returns["page"], $returns["segment"]);
+            $data['userRecords'] = $this->user_model->viewRepairRequest($searchText, $returns["page"], $returns["segment"]);
             
-            $this->global['pageTitle'] = 'MEWU : View Event Request';
+            $this->global['pageTitle'] = 'MEWU :Repair Request';
             
-            $this->loadViews("admin/viewEventRequest", $this->global, $data, NULL);
+            $this->loadViews("admin/viewRepairRequest", $this->global, $data, NULL);
         }
     }
 

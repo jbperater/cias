@@ -1,5 +1,6 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 require APPPATH . '/libraries/BaseController.php';
+require APPPATH . '/libraries/Statistics.php';
 /**
  * Class : Login (LoginController)
  * Login class to control to authenticate user credentials and starts user's session.
@@ -306,6 +307,8 @@ class Main extends BaseController
             redirect('maintenance/addHistory');   
             }
     }
+
+    
 
 
 

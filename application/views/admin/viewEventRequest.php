@@ -30,8 +30,10 @@
                     <tr>
                         <th>Form Number</th>
                         <th>Number of Participants</th>
-                        <th>Date and Time Actual Use</th>
-                        <th>Date and Time Ended</th>
+                        <th>Date Actual Use</th>
+                        <th>Time Actual Use</th>
+                        <th>Date Ended</th>
+                        <th>Time Ended</th>
                         <th>Purpose</th>
                         <th>Title Of Event</th>
                         <th>Contact Number</th>
@@ -50,8 +52,10 @@
                     <tr>
                         <td><?php echo $record->formNo ?></td>
                         <td><?php echo $record->noParticipant ?></td>
-                        <td><?php echo $record->dateTimeActual ?></td>
-                        <td><?php echo $record->dateTimeEnd ?></td>
+                        <td><?php echo $record->dateActual ?></td>
+                        <td><?php echo $record->timeActual ?></td>
+                        <td><?php echo $record->dateEnd ?></td>
+                        <td><?php echo $record->timeEnd ?></td>
                         <td><?php echo $record->purpose ?></td>
                         <td><?php echo $record->tittleEvent ?></td>
                         <td><?php echo $record->contactNo ?></td>

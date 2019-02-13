@@ -25,7 +25,7 @@
                                 <div class="col-md-6">                                
                                     <div class="form-group">
                                         <label for="noParticipants">Number of Participants:</label>
-                                        <input type="Number" class="form-control required" value="<?php echo set_value('noParticipants'); ?>" id="noParticipants" name="noParticipants" maxlength="128" placeholder="Number of Participants">
+                                        <input type="Number" class="form-control required" value="<?php echo set_value('noParticipants'); ?>" id="noParticipants" name="noParticipant" maxlength="128" placeholder="Number of Participants">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
