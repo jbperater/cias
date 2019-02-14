@@ -317,7 +317,6 @@ class Main extends BaseController
             $this->viewAddNewHistory();
             }
     }
-
     
 
 

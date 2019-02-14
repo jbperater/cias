@@ -544,7 +544,7 @@ class User_model extends CI_Model
 
      function viewMyScheduleCount($searchText = '')
     {
-        $this->db->select('BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateTimeStart, BaseTbl.dateTimeEnd, BaseTbl.remark, BaseTbl.dateReq');
+        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateTimeStart, BaseTbl.dateTimeEnd, BaseTbl.remark, BaseTbl.dateReq');
         $this->db->from('tbl_job_request as BaseTbl');
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
@@ -596,15 +596,14 @@ class User_model extends CI_Model
         return $result;
     }
 
-    function editSchedule($scheduleInfo, $jobId)
-    {
+     function editSchedule($scheduleInfo, $jobId)
+    {   
+        $this->db->set('jobId','');
         $this->db->where('jobId', $jobId);
         $this->db->update('tbl_job_request', $scheduleInfo);
         
         return TRUE;
     }
-    
-
 
 }
 
