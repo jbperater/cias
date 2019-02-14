@@ -317,7 +317,7 @@
                             </li>
                           </ul>
              <li class="treeview">
-              <a href="<?php echo base_url(); ?>userListing">
+              <a href="<?php echo base_url(); ?>main/viewEventSchedule">
                 <i class="fa fa-users"></i>
                 <span>Event Schedules</span>
               </a>
@@ -351,7 +351,7 @@
                             </li>
                           </ul>
              <li class="treeview">
-              <a href="<?php echo base_url(); ?>userListing">
+              <a href="<?php echo base_url(); ?>main/viewEventSchedule">
                 <i class="fa fa-users"></i>
                 <span>Event Schedules</span>
               </a>

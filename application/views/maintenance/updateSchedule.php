@@ -1,29 +1,21 @@
-<?php
-$jobId = $scheduleInfo->jobId;
-$itemNo = $scheduleInfo->itemNo;
-$workDescript = $scheduleInfo->workDescript;
-$location = $scheduleInfo->location;
-$dateTimeEnd = $scheduleInfo->dateTimeStart;
-$dateReq = $scheduleInfo->dateReq;
-$dateTimeEnd = $scheduleInfo->dateTimeEnd;
-$remark = $scheduleInfo->remark;
-?>
-
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
         <i class="fa fa-users"></i> Update Schedule
-        <small>View or modify information</small>
+        <small></small>
       </h1>
     </section>
     
     <section class="content">
     
         <div class="row">
-
+            <!-- left column -->
             <div class="col-md-8">
-
+              <!-- general form elements -->
+                
+                
+                
                 <div class="box box-primary">
                     <div class="box-header">
                         <h3 class="box-title">Enter Details</h3>
@@ -31,71 +23,65 @@ $remark = $scheduleInfo->remark;
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
                     <form role="form" id="addHistory" action="<?php echo base_url() ?>scheduleUpdate" method="post" role="form">
-                        <?php $this->load->helper('form'); ?>
                         <div class="box-body">
-                            <div class="row">            
-                                            <div class="form-group">
-                                                <label for="itemNo">item Number</label>
-                                                <input type="text" class="form-control" id="itemNo" name="itemNo" placeholder="<?php echo $itemNo; ?>" value="<?php echo set_value('itemNo', $itemNo); ?>" maxlength="128" />
-                                            </div>
-                                        </div>
+                            <div class="row">
+                                <div class="col-md-6">                                
+                                    <div class="form-group">
+                                        <label for="dateReq">Number of Items</label>
+                                        <input type="Number" class="form-control required" value="" id="itemNo" name="itemNo" maxlength="128" placeholder="<?php echo $itemNo; ?>">
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="workDescript">Work Description</label>
-                                                <input type="text" class="form-control" id="workDescript" name="workDescript" placeholder="<?php echo $workDescript; ?>" value="<?php echo set_value('workDescript', $workDescript); ?>" maxlength="10">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="location">Location</label>
-                                                <input type="text" class="form-control" id="location" name="location" placeholder="<?php echo $location; ?>" value="<?php echo set_value('location', $location); ?>">
-                                            </div>
-                                        </div>
-                                    </div>
-                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="dateTimeStart">Date and Time Started</label>
-                                                <input type="Datetime-local" class="form-control" id="dateTimeStart" name="dateTimeStart" placeholder="<?php echo $dateTimeStart; ?>" value="<?php echo set_value('dateTimeStart', $dateTimeStart); ?>">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="dateReq">Date Requested</label>
-                                                <input type="Datetime-local" class="form-control" id="dateReq" name="dateReq" placeholder="<?php echo $dateReq; ?>" value="<?php echo set_value('dateReq', $dateReq); ?>">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="dateTimeEnd">Date Completed</label>
-                                                <input type="text" class="form-control" id="dateTimeEnd" name="dateTimeEnd" placeholder="<?php echo $dateTimeEnd; ?>" value="<?php echo set_value('dateTimeEnd', $dateTimeEnd); ?>">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="remark">Remarks</label>
-                                                <input type="text" class="form-control" id="remark" name="remark" placeholder="<?php echo $remark; ?>" value="<?php echo set_value('remark', $remark); ?>">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- /.box-body -->
-                                <div class="box-footer">
-                                    <input type="submit" class="btn btn-primary" value="Submit" />
-                                    <input type="reset" class="btn btn-default" value="Reset" />
+                                    
                                 </div>
-                            </form>
-                        </div>              
-                    </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="description">Work Description</label>
+                                        <input type="text" class="form-control required " id="workDescript" value="" name="workDescript" maxlength="128" placeholder="Work Description">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="partRep">Location</label>
+                                        <input type="text" class="form-control required" id="location" name="location" maxlength="20" placeholder="Location">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="dateRep">Date and Time Started</label>
+                                        <input type="datetime-local" class="form-control required" id="dateTimeStart" name="dateTimeStart" maxlength="20" placeholder="Date and Time Started">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="timeRep">Date Requested</label>
+                                        <input type="datetime-local" class="form-control required" id="dateReq" value="" name="dateReq" maxlength="10" placeholder="Date Requested">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="dateFin">Date and Time Completed:</label>
+                                        <input type="datetime-local" class="form-control required" id="dateTimeEnd" value="" name="dateTimeEnd" maxlength="10" placeholder="Date and Time Completed">
+                                    </div>
+                                </div>    
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="remark">Remarks/Status:</label>
+                                        <input type="text" class="form-control required" id="remark" value="" name="remark" maxlength="10" placeholder="Remarks">
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+    
+                        <div class="box-footer">
+                            <input type="submit" class="btn btn-primary" value="Submit" />
+                            <input type="reset" class="btn btn-default" value="Reset" />
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="col-md-4">
@@ -120,17 +106,6 @@ $remark = $scheduleInfo->remark;
                     <?php echo $this->session->flashdata('success'); ?>
                 </div>
                 <?php } ?>
-
-                <?php  
-                    $noMatch = $this->session->flashdata('nomatch');
-                    if($noMatch)
-                    {
-                ?>
-                <div class="alert alert-warning alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <?php echo $this->session->flashdata('nomatch'); ?>
-                </div>
-                <?php } ?>
                 
                 <div class="row">
                     <div class="col-md-12">
@@ -140,6 +115,6 @@ $remark = $scheduleInfo->remark;
             </div>
         </div>    
     </section>
+    
 </div>
-
-<script src="<?php echo base_url(); ?>assets/js/editUser.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/js/addUser.js" type="text/javascript"></script>
