@@ -66,6 +66,17 @@ class Main extends BaseController
         $this->global['pageTitle'] = 'CodeInsect : Dashboard';
         $this->loadViews("admin/addEquipment", $this->global, NULL, NULL);
     }
+
+    public function viewAddNewHistory(){
+
+        $this->load->model('user_model');
+        $this->global['name'] =$this->session->userdata('name');
+        $this->global['role'] =$this->session->userdata('role');
+        $this->global['role_text'] =$this->session->userdata('role');
+        $this->global['pageTitle'] = 'CodeInsect : Dashboard';
+        $this->loadViews("maintenance/addHistory", $this->global, NULL, NULL);
+    }
+
     public function viewAddJobRequest(){
 
         $this->global['name'] =$this->session->userdata('name');
@@ -132,6 +143,16 @@ class Main extends BaseController
         $this->global['role_text'] =$this->session->userdata('role_text');
         $this->global['pageTitle'] = 'MEWU : Forecast';
         $this->loadViews("admin/viewForecast", $this->global, NULL, NULL);
+    }
+
+    public function viewForecastStatic(){
+        $data = $this->main_model->get_data()->result();
+        $this->global['data'] = json_encode($data);
+        $this->global['name'] =$this->session->userdata('name');
+        $this->global['role'] =$this->session->userdata('role');
+        $this->global['role_text'] =$this->session->userdata('role_text');
+        $this->global['pageTitle'] = 'MEWU : Forecast';
+        $this->loadViews("admin/viewForecastStatic", $this->global, NULL, NULL);
     }
 
     public function venueInsert(){

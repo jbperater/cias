@@ -224,7 +224,7 @@
                <a href="javascript:;" data-toggle="collapse" data-target="#demo6"><i class="fa fa-fw fa-file"></i> Forecasts <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo6" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>main/viewForecast"> View Forecasts</a>
+                                <a href="<?php echo base_url(); ?>forecast/forecast"> View Forecasts</a>
                             </li>
                         </ul>
               </li>
