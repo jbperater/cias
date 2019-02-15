@@ -60,6 +60,14 @@ class BaseController extends CI_Controller {
 			return false;
 		}
 	}
+
+	function isManager() {
+		if ($this->role != ROLE_MANAGER) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	/**
 	 * This function is used to check the access

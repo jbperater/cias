@@ -716,6 +716,56 @@ class User extends BaseController
             $this->loadViews("updateSchedule", $this->global, $data, NULL);
         }
     }
+
+     function viewEventRequests()
+    {
+        if($this->isManager() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {        
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewEventRequestCounts($searchText);
+
+            $returns = $this->paginationCompress ( "viewEventRequests/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewEventRequests($searchText, $returns["page"], $returns["segment"]);
+            
+            $this->global['pageTitle'] = 'MEWU : View Event Request';
+            
+            $this->loadViews("staff/viewEventRequests", $this->global, $data, NULL);
+        }
+    }
+
+     function viewRepairRequests()
+    {
+        if($this->isManager() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {        
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewRepairRequestCounts($searchText);
+
+            $returns = $this->paginationCompress ( "viewRepairRequests/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewRepairRequests($searchText, $returns["page"], $returns["segment"]);
+            
+            $this->global['pageTitle'] = 'MEWU :Repair Request';
+            
+            $this->loadViews("staff/viewRepairRequests", $this->global, $data, NULL);
+        }
+    }
     
    
 }
