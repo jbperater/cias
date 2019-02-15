@@ -549,8 +549,10 @@ class User_model extends CI_Model
      function viewMyScheduleCount($searchText = '')
     {
 
+
        
         $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateTimeStart, BaseTbl.dateTimeEnd, BaseTbl.remark, BaseTbl.dateReq');
+
 
         $this->db->from('tbl_job_request as BaseTbl');
         $this->db->where('personAtend',$this->session->userdata('userId'));

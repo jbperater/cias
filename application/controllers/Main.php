@@ -344,12 +344,6 @@ class Main extends BaseController
             redirect('maintenance/addHistory');   
             }
     }
-
-
-    
-
-
-
      
 
 }
