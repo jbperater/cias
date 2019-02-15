@@ -35,8 +35,6 @@ class Forecast extends Statistics
         $this->seasonal_components($y, $seasons, $st);
         $this->trend_components($y, $st, $seasons, $number_of_outputs, $tt);
         if( count($st) >= $seasons ) {
-            echo count($st).'/';
-            echo $seasons.' ';
             for( $i = 0; $i < $number_of_outputs; $i++ ) {
                 echo $number_of_outputs;
                 array_push($forecasts, $tt[$i] * $st[ $i % $seasons ] );
@@ -47,6 +45,8 @@ class Forecast extends Statistics
             "trend_components" => $tt,
             "forecasts" => $forecasts
         );
+
+        return $forecasts;
     }
 
     public function forecast(){
@@ -58,12 +58,24 @@ class Forecast extends Statistics
         $seasons = 3;
         $ma = array();
 
-        $this->time_series_forecast_multiplicative_model($y, $seasons, $forecast_number, $forecasts);
+        $out = $this->time_series_forecast_multiplicative_model($y, $seasons, $forecast_number, $forecasts);
         // $this->moving_average($y, $seasons, $ma);
                 
-        $result = json_encode($forecasts);
+        // echo json_encode($forecasts);
+        
+        $what = json_encode($out);
+        $data = (array)json_decode($what);
+        // foreach ($koyim as $m ) {
+        //    echo $m;
+           
+        //  }
+        $datani['data'] = $data;
+        $this->global['name'] =$this->session->userdata('name');
+        $this->global['role'] =$this->session->userdata('role');
+        $this->global['role_text'] =$this->session->userdata('role_text');
+        $this->global['pageTitle'] = 'MEWU : Forecast';
+        $this->loadViews("admin/viewForecastStatic", $this->global,$datani, NULL);
 
-        return $result;
     }
 
     public function lastMonthsData(){
@@ -71,17 +83,22 @@ class Forecast extends Statistics
         for ($i = 1; $i <= 12; $i++) {
             $months[] = date("Y-m%", strtotime( date( 'Y-m-01' )." -$i months"));
         }
+
         // var_dump ($this->db->query('SELECT * FROM tbl_reserve_request WHERE status="approve"')->result());
-        return = $this->db->query('SELECT MONTH(dateActual) as month , COUNT(dateActual) as data FROM tbl_reserve_request WHERE dateActual >= NOW() - INTERVAL 1 YEAR and status="approve" GROUP BY MONTH(dateActual)')->result();
+
+        $months = $this->db->query('SELECT MONTH(dateActual) as month , COUNT(dateActual) as data FROM tbl_reserve_request WHERE dateActual >= NOW() - INTERVAL 1 YEAR and status="approve" GROUP BY MONTH(dateActual)')->result();
         
-        // foreach ($months as $m ) {
-        //    echo $m->data;
-        //    $data[]=$m->data;
-        //  }
-        //  foreach ($data as $m ) {
-        //    echo $m;
+        foreach ($months as $m ) {
+           echo $m->data;
+           $data[]=$m->data;
+         }
+
+        
+
+         foreach ($data as $m ) {
+           echo $m;
            
-        //  }
+         }
 
     }
     

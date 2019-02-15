@@ -166,6 +166,10 @@ class Statistics extends CI_Controller{
 			"trend_components" => $tt,
 			"forecasts" => $forecasts
 		);
+
+		return $out;
+
+
 	}
 	/**
 	 * Calculates Mean Absolute Percent Error (MAPE)
