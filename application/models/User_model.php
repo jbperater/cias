@@ -596,13 +596,26 @@ class User_model extends CI_Model
         return $result;
     }
 
-      function editSchedule($jobInfo, $jobId)
-    {
+     function editSchedule($scheduleInfo, $jobId)
+    {   
+        $this->db->set('jobId','');
         $this->db->where('jobId', $jobId);
-        $this->db->update('tbl_job_request', $jobInfo);
+        $this->db->update('tbl_job_request', $scheduleInfo);
         
         return TRUE;
     }
+
+     function getJobInfo($jobId)
+    {
+        $this->db->select('jobId, itemNo, workDescript, location, dateTimeStart,dateTimeEnd,remark,dateReq');
+        $this->db->from('tbl_job_request');
+        $this->db->where('jobId', $jobId);
+        $query = $this->db->get();
+        
+        return $query->row();
+    }
+
+    
 
 }
 

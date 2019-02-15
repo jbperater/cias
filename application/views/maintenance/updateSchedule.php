@@ -1,9 +1,10 @@
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-users"></i> Update Schedule
-        <small></small>
+        <i class="fa fa-users"></i> User Management
+        <small>Add / Edit User</small>
       </h1>
     </section>
     
@@ -18,62 +19,64 @@
                 
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Enter Details</h3>
+                        <h3 class="box-title">Enter User Details</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
-                    <?php $this->load->helper("form"); ?>
-                    <form role="form" id="addHistory" action="<?php echo base_url() ?>scheduleUpdate" method="post" role="form">
+                    
+                    <form role="form" action="<?php echo base_url() ?>main/UpdateSchedule" method="post" id="" role="form">
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label for="dateReq">Number of Items</label>
-                                        <input type="Number" class="form-control required" value="" id="itemNo" name="itemNo" maxlength="128" placeholder="<?php echo $itemNo; ?>">
+                                        <label for="itemNo">Number of Items</label>
+                                        <input type="text" class="form-control" id="fname" placeholder="Number of Items" name="itemNo" value="<?php echo $itemNo; ?>" maxlength="128"> 
                                     </div>
                                     
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="description">Work Description</label>
-                                        <input type="text" class="form-control required " id="workDescript" value="" name="workDescript" maxlength="128" placeholder="Work Description">
+                                        <label for="workDescript">Work Description</label>
+                                        <input type="text" class="form-control" id="workDescript" placeholder="Work Description" name="workDescript" value="<?php echo $workDescript; ?>" maxlength="128">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="partRep">Location</label>
-                                        <input type="text" class="form-control required" id="location" name="location" maxlength="20" placeholder="Location">
+                                        <label for="location">Location</label>
+                                        <input type="text" class="form-control" id="location" placeholder="Location" name="location" maxlength="200">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="dateRep">Date and Time Started</label>
-                                        <input type="datetime-local" class="form-control required" id="dateTimeStart" name="dateTimeStart" maxlength="20" placeholder="Date and Time Started">
+                                        <label for="dateTimeStart">Date and Time Started</label>
+                                        <input type="Datetime_local" class="form-control" id="dateTimeStart" placeholder="Date and Time Started" name="dateTimeStart" maxlength="20">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="timeRep">Date Requested</label>
-                                        <input type="datetime-local" class="form-control required" id="dateReq" value="" name="dateReq" maxlength="10" placeholder="Date Requested">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="dateFin">Date and Time Completed:</label>
-                                        <input type="datetime-local" class="form-control required" id="dateTimeEnd" value="" name="dateTimeEnd" maxlength="10" placeholder="Date and Time Completed">
+                                        <label for="dateReq">Date and Time Requested</label>
+                                        <input type="Datetime_local" class="form-control" id="dateReq" placeholder="dateReq" name="dateReq" value="<?php echo $dateReq; ?>" maxlength="100">
                                     </div>
                                 </div>    
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="remark">Remarks/Status:</label>
-                                        <input type="text" class="form-control required" id="remark" value="" name="remark" maxlength="10" placeholder="Remarks">
+                                        <label for="dateTimeEnd">Date and Time Completed</label>
+                                        <input type="Datetime_local" class="form-control" id="dateTimeEnd" placeholder="Date and Time Completed" name="dateTimeEnd" value="<?php echo $dateTimeEnd; ?>" maxlength="100">
                                     </div>
-                                </div>
+                                </div>    
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="remark">Remarks</label>
+                                        <input type="text" class="form-control" id="remark" placeholder="Remarks" name="remark" value="<?php echo $remark; ?>" maxlength="100">
+                                    </div>
+                                </div>    
                             </div>
                         </div><!-- /.box-body -->
     
@@ -115,6 +118,6 @@
             </div>
         </div>    
     </section>
-    
 </div>
-<script src="<?php echo base_url(); ?>assets/js/addUser.js" type="text/javascript"></script>
+
+<script src="<?php echo base_url(); ?>assets/js/editUser.js" type="text/javascript"></script>

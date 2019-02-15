@@ -85,6 +85,13 @@ class Main_model extends CI_Model
   	function historyInsert($data) {
 		$this->db->insert('tbl_equipment_history',$data);		
 	}
+
+    function updateSchedule($id)
+      {
+      $data = $this->db->select()->from('tbl_job_request')->where('jobId',$id);
+      $data = $this->db->get();
+      return $data->result();
+      }
 	
 }
 
