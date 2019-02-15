@@ -35,6 +35,12 @@
                                                 </select>
                                         </div>
                                     </div>
+                            <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="department">Maintenance Personel:</label>
+                                            <input type="date" name="date_actual" class="form-control">
+                                        </div>
+                                    </div>
                         </div><!-- /.box-body -->
     
                         <div class="box-footer">

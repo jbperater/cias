@@ -39,8 +39,9 @@ class Main extends BaseController
     public function approveJobRequests(){
 
         $id = $this->input->post('id');
+        $date_actual = $this->input->post('date_actual');
         $personel = $this->input->post('personel');
-        $this->main_model->approveJobRequests($id,$personel);
+        $this->main_model->approveJobRequests($id,$personel,$date_actual);
         redirect(base_url().'user/viewRepairRequest');
     }
     public function assignJobRequests(){
@@ -63,7 +64,6 @@ class Main extends BaseController
         $this->global['role'] =$this->session->userdata('role');
         $this->global['role_text'] =$this->session->userdata('role');
         $this->global['pageTitle'] = 'CodeInsect : Dashboard';
-        
         $this->loadViews("admin/addEquipment", $this->global, NULL, NULL);
     }
     public function viewAddJobRequest(){
@@ -99,7 +99,7 @@ class Main extends BaseController
         $this->global['role'] =$this->session->userdata('role');
         $this->global['role_text'] =$this->session->userdata('role_text');
         $this->global['pageTitle'] = 'MEWU : Add New Venue';
-        $this->loadViews("admin/addEventEquipment ", $this->global, NULL, NULL);
+        $this->loadViews("admin/addEventEquipment", $this->global, NULL, NULL);
     }
 
     public function viewAddNewEventRequest(){
