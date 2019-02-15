@@ -12,46 +12,36 @@
         <div class="row">
             <div class="col-xs-12">
               <div class="box">
-                <div class="box-header">
-                    <h3 class="box-title">Repair Requests</h3>
-                    <div class="box-tools">
-                        <form action="<?php echo base_url() ?>viewRepairRequests" method="POST" id="searchList">
-                            <div class="input-group">
-                              <input type="text" name="searchText" value="<?php echo $searchText; ?>" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
-                              <div class="input-group-btn">
-                                <button class="btn btn-sm btn-default searchList"><i class="fa fa-search"></i></button>
-                              </div>
-                            </div>
-                        </form>
-                    </div>
-                </div><!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                     <tr>
                         <th>Months</th>
                         <th>Forecast</th>
-                          <th class="text-center">Actions</th>
+                          
                     </tr>
                     <?php
-                    if(!empty($userRecords))
+                    if(!empty($data))
                     {
-                        foreach($userRecords as $record)
+                        $x = 0;
+                        $months = array("January","Febuary","March","April","May","June","July","August","September","October","November","December");
+                        foreach($data as $record)
                         {
+
                     ?>
                     <tr>
+                        <td><?php echo $months[$x] ?></td>
                         <td><?php echo $record ?></td>
                         <!-- <td><?php echo $record->workDescript ?></td> -->
                     </tr>
                     <?php
+                        $x = $x + 1;
                         }
                     }
                     ?>
                   </table>
                   
                 </div><!-- /.box-body -->
-                <div class="box-footer clearfix">
-                    <?php echo $this->pagination->create_links(); ?>
-                </div>
+                
               </div><!-- /.box -->
             </div>
         </div>

@@ -36,7 +36,6 @@ class Forecast extends Statistics
         $this->trend_components($y, $st, $seasons, $number_of_outputs, $tt);
         if( count($st) >= $seasons ) {
             for( $i = 0; $i < $number_of_outputs; $i++ ) {
-                echo $number_of_outputs;
                 array_push($forecasts, $tt[$i] * $st[ $i % $seasons ] );
             }
         }
@@ -100,6 +99,13 @@ class Forecast extends Statistics
            
          }
 
+    }
+
+    function loadViews($viewName = "", $headerInfo = NULL, $pageInfo = NULL, $footerInfo = NULL){
+
+        $this->load->view('includes/header', $headerInfo);
+        $this->load->view($viewName, $pageInfo);
+        $this->load->view('includes/footer', $footerInfo);
     }
     
     
