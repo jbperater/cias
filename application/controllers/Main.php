@@ -18,6 +18,7 @@ class Main extends BaseController
         parent::__construct();
         $this->load->model('login_model');
         $this->load->model('main_model');
+        $this->global['notification'] =$this->main_model->getNotification($this->session->userdata('role'));
     }   
 
     /**
@@ -27,11 +28,37 @@ class Main extends BaseController
     {
         $this->isLoggedIn();
     }
+
+    public function approveEventRequests(){
+
+        $id = $this->input->get('id');
+        $this->main_model->approveEventRequests($id);
+        redirect(base_url().'user/viewEventRequest');
+    }
+
+    public function approveJobRequests(){
+
+        $id = $this->input->post('id');
+        $personel = $this->input->post('personel');
+        $this->main_model->approveJobRequests($id,$personel);
+        redirect(base_url().'user/viewRepairRequest');
+    }
+    public function assignJobRequests(){
+
+        $this->load->model('user_model');
+        $this->global['id'] =$this->input->get('id');
+        $this->global['name'] =$this->session->userdata('name');
+        $this->global['role'] =$this->session->userdata('role');
+        $this->global['role_text'] =$this->session->userdata('role');
+        $this->global['pageTitle'] = 'MEWU: Assign';
+        $this->global['option'] = $this->main_model->getMaintenanceStaff();
+        
+        $this->loadViews("admin/assignPersonJobRequest", $this->global, NULL, NULL);
+    }
     
     public function viewAddNewEquipment(){
 
         $this->load->model('user_model');
-
         $this->global['name'] =$this->session->userdata('name');
         $this->global['role'] =$this->session->userdata('role');
         $this->global['role_text'] =$this->session->userdata('role');
@@ -90,20 +117,21 @@ class Main extends BaseController
 
     public function viewEventSchedule(){
 
+       
         $this->global['name'] =$this->session->userdata('name');
         $this->global['role'] =$this->session->userdata('role');
         $this->global['role_text'] =$this->session->userdata('role_text');
         $this->global['pageTitle'] = 'MEWU : Add New Department';
         $this->loadViews("viewEventSchedule", $this->global, NULL, NULL);
     }
-
-     public function viewAddNewHistory(){
-
+    public function viewForecast(){
+        $data = $this->main_model->get_data()->result();
+        $this->global['data'] = json_encode($data);
         $this->global['name'] =$this->session->userdata('name');
         $this->global['role'] =$this->session->userdata('role');
         $this->global['role_text'] =$this->session->userdata('role_text');
-        $this->global['pageTitle'] = 'MEWU : Add History';
-        $this->loadViews("maintenance/addHistory", $this->global, NULL, NULL);
+        $this->global['pageTitle'] = 'MEWU : Forecast';
+        $this->loadViews("admin/viewForecast", $this->global, NULL, NULL);
     }
 
     public function venueInsert(){
@@ -294,7 +322,7 @@ class Main extends BaseController
         
         $this->form_validation->set_rules('dateReq', 'dateReq', 'required');
         
-        
+
         
         if ($this->form_validation->run() == false) {
             
@@ -303,26 +331,19 @@ class Main extends BaseController
             } else {
 
             $data = array(  
-                'equipId' => $this->input->get('id'),
                 'dateReq' => $this->input->post('dateReq'),
                 'description' => $this->input->post('description'),
                 'partRep' => $this->input->post('partRep'),
                 'dateRep' => $this->input->post('dateRep'),
                 'timeRep' => $this->input->post('timeRep'),
-                'dateFin' => $this->input->post('dateFin'),
+                'datefin' => 'datefin',
                 'remark' => $this->input->post('remark'),
                 'performedBy' => $this->input->post('performedBy'),
             );  
             $this->main_model->historyInsert($data);
-            $this->viewAddNewHistory();
+            redirect('maintenance/addHistory');   
             }
     }
-    
-
-
-
-
-
      
 
 }

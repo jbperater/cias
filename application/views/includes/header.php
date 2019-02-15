@@ -18,6 +18,8 @@
     <link href="<?php echo base_url(); ?>assets/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
     <!-- fullcalendar -->
     <link href="<?php echo base_url() ?>assets/bower_components/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo base_url();?>assets/assets/bower_components/morris.js/morris.css" rel="stylesheet">
+
     <style>
     	.error{
     		color:red;
@@ -29,6 +31,7 @@
     <script type="text/javascript">
         var baseURL = "<?php echo base_url(); ?>";
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -70,7 +73,7 @@
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <?php foreach($notification as $notification){?>
-                  <li><a href=<?=$notification->id;?>><?=$notification->type;?> - &nbsp<?=$notification->resBy;?></a></li>
+                  <li><a href=<?=$notification->id;?>><?=$notification->type;?> - &nbsp<?=$notification->name;?></a></li>
                   <?php }?>
                   <li><a href="#">HTML</a></li>
                   <li><a href="#">CSS</a></li>
@@ -169,7 +172,7 @@
                                 <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Repair Schedules</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>forecast/forecast"> Troubleshot</a>
+                                <a href="<?php echo base_url(); ?>forecast/lastMonthsData"> Troubleshot</a>
                             </li>
                           </ul>
             </li>
@@ -221,7 +224,7 @@
                <a href="javascript:;" data-toggle="collapse" data-target="#demo6"><i class="fa fa-fw fa-file"></i> Forecasts <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo6" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> View Forecasts</a>
+                                <a href="<?php echo base_url(); ?>main/viewForecast"> View Forecasts</a>
                             </li>
                         </ul>
               </li>

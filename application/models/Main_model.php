@@ -9,6 +9,21 @@
  */
 class Main_model extends CI_Model
 {
+
+	function approveEventRequests($id){
+		
+      	$this->db->set('status','approve');
+      	$this->db->where('formNo',$id);
+      	$this->db->update('tbl_reserve_request');
+  	}
+
+	function approveJobRequests($id,$personel){
+
+      	$this->db->set('remark','approve');
+      	$this->db->set('personAtend',$personel);
+      	$this->db->where('jobId',$id);
+      	$this->db->update('tbl_job_request');
+  	}
     
     function getVenue(){
       	$this->db->select('venID,bldgNo,name,type');
@@ -31,6 +46,13 @@ class Main_model extends CI_Model
   	function getLastId(){
       	$last=$this->db->insert_id('tbl_reserve_request',array('form_no' => 'value'));
 		return $last;
+  	}
+
+  	function getMaintenanceStaff(){
+      	$this->db->select('userId,name,roleId');
+      	$this->db->where('roleId',3);
+      	$result = $this->db->get('tbl_users');
+     	return $result->result();
   	}
 
   	function venueInsert($data) {
@@ -74,11 +96,26 @@ class Main_model extends CI_Model
   	}
 
   	function getNotification($roleId){
-      	$this->db->select('id,type,ownerNotify,adminNotify,resBy');
+      	$this->db->select('tbl_notification.id,tbl_notification.type,tbl_notification.ownerNotify,tbl_notification.adminNotify,tbl_notification.resBy,tbl_users.name');
+      	$this->db->from('tbl_notification');
+      	$this->db->join('tbl_users','tbl_notification.resBy=tbl_users.userId');
       	if($roleId == 1){
       		$this->db->where('adminNotify',1);
+      		$this->db->where('resBy !=',$this->session->userdata('userId'));
       	}
-      	$result = $this->db->get('tbl_notification');
+      	elseif($roleId == 2){
+      		$this->db->where('ownerNotify',1);
+      		$this->db->where('resBy',$this->session->userdata('userId'));
+      	}
+      	elseif($roleId == 3){
+      		$this->db->where('ownerNotify',1);
+      		$this->db->where('resBy',$this->session->userdata('userId'));
+      	}
+      	else{
+      		$this->db->where('ownerNotify',1);
+      		$this->db->where('resBy',$this->session->userdata('userId'));
+      	}
+      	$result = $this->db->get();
      	return $result->result();
   	}
 
@@ -86,12 +123,11 @@ class Main_model extends CI_Model
 		$this->db->insert('tbl_equipment_history',$data);		
 	}
 
-    function updateSchedule($id)
-      {
-      $data = $this->db->select()->from('tbl_job_request')->where('jobId',$id);
-      $data = $this->db->get();
-      return $data->result();
-      }
+   function get_data(){
+      $this->db->select('year,purchase,sale,profit');
+      $result = $this->db->get('account');
+      return $result;
+  }
 	
 }
 

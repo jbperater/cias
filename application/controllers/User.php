@@ -20,6 +20,7 @@ class User extends BaseController
         $this->load->model('user_model');
         $this->load->model('main_model');
         $this->isLoggedIn();   
+         $this->global['notification'] =$this->main_model->getNotification($this->session->userdata('role'));
     }
     
     /**
@@ -28,8 +29,7 @@ class User extends BaseController
     public function index()
     {
         $this->global['pageTitle'] = 'CodeInsect : Dashboard';
-        $this->global['notification'] = $this->main_model->getNotification($this->session->userdata('roleid'));
-
+        $this->global['notification'] = $this->main_model->getNotification($this->session->userdata('role'));
         $this->loadViews("dashboard", $this->global, NULL , NULL);
     }
     

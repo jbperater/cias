@@ -63,6 +63,30 @@ class Forecast extends Statistics
                 
         echo json_encode($forecasts);
     }
+
+    public function lastMonthsData(){
+
+        for ($i = 1; $i <= 12; $i++) {
+            $months[] = date("Y-m%", strtotime( date( 'Y-m-01' )." -$i months"));
+        }
+
+        // var_dump ($this->db->query('SELECT * FROM tbl_reserve_request WHERE status="approve"')->result());
+
+        return = $this->db->query('SELECT MONTH(dateActual) as month , COUNT(dateActual) as data FROM tbl_reserve_request WHERE dateActual >= NOW() - INTERVAL 1 YEAR and status="approve" GROUP BY MONTH(dateActual)')->result();
+        
+        // foreach ($months as $m ) {
+        //    echo $m->data;
+        //    $data[]=$m->data;
+        //  }
+
+        
+
+        //  foreach ($data as $m ) {
+        //    echo $m;
+           
+        //  }
+
+    }
     
     
 }

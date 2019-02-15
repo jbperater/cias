@@ -466,6 +466,7 @@ class User_model extends CI_Model
     {
         $this->db->select('BaseTbl.formNo, BaseTbl.noParticipant, BaseTbl.dateActual, BaseTbl.timeActual, BaseTbl.dateEnd, BaseTbl.timeEnd, BaseTbl.purpose,BaseTbl.tittleEvent,BaseTbl.contactNo,BaseTbl.departmentID,BaseTbl.venueID,BaseTbl.resBy,BaseTbl.dateReq');
         $this->db->from('tbl_reserve_request as BaseTbl');
+        $this->db->where('status','pending');
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.tittleEvent  LIKE '%".$searchText."%'
                             OR  BaseTbl.resBy  LIKE '%".$searchText."%')";
@@ -488,6 +489,7 @@ class User_model extends CI_Model
     {
         $this->db->select('BaseTbl.formNo, BaseTbl.noParticipant, BaseTbl.dateActual, BaseTbl.timeActual, BaseTbl.dateEnd, BaseTbl.timeEnd, BaseTbl.purpose,BaseTbl.tittleEvent,BaseTbl.contactNo,BaseTbl.departmentID,BaseTbl.venueID,BaseTbl.resBy,BaseTbl.dateReq');
         $this->db->from('tbl_reserve_request as BaseTbl');
+        $this->db->where('status','pending');
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.tittleEvent  LIKE '%".$searchText."%'
                             OR  BaseTbl.resBy  LIKE '%".$searchText."%')";
@@ -504,8 +506,9 @@ class User_model extends CI_Model
 
     function viewRepairRequestCount($searchText = '')
     {
-        $this->db->select('BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateReq');
+        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateReq');
         $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->where('remark','pending');
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
                             OR  BaseTbl.location  LIKE '%".$searchText."%')";
@@ -526,8 +529,9 @@ class User_model extends CI_Model
      */
     function viewRepairRequest($searchText = '', $page, $segment)
     {
-        $this->db->select('BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateReq');
+        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateReq');
         $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->where('remark','pending');
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
                             OR  BaseTbl.location  LIKE '%".$searchText."%')";
@@ -544,8 +548,14 @@ class User_model extends CI_Model
 
      function viewMyScheduleCount($searchText = '')
     {
+
+
+       
         $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateTimeStart, BaseTbl.dateTimeEnd, BaseTbl.remark, BaseTbl.dateReq');
+
+
         $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->where('personAtend',$this->session->userdata('userId'));
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
                             OR  BaseTbl.remark  LIKE '%".$searchText."%')";
@@ -568,6 +578,7 @@ class User_model extends CI_Model
     {
         $this->db->select('BaseTbl.*');
         $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->where('personAtend',$this->session->userdata('userId'));
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
                             OR  BaseTbl.remark  LIKE '%".$searchText."%')";
