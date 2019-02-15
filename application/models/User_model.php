@@ -621,6 +621,86 @@ class User_model extends CI_Model
         
         return $query->row();
     }
+    function viewEventRequestCounts($searchText = '')
+    {
+        $this->db->select('BaseTbl.formNo, BaseTbl.noParticipant, BaseTbl.dateActual, BaseTbl.timeActual, BaseTbl.dateEnd, BaseTbl.timeEnd, BaseTbl.purpose,BaseTbl.tittleEvent,BaseTbl.contactNo,BaseTbl.departmentID,BaseTbl.venueID,BaseTbl.resBy,BaseTbl.dateReq');
+        $this->db->from('tbl_reserve_request as BaseTbl');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.tittleEvent  LIKE '%".$searchText."%'
+                            OR  BaseTbl.resBy  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $query = $this->db->get();
+        
+        return $query->num_rows();
+    }
+    
+    /**
+     * This function is used to get the user listing count
+     * @param string $searchText : This is optional search text
+     * @param number $page : This is pagination offset
+     * @param number $segment : This is pagination limit
+     * @return array $result : This is result
+     */
+    function viewEventRequests($searchText = '', $page, $segment)
+    {
+        $this->db->select('BaseTbl.formNo, BaseTbl.noParticipant, BaseTbl.dateActual, BaseTbl.timeActual, BaseTbl.dateEnd, BaseTbl.timeEnd, BaseTbl.purpose,BaseTbl.tittleEvent,BaseTbl.contactNo,BaseTbl.departmentID,BaseTbl.venueID,BaseTbl.resBy,BaseTbl.dateReq');
+        $this->db->from('tbl_reserve_request as BaseTbl');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.tittleEvent  LIKE '%".$searchText."%'
+                            OR  BaseTbl.resBy  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $this->db->order_by('BaseTbl.formNo', 'ASC');
+        $this->db->limit($page, $segment);
+        $query = $this->db->get();
+        
+        $result = $query->result();        
+        return $result;
+    }
+
+
+     function viewRepairRequestCounts($searchText = '')
+    {
+        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateReq');
+        $this->db->from('tbl_job_request as BaseTbl');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
+                            OR  BaseTbl.location  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $query = $this->db->get();
+        
+        return $query->num_rows();
+    }
+    
+    /**
+     * This function is used to get the user listing count
+     * @param string $searchText : This is optional search text
+     * @param number $page : This is pagination offset
+     * @param number $segment : This is pagination limit
+     * @return array $result : This is result
+     */
+    function viewRepairRequests($searchText = '', $page, $segment)
+    {
+        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateReq');
+        $this->db->from('tbl_job_request as BaseTbl');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
+                            OR  BaseTbl.location  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $this->db->order_by('BaseTbl.jobId', 'ASC');
+        $this->db->limit($page, $segment);
+        $query = $this->db->get();
+        
+        $result = $query->result();        
+        return $result;
+    }
 
     
 

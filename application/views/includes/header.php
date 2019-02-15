@@ -301,12 +301,12 @@
                <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i> View Requests <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo1" class="collapse">
                             <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Approved Event Requests</a>
+                                <a href="<?php echo base_url(); ?>User/viewEventRequests"> All My Event Requests</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Approved Repair Requests</a>
+                                <a href="<?php echo base_url(); ?>User/viewRepairRequests"> All My Repair Requests</a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Declined Event Requests</a>
                             </li>
                             <li>
@@ -317,7 +317,7 @@
                             </li>
                             <li>
                                 <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Pending Repair Requests</a>
-                            </li>
+                            </li> -->
                           </ul>
              <li class="treeview">
               <a href="<?php echo base_url(); ?>main/viewEventSchedule">
