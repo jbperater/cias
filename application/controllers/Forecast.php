@@ -61,7 +61,9 @@ class Forecast extends Statistics
         $this->time_series_forecast_multiplicative_model($y, $seasons, $forecast_number, $forecasts);
         // $this->moving_average($y, $seasons, $ma);
                 
-        echo json_encode($forecasts);
+        $result = json_encode($forecasts);
+
+        return $result;
     }
 
     public function lastMonthsData(){
@@ -69,18 +71,13 @@ class Forecast extends Statistics
         for ($i = 1; $i <= 12; $i++) {
             $months[] = date("Y-m%", strtotime( date( 'Y-m-01' )." -$i months"));
         }
-
         // var_dump ($this->db->query('SELECT * FROM tbl_reserve_request WHERE status="approve"')->result());
-
         return = $this->db->query('SELECT MONTH(dateActual) as month , COUNT(dateActual) as data FROM tbl_reserve_request WHERE dateActual >= NOW() - INTERVAL 1 YEAR and status="approve" GROUP BY MONTH(dateActual)')->result();
         
         // foreach ($months as $m ) {
         //    echo $m->data;
         //    $data[]=$m->data;
         //  }
-
-        
-
         //  foreach ($data as $m ) {
         //    echo $m;
            

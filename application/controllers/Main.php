@@ -39,8 +39,9 @@ class Main extends BaseController
     public function approveJobRequests(){
 
         $id = $this->input->post('id');
+        $date_actual = $this->input->post('date_actual');
         $personel = $this->input->post('personel');
-        $this->main_model->approveJobRequests($id,$personel);
+        $this->main_model->approveJobRequests($id,$personel,$date_actual);
         redirect(base_url().'user/viewRepairRequest');
     }
     public function assignJobRequests(){

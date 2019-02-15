@@ -17,9 +17,10 @@ class Main_model extends CI_Model
       	$this->db->update('tbl_reserve_request');
   	}
 
-	function approveJobRequests($id,$personel){
+	function approveJobRequests($id,$personel,$date_actual){
 
       	$this->db->set('remark','approve');
+        $this->db->set('dateTimeStart',$date_actual);
       	$this->db->set('personAtend',$personel);
       	$this->db->where('jobId',$id);
       	$this->db->update('tbl_job_request');
