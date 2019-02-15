@@ -699,61 +699,23 @@ class User extends BaseController
         }
     }
 
-    function scheduleUpdate()
+    function editJob($userId = NULL)
     {
-        $this->load->library('form_validation');
-            
-        $this->form_validation->set_rules('itemNo','Number of Items','required|min_length[128]');
-        $this->form_validation->set_rules('workDescript','Work Description','required|min_length[128]');
-        $this->form_validation->set_rules('location','Location','required|min_length[128]');
-        $this->form_validation->set_rules('dateTimeStart','Date and Time Started','required|min_length[128]');
-        $this->form_validation->set_rules('dateTimeEnd','Date and Time Completed','required|min_length[128]');
-        $this->form_validation->set_rules('remark','Remarks','required|min_length[128]');
-        $this->form_validation->set_rules('dateReq','Date Requested','required|min_length[128]');
-            
-        
-        if($this->form_validation->run() == FALSE)
-        {   
-            $id=$this->input->get('id');
-            $itemNo = ucwords(strtolower($this->security->xss_clean($this->input->post('itemNo'))));
-            $workDescript = ucwords(strtolower($this->security->xss_clean($this->input->post('workDescript'))));
-            $location = ucwords(strtolower($this->security->xss_clean($this->input->post('location'))));
-            $dateTimeStart = ucwords(strtolower($this->security->xss_clean($this->input->post('dateTimeStart'))));
-            $dateTimeEnd = ucwords(strtolower($this->security->xss_clean($this->input->post('dateTimeEnd'))));
-            $remark = ucwords(strtolower($this->security->xss_clean($this->input->post('remark'))));
-            $dateReq = ucwords(strtolower($this->security->xss_clean($this->input->post('dateReq'))));
-            
-            $scheduleInfo = array('itemNo'=>$itemNo, 'workDescript'=>$workDescript, 'location'=>$location, 'dateTimeStart'=>$dateTimeStart, 'dateTimeEnd'=>$dateTimeEnd,'remark'=>$remark, 'dateReq'=>$dateReq);
-            
-            // $result = $this->user_model->editSchedule($scheduleInfo,$id);
-            
-            if($result == true)
-            {
-                $this->session->set_flashdata('success', 'Updated successfully');
-            }
-            else
-            {
-                $this->session->set_flashdata('error', 'Updation failed');
-            }
-
-            $this->viewUpdateSchedule();
+        if($this->isEmployee() == TRUE || $jobId == jobId)
+        {
+            $this->loadThis();
         }
-
-
+        else
+        {
+            if($jobId == null)
+            
+            $data['jobInfo'] = $this->user_model->getJobInfo($jobId);
+            
+            $this->global['pageTitle'] = 'CodeInsect : Edit Job';
+            
+            $this->loadViews("updateSchedule", $this->global, $data, NULL);
+        }
     }
-
-    public function viewUpdateSchedule(){
-
-        $this->load->model('user_model');
-
-        $this->global['name'] =$this->session->userdata('name');
-        $this->global['role'] =$this->session->userdata('role');
-        $this->global['role_text'] =$this->session->userdata('role');
-        $this->global['pageTitle'] = 'CodeInsect : Dashboard';
-        
-        $this->loadViews("maintenance/updateSchedule", $this->global, NULL, NULL);
-    }
-
     
    
 }
