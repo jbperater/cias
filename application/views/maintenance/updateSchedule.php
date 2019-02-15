@@ -1,20 +1,9 @@
-<?php
-$jobId = $scheduleInfo->jobId;
-$itemNo = $scheduleInfo->itemNo;
-$workDescript = $scheduleInfo->workDescript;
-$location = $scheduleInfo->location;
-$dateTimeStart = $scheduleInfo->dateTimeStart;
-$dateTimeEnd = $scheduleInfo->dateTimeEnd;
-$remark = $scheduleInfo->remark;
-$dateReq = $scheduleInfo->dateReq;
-?>
-
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-users"></i> User Management
-        <small>Add / Edit User</small>
+        <i class="fa fa-users"></i> Update Schedule
+        <small></small>
       </h1>
     </section>
     
@@ -29,65 +18,62 @@ $dateReq = $scheduleInfo->dateReq;
                 
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Enter User Details</h3>
+                        <h3 class="box-title">Enter Details</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
-                    
-                    <form role="form" action="<?php echo base_url() ?>user/editSchedule" method="post" id="editUser" role="form">
+                    <?php $this->load->helper("form"); ?>
+                    <form role="form" id="addHistory" action="<?php echo base_url() ?>scheduleUpdate" method="post" role="form">
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label for="fname">Item Number</label>
-                                        <input type="text" class="form-control" id="itemNo" placeholder="Item Number" name="itemNo" value="<?php echo $itemNo; ?>" maxlength="128">
-                                        <input type="hidden" value="<?php echo $itemNo; ?>" name="userId" id="userId" />    
+                                        <label for="dateReq">Number of Items</label>
+                                        <input type="Number" class="form-control required" value="" id="itemNo" name="itemNo" maxlength="128" placeholder="<?php echo $itemNo; ?>">
                                     </div>
                                     
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="email">Work Description</label>
-                                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" value="<?php echo $email; ?>" maxlength="128">
+                                        <label for="description">Work Description</label>
+                                        <input type="text" class="form-control required " id="workDescript" value="" name="workDescript" maxlength="128" placeholder="Work Description">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="password">Location</label>
-                                        <input type="password" class="form-control" id="password" placeholder="Password" name="password" maxlength="20">
+                                        <label for="partRep">Location</label>
+                                        <input type="text" class="form-control required" id="location" name="location" maxlength="20" placeholder="Location">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="cpassword">Date and Time Started</label>
-                                        <input type="password" class="form-control" id="cpassword" placeholder="Confirm Password" name="cpassword" maxlength="20">
+                                        <label for="dateRep">Date and Time Started</label>
+                                        <input type="datetime-local" class="form-control required" id="dateTimeStart" name="dateTimeStart" maxlength="20" placeholder="Date and Time Started">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="mobile">Date Requested</label>
-                                        <input type="text" class="form-control" id="mobile" placeholder="Mobile Number" name="mobile" value="<?php echo $mobile; ?>" maxlength="10">
+                                        <label for="timeRep">Date Requested</label>
+                                        <input type="datetime-local" class="form-control required" id="dateReq" value="" name="dateReq" maxlength="10" placeholder="Date Requested">
                                     </div>
-                                </div>   
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="dateFin">Date and Time Completed:</label>
+                                        <input type="datetime-local" class="form-control required" id="dateTimeEnd" value="" name="dateTimeEnd" maxlength="10" placeholder="Date and Time Completed">
+                                    </div>
+                                </div>    
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="mobile">Date and Time Completed</label>
-                                        <input type="text" class="form-control" id="mobile" placeholder="Mobile Number" name="mobile" value="<?php echo $mobile; ?>" maxlength="10">
+                                        <label for="remark">Remarks/Status:</label>
+                                        <input type="text" class="form-control required" id="remark" value="" name="remark" maxlength="10" placeholder="Remarks">
                                     </div>
-                                </div>   
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="mobile">Remarks</label>
-                                        <input type="text" class="form-control" id="mobile" placeholder="Mobile Number" name="mobile" value="<?php echo $mobile; ?>" maxlength="10">
-                                    </div>
-                                </div>   
+                                </div>
                             </div>
                         </div><!-- /.box-body -->
     
@@ -129,6 +115,6 @@ $dateReq = $scheduleInfo->dateReq;
             </div>
         </div>    
     </section>
+    
 </div>
-
-<script src="<?php echo base_url(); ?>assets/js/editUser.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/js/addUser.js" type="text/javascript"></script>

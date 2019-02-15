@@ -16,6 +16,7 @@ class Login extends CI_Controller
     {
         parent::__construct();
         $this->load->model('login_model');
+        $this->load->model('main_model');
     }
 
     /**
