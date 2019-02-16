@@ -766,6 +766,56 @@ class User extends BaseController
             $this->loadViews("staff/viewRepairRequests", $this->global, $data, NULL);
         }
     }
+
+    function viewSummaryReport()
+    {
+        if($this->isEmployee() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {        
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewSummaryReportCount($searchText);
+
+            $returns = $this->paginationCompress ( "viewSummaryReport/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewSummaryReport($searchText, $returns["page"], $returns["segment"]);
+            
+            $this->global['pageTitle'] = 'MEWU :Summary Report';
+            
+            $this->loadViews("maintenance/viewSummaryReport", $this->global, $data, NULL);
+        }
+    }
+
+     function viewStudentRequest()
+    {
+        if($this->isStudent() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {        
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewStudentRequestCount($searchText);
+
+            $returns = $this->paginationCompress ( "viewStudentRequest/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewStudentRequest($searchText, $returns["page"], $returns["segment"]);
+            
+            $this->global['pageTitle'] = 'MEWU :My Requests';
+            
+            $this->loadViews("student/viewStudentRequest", $this->global, $data, NULL);
+        }
+    }
     
    
 }

@@ -234,53 +234,7 @@
                 <span>Accounts</span>
               </a>
             </li>
-              <!-- <a href="#" >
-                <i class="fa fa-thumb-tack"></i>
-                <span>View Requests</span>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="#" >
-                <i class="fa fa-upload"></i>
-                <span>Set Schedules</span>
-              </a>
-            </li>
-             <li class="treeview">
-              <a href="#" >
-                <i class="fa fa-thumb-tack"></i>
-                <span>View Schedules</span>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="#" >
-                <i class="fa fa-upload"></i>
-                <span>Equipment</span>
-              </a>
-            </li>
-             <li class="treeview">
-              <a href="#" >
-                <i class="fa fa-thumb-tack"></i>
-                <span>Event Equipment</span>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="#" >
-                <i class="fa fa-upload"></i>
-                <span>Venue</span>
-              </a>
-            </li>
-             <li class="treeview">
-              <a href="#" >
-                <i class="fa fa-thumb-tack"></i>
-                <span>Forecast</span>
-              </a>
-            </li>
-             <li class="treeview">
-              <a href="<?php echo base_url(); ?>userListing">
-                <i class="fa fa-users"></i>
-                <span>Accounts</span>
-              </a>
-            </li>-->
+             
             <?php
             }
             if($role ==ROLE_MANAGER)
@@ -306,18 +260,6 @@
                             <li>
                                 <a href="<?php echo base_url(); ?>User/viewRepairRequests"> All My Repair Requests</a>
                             </li>
-                            <!-- <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Declined Event Requests</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Declined Repair Requests</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Pending Event Requests</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Pending Repair Requests</a>
-                            </li> -->
                           </ul>
              <li class="treeview">
               <a href="<?php echo base_url(); ?>main/viewEventSchedule">
@@ -330,29 +272,18 @@
             if($role ==ROLE_STUDENT)
             {
             ?>
-            <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-thumb-tack"></i>Request <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="<?php echo base_url(); ?>Main/viewAddNewEventRequest">  Add Event Requests</a>
-                            </li>
-                          </ul>
-            <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i> View Requests <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo1" class="collapse">
-                            <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> All Requests</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Approved Requests</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page1"> Pending Requests</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Declined Requests</a>
-                            </li>
-                          </ul>
+             <li class="treeview">
+              <a href="<?php echo base_url(); ?>Main/viewAddNewEventRequest">
+                <i class="fa fa-thumb-tack"></i>
+                <span>Add Event Requests</span>
+              </a>
+            </li>
+             <li class="treeview">
+              <a href="<?php echo base_url(); ?>User/viewStudentRequest">
+                <i class="fa fa-thumb-tack"></i>
+                <span>View My Requests</span>
+              </a>
+            </li>
              <li class="treeview">
               <a href="<?php echo base_url(); ?>main/viewEventSchedule">
                 <i class="fa fa-users"></i>
@@ -377,7 +308,7 @@
               </a>
             </li>
              <li class="treeview">
-              <a href="">
+              <a href="<?php echo base_url(); ?>User/viewSummaryReport">
                 <i class="fa fa-thumb-tack"></i>
                 <span>View Summary Report</span>
               </a>
