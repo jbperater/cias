@@ -86,6 +86,17 @@ class Main extends BaseController
         $this->loadViews("jobRequest", $this->global, NULL, NULL);
     }
 
+    public function viewAddJobRequestEdit(){
+        
+        $id = $this->input->get('id');
+        $data['data'] = $this->main_model->getJobRequestData($id);
+        $this->global['name'] =$this->session->userdata('name');
+        $this->global['role'] =$this->session->userdata('role');
+        $this->global['role_text'] =$this->session->userdata('role_text');
+        $this->global['pageTitle'] = 'MEWU : Edit Repair Info';
+        $this->loadViews("jobRequestEdit", $this->global, $data, NULL);
+    }
+
     public function viewAddNewVenue(){
 
         $this->global['name'] =$this->session->userdata('name');
@@ -331,6 +342,23 @@ class Main extends BaseController
             $this->main_model->jobRequestInsert($data);
             redirect('main/jobRequestInsert'); 
             }
+    }
+
+    public function jobRequestUpdate(){
+        $jobId = $this->input->post('jobId');
+        $remark = $this->input->post('remark');
+        $dateTimeEnd = $this->input->post('dateTimeEnd');
+        $this->main_model->jobRequestUpdate($jobId,$dateTimeEnd,$remark);
+        $result = $this->main_model->jobRequestUpdate($jobId,$dateTimeEnd,$remark);
+        if($result == true)
+        {
+            $this->session->set_flashdata('success', 'User updated successfully');
+        }
+        else
+        {
+            $this->session->set_flashdata('error', 'User updation failed');
+        }
+        redirect(base_url().'user/viewMySchedule');
     }
 
      public function historyInsert(){
