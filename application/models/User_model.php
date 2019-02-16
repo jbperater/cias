@@ -575,6 +575,7 @@ class User_model extends CI_Model
         $this->db->select('BaseTbl.*');
         $this->db->from('tbl_job_request as BaseTbl');
         $this->db->where('personAtend',$this->session->userdata('userId'));
+        $this->db->where('remark','pending');
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
                             OR  BaseTbl.remark  LIKE '%".$searchText."%')";

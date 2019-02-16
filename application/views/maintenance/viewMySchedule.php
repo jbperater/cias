@@ -52,7 +52,7 @@
                         <td><?php echo $record->dateReq ?></td>
                         <td><?php echo $record->remark ?></td>
                         <td class="text-center">
-                            <a class="btn btn-sm btn-info" href="<?php echo base_url() ?>main/updateSchedule?id=<?php echo $record->jobId ?>" title="Update"><i class="fa fa-pencil"></i></a>
+                            <a class="btn btn-sm btn-info" href="<?php echo base_url() ?>main/viewAddJobRequestEdit?id=<?php echo $record->jobId ?>" title="Update"><i class="fa fa-pencil"></i></a>
                         </td>
                     </tr>
                     <?php

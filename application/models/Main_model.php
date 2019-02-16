@@ -36,7 +36,14 @@ class Main_model extends CI_Model
       	$this->db->select('equipId,name,type');
       	$result = $this->db->get('tbl_event_equip');
       	return $result->result();
-  	} 
+  	}
+
+    function getJobRequestData($id){
+        $this->db->select('jobId,itemNo,workDescript,location,dateTimeStart,dateTimeEnd,remark');
+        $this->db->where('jobId',$id);
+        $result = $this->db->get('tbl_job_request');
+        return $result->result();
+    }  
 
   	function getDepartment(){
       	$this->db->select('departId,acroname,name');
@@ -128,6 +135,14 @@ class Main_model extends CI_Model
       $this->db->select('year,purchase,sale,profit');
       $result = $this->db->get('account');
       return $result;
+  }
+
+  function jobRequestUpdate($id,$date,$remark) {
+     $this->db->set('dateTimeEnd',$date);
+     $this->db->set('remark',$remark);
+     $this->db->where('jobId',$id);
+     $this->db->update('tbl_job_request');
+       
   }
 	
 }
