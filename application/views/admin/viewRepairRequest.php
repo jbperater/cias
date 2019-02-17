@@ -47,7 +47,7 @@
                         <td><?php echo $record->dateReq ?></td>
                          <td class="text-center">
                             <a class="btn btn-sm btn-info" data-userid="" href="<?php echo base_url() ?>main/assignJobRequests?id=<?php echo $record->jobId ?>" title="Approve"><i class="fa fa-pencil"></i></a>
-                            <a class="btn btn-sm btn-danger deleteUser" href="#" data-userid="" title="Declined"><i class="fa fa-trash"></i></a>
+                            <a class="btn btn-sm btn-danger deleteUser" href="#" data-userid="" title="Disapprove"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     <?php

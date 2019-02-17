@@ -27,7 +27,7 @@
                              <div class="col-md-6">
                                         <div class="form-group">
                                             <input type="hidden" value="<?php echo $id ?>" name="id">
-                                            <label for="department">Maintenance Personel:</label>
+                                            <label for="department">Maintenance Personel</label>
                                             <select name="personel" id="" class="form-control">
                                                   <?php foreach($option as $option){?>
                                                 <option value=<?=$option->userId;?>><?=$option->name;?></option>
@@ -37,7 +37,7 @@
                                     </div>
                             <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="department">Maintenance Personel:</label>
+                                            <label for="department">Date Started</label>
                                             <input type="date" name="date_actual" class="form-control">
                                         </div>
                                     </div>

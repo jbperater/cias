@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-users"></i> History
+        <i class="fa fa-users"></i> History Management
         <small>Add History</small>
       </h1>
     </section>
@@ -27,14 +27,14 @@
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label for="dateReq">Date Requested:</label>
+                                        <label for="dateReq">Date Requested</label>
                                         <input type="date" class="form-control required" value="" id="dateReq" name="dateReq" maxlength="128" placeholder="Date Requested">
                                     </div>
                                     
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="description">Description of Equipment:</label>
+                                        <label for="description">Description of Equipment</label>
                                         <input type="text" class="form-control required " id="description" value="" name="description" maxlength="128" placeholder="Description">
                                     </div>
                                 </div>
@@ -42,13 +42,13 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="partRep">Parts Used/Replaced:</label>
+                                        <label for="partRep">Parts Used/Replaced</label>
                                         <input type="text" class="form-control required" id="partRep" name="partRep" maxlength="20" placeholder="Part Used/Replaced">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="dateRep">Date of Repair:</label>
+                                        <label for="dateRep">Date of Repair</label>
                                         <input type="date" class="form-control required" id="dateRep" name="dateRep" maxlength="20" placeholder="Date of Repair">
                                     </div>
                                 </div>
@@ -56,13 +56,13 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="timeRep">Time of Repair:</label>
+                                        <label for="timeRep">Time of Repair</label>
                                         <input type="time" class="form-control required" id="timeRep" value="" name="timeRep" maxlength="10" placeholder="Time of Repair">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="dateFin">Date Completed:</label>
+                                        <label for="dateFin">Date Completed</label>
                                         <input type="date" class="form-control required" id="dateFin" value="" name="dateFin" maxlength="10" placeholder="Date Completed">
                                     </div>
                                 </div>    
@@ -70,7 +70,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="remark">Remarks/Status:</label>
+                                        <label for="remark">Remarks/Status</label>
                                         <input type="text" class="form-control required" id="remark" value="" name="remark" maxlength="10" placeholder="Remarks">
                                     </div>
                                 </div>

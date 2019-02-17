@@ -2,8 +2,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-users"></i> Venue Management
-        <small>Add Venue</small>
+        <i class="fa fa-users"></i> Department Management
+        <small>Add</small>
       </h1>
     </section>
     
@@ -18,7 +18,7 @@
                 
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Enter User Details</h3>
+                        <h3 class="box-title">Enter Details</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
@@ -27,8 +27,8 @@
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label for="acroname">Acroname:</label>
-                                        <input type="text" class="form-control required" value="<?php echo set_value('acroname'); ?>" id="acroname" name="acroname" maxlength="128" placeholder="Acroname">
+                                        <label for="acroname">Acronym</label>
+                                        <input type="text" class="form-control required" value="" id="acroname" name="acroname" maxlength="128" placeholder="Acronym">
                                     </div>
                                     
                                 </div>
@@ -36,8 +36,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="name">Name:</label>
-                                        <input type="text" class="form-control required " id="name" value="<?php echo set_value('name'); ?>" name="name" maxlength="128" placeholder="Name">
+                                        <label for="name">Name</label>
+                                        <input type="text" class="form-control required " id="name" value="" name="name" maxlength="128" placeholder="Name">
                                     </div>
                                 </div>
                             </div>

@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-users"></i> View Equipments
+        <i class="fa fa-users"></i>Equipments
         <small>View</small>
       </h1>
     </section>
