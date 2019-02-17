@@ -587,13 +587,13 @@ class User extends BaseController
                 $this->load->model('user_model');
                 $result = $this->user_model->addjobRequest($jobInfo);
                 
-                if($result > 0)
+               if($result > 0)
                 {
-                    $this->session->set_flashdata('success', 'Added successfully');
+                    $this->session->set_flashdata('success', 'created successfully');
                 }
                 else
                 {
-                    $this->session->set_flashdata('error', 'Added failed');
+                    $this->session->set_flashdata('error', 'creation failed');
                 }
                 
                 redirect('jobRequest');
@@ -616,7 +616,7 @@ class User extends BaseController
             
             $count = $this->user_model->viewEventRequestCount($searchText);
 
-            $returns = $this->paginationCompress ( "viewEventRequest/", $count, 10 );
+            $returns = $this->paginationCompress ( "viewEventRequest/", $count, 20 );
             
             $data['userRecords'] = $this->user_model->viewEventRequest($searchText, $returns["page"], $returns["segment"]);
             
@@ -765,6 +765,67 @@ class User extends BaseController
             
             $this->loadViews("staff/viewRepairRequests", $this->global, $data, NULL);
         }
+    }
+
+
+    function viewSummaryReport()
+    {
+        if($this->isEmployee() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {    $count = $this->user_model->viewSummaryReportCount($searchText);
+
+            $returns = $this->paginationCompress ( "viewSummaryReport/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewSummaryReport($searchText, $returns["page"], $returns["segment"]);
+            
+            $this->global['pageTitle'] = 'MEWU :Summary Report';
+            
+            $this->loadViews("maintenance/viewSummaryReport", $this->global, $data, NULL);
+        }
+    }    
+     function viewTheEventRequest()
+    {
+
+            $id = $this->input->get('id');
+           
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewEventRequestCounts($searchText);
+
+            $returns = $this->paginationCompress ( "viewEventRequests/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewTheEventRequest($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU : View Event Request';
+            
+            $this->loadViews("admin/viewEventRequest", $this->global, $data, NULL);
+        
+    }
+
+     function viewTheRepairRequest()
+    {
+            $id=$this->input->get('id');
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewRepairRequestCounts($searchText);
+
+            $returns = $this->paginationCompress ( "viewTheRepairRequests/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewTheRepairRequests($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU :Repair Request';
+            
+            $this->loadViews("maintenance/viewTheRepairRequest", $this->global, $data, NULL);
+        
     }
     
    

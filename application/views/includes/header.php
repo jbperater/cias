@@ -78,7 +78,7 @@
                   </li>
                 <?php }else{?>
                   <li>
-                    <a href=<?=$notification->id;?>><?=$notification->type;?> - &nbsp<?=$notification->nofiName;?> - &nbsp<?=$notification->name;?></a>
+                    <a href=<?=base_url().'user/viewTheRepairRequest?id='.$notification->id;?>><?=$notification->type;?> - &nbsp<?=$notification->nofiName;?> - &nbsp<?=$notification->name;?></a>
                   </li>
                   <?php }}?>
                 </ul>
