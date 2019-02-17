@@ -18,7 +18,7 @@
                 
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Enter User Details</h3>
+                        <h3 class="box-title">Enter Details</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
@@ -27,14 +27,14 @@
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label for="equipName">Equipment Name:</label>
+                                        <label for="equipName">Equipment Name</label>
                                         <input type="text" class="form-control required" value="<?php echo set_value('equipName'); ?>" id="equipName" name="equipName" maxlength="128" placeholder="Equipment Name">
                                     </div>
                                     
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="brand">Brand:</label>
+                                        <label for="brand">Brand</label>
                                         <input type="text" class="form-control required " id="brand" value="<?php echo set_value('brand'); ?>" name="brand" maxlength="128" placeholder="Brand">
                                     </div>
                                 </div>
@@ -42,13 +42,13 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="model">Model:</label>
+                                        <label for="model">Model</label>
                                         <input type="text" class="form-control required" id="model" name="model" maxlength="20" placeholder="Model">
                                     </div>  
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="serialNo">Serial Number:</label>
+                                        <label for="serialNo">Serial Number</label>
                                         <input type="text" class="form-control required" id="serialNo" name="serialNo" maxlength="20" placeholder="Serial Number">
                                     </div>
                                 </div>
@@ -56,13 +56,13 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="office">Office:</label>
+                                        <label for="office">Office</label>
                                         <input type="text" class="form-control required" id="office" value="<?php echo set_value('office'); ?>" name="office" maxlength="10" placeholder="Office">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="department">Department:</label>
+                                        <label for="department">Department</label>
                                         <input type="text" class="form-control required" id="department" value="<?php echo set_value('department'); ?>" name="department" maxlength="10" placeholder="Department">
                                     </div>
                                 </div>    
@@ -70,13 +70,13 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="type">Type:</label>
+                                        <label for="type">Type</label>
                                         <input type="text" class="form-control required" id="type" value="<?php echo set_value('type'); ?>" name="type" maxlength="10" placeholder="Type">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="yearAcc">Year Acquired:</label>
+                                        <label for="yearAcc">Year Acquired</label>
                                         <input type="text" class="form-control required" id="yearAcc" value="<?php echo set_value('yearAcc'); ?>" name="yearAcc" maxlength="10" placeholder="Year Acquired">
                                     </div>
                                 </div>    

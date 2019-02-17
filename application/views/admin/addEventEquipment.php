@@ -18,7 +18,7 @@
                 
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Enter User Details</h3>
+                        <h3 class="box-title">Enter Details</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
@@ -27,14 +27,14 @@
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label for="name">Name:</label>
+                                        <label for="name">Name</label>
                                         <input type="text" class="form-control required" value="<?php echo set_value('name'); ?>" id="name" name="name" maxlength="128" placeholder="Equipment Name">
                                     </div>
                                     
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="Type">Type:</label>
+                                        <label for="Type">Type</label>
                                         <input type="text" class="form-control required " id="Type" value="<?php echo set_value('Type'); ?>" name="Type" maxlength="128" placeholder="Type">
                                     </div>
                                 </div>

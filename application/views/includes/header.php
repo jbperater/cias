@@ -68,7 +68,7 @@
                   <li class="header"> Last Login : <i class="fa fa-clock-o"></i> <?= empty($last_login) ? "First Time Login" : $last_login; ?></li>
                 </ul>
               </li>
-              <li class="dropdown user user-menu" style="background-color: #1A1851" id="drop1">
+              <li class="dropdown user user-menu" style="background-color: #fbb414" id="drop1">
                 <a href="#drop1" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o"></i>
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -144,12 +144,12 @@
             {
             ?>
             <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-thumb-tack"></i> View Requests <i class="fa fa-fw fa-caret-down"></i></a>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-thumb-tack"></i><span>View Requests </span><i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
-                            <li>
+                            <li class="treeview">
                                 <a href="<?php echo base_url(); ?>User/viewEventRequest">  View Event Requests</a>
                             </li>
-                            <li>
+                            <li class="treeview">
                                 <a href="<?php echo base_url(); ?>User/viewRepairRequest"> View Repair Requests</a>
                             </li>
                           </ul>

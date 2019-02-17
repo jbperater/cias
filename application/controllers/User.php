@@ -776,10 +776,15 @@ class User extends BaseController
     {
         if($this->isEmployee() == TRUE)
 
+    function viewSummaryReport()
+    {
+        if($this->isEmployee() == TRUE)
+
         {
             $this->loadThis();
         }
         else
+
 
         {   
             $id = $this->input->get('id');
@@ -816,6 +821,7 @@ class User extends BaseController
             $data['searchText'] = $searchText;
             
             $this->load->library('pagination');
+
  
             $count = $this->user_model->viewEventRequestCount($searchText);
 
@@ -826,6 +832,7 @@ class User extends BaseController
             $this->global['pageTitle'] = 'MEWU : View Event Request';
             
             $this->loadViews("admin/viewEventRequest", $this->global, $data, NULL);
+
 
             $count = $this->user_model->viewStudentRequestCount($searchText);
 

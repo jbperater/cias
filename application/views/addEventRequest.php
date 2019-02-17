@@ -24,13 +24,13 @@
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label for="noParticipants">Number of Participants:</label>
+                                        <label for="noParticipants">Number of Participants</label>
                                         <input type="Number" class="form-control required" value="<?php echo set_value('noParticipants'); ?>" id="noParticipants" name="noParticipant" maxlength="128" placeholder="Number of Participants">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="tittleEvent">Title Of Event:</label>
+                                        <label for="tittleEvent">Title Of Event</label>
                                         <input type="text" name="tittleEvent" id="tittleEvent" class='form-control' required placeholder="Tittle" value="" />
                                     </div>
                                 </div>
@@ -38,13 +38,13 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="dateActual">Date Actual Use:</label>
+                                        <label for="dateActual">Date Actual Use</label>
                                         <input type="date" name="dateActual" id="dateActual" class='form-control' required placeholder="Date Actual Use" value="<?php echo date('Y-m-d'); ?>" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="dateEnd">Date End Use:</label>
+                                        <label for="dateEnd">Date End Use</label>
                                         <input type="date" name="dateEnd" id="dateEnd" class='form-control' required placeholder="Date End" value="<?php echo date('Y-m-d'); ?>" />
                                     </div>
                                 </div>
@@ -52,7 +52,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="timeActual">Time Actual Use:</label>
+                                        <label for="timeActual">Time Actual Use</label>
                                         <input type="time" name="timeActual" id="timeActual" class='form-control' required placeholder="Time Actual" value="<?php echo date('Y-m-d'); ?>" />
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@
                             <div class="row">
                                  <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="venue">Venue: (please check)</label><br>
+                                        <label for="venue">Venue (please check)</label><br>
                                        
                                               <!-- <input type="checkbox" id="venue" name="venue[]" value="<?=$venuedata->venID;?>"><?=$venuedata->bldgNo;?>&nbsp<?=$venuedata->name;?>&nbsp<?=$venuedata->type;?><br> -->
                                             <select name="venue" id="" class="form-control">
@@ -93,7 +93,7 @@
                                 </div>
                                 <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="department">Department: (please select)</label>
+                                            <label for="department">Department (please select)</label>
                                             <select name="department" id="" class="form-control">
                                                   <?php foreach($option as $option){?>
                                                 <option value=<?=$option->departId;?>><?=$option->acroname;?> - &nbsp<?=$option->name;?></option>
@@ -105,7 +105,7 @@
                             <div class="row">
                                  <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="venue">Equipment: (please check)</label><br>
+                                        <label for="venue">Equipment (please check)</label><br>
                                         <?php foreach($equipment as $equipment){?>
                                               <input type="checkbox" id="venue" name="equipment[]" value="<?=$equipment->equipId;?>"><?=$equipment->name;?>&nbsp<?=$equipment->type;?><br>
                                             <?php }?>
@@ -113,13 +113,13 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="tableNo">Table No:</label>
+                                        <label for="tableNo">Table No</label>
                                         <input type="text" class="form-control required" id="tableNo" value="<?php echo set_value('tableNo'); ?>" name="tableNo" maxlength="10" placeholder="Table No">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="chairNo">Chair No:</label>
+                                        <label for="chairNo">Chair No</label>
                                         <input type="text" class="form-control required" id="chairNo" value="<?php echo set_value('chairNo'); ?>" name="chairNo" maxlength="10" placeholder="Chair No">
                                     </div>
                                 </div>   

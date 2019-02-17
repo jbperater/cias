@@ -18,7 +18,7 @@
                 
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Enter User Details</h3>
+                        <h3 class="box-title">Enter Details</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
@@ -27,7 +27,7 @@
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label for="RoomNo">Room No:</label>
+                                        <label for="RoomNo">Room No</label>
                                         <input type="text" class="form-control required" value="<?php echo set_value('RoomNo'); ?>" id="RoomNo" name="RoomNo" maxlength="128" placeholder="Room Number">
                                     </div>
                                     
@@ -36,7 +36,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="name">Name:</label>
+                                        <label for="name">Name</label>
                                         <input type="text" class="form-control required " id="name" value="<?php echo set_value('name'); ?>" name="name" maxlength="128" placeholder="Name">
                                     </div>
                                 </div>
@@ -44,7 +44,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="type">Type:</label>
+                                        <label for="type">Type</label>
                                         <input type="text" class="form-control required" id="type" name="type" maxlength="20" placeholder="Model">
                                     </div>
                                 </div>
