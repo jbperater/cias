@@ -768,6 +768,7 @@ class User extends BaseController
     }
 
 
+
     function viewSummaryReport()
     {
         if($this->isEmployee() == TRUE)
@@ -786,6 +787,7 @@ class User extends BaseController
             $this->loadViews("maintenance/viewSummaryReport", $this->global, $data, NULL);
         }
     }    
+
      function viewTheEventRequest()
     {
 
