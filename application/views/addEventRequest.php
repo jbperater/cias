@@ -25,7 +25,7 @@
                                 <div class="col-md-6">                                
                                     <div class="form-group">
                                         <label for="noParticipants">Number of Participants</label>
-                                        <input type="Number" class="form-control required" value="<?php echo set_value('noParticipants'); ?>" id="noParticipants" name="noParticipant" maxlength="128" placeholder="Number of Participants">
+                                        <input type="Number" class="form-control required" value="" id="noParticipants" name="noParticipant" maxlength="128" placeholder="Number of Participants">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -39,13 +39,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="dateActual">Date Actual Use</label>
-                                        <input type="date" name="dateActual" id="dateActual" class='form-control' required placeholder="Date Actual Use" value="<?php echo date('Y-m-d'); ?>" />
+                                        <input type="date" name="dateActual" id="dateActual" class='form-control' required placeholder="Date Actual Use" value="" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="dateEnd">Date End Use</label>
-                                        <input type="date" name="dateEnd" id="dateEnd" class='form-control' required placeholder="Date End" value="<?php echo date('Y-m-d'); ?>" />
+                                        <input type="date" name="dateEnd" id="dateEnd" class='form-control' required placeholder="Date End" value="" />
                                     </div>
                                 </div>
                             </div>
@@ -53,13 +53,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="timeActual">Time Actual Use</label>
-                                        <input type="time" name="timeActual" id="timeActual" class='form-control' required placeholder="Time Actual" value="<?php echo date('Y-m-d'); ?>" />
+                                        <input type="time" name="timeActual" id="timeActual" class='form-control' required placeholder="Time Actual" value="" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="timeEnd">Time End Use</label>
-                                        <input type="time" name="timeEnd" id="timeEnd" class='form-control' required placeholder="Time End" value="<?php echo date('Y-m-d'); ?>" />
+                                        <input type="time" name="timeEnd" id="timeEnd" class='form-control' required placeholder="Time End" value="" />
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="contactNo">Contact No</label>
-                                        <input type="text" class="form-control required" id="contactNo" value="<?php echo set_value('contactNo'); ?>" name="contactNo" maxlength="10" placeholder="Contact Number">
+                                        <input type="text" class="form-control required" id="contactNo" value="" name="contactNo" maxlength="10" placeholder="Contact Number">
                                     </div>
                                 </div>    
                             </div>
@@ -114,13 +114,13 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="tableNo">Table No</label>
-                                        <input type="text" class="form-control required" id="tableNo" value="<?php echo set_value('tableNo'); ?>" name="tableNo" maxlength="10" placeholder="Table No">
+                                        <input type="text" class="form-control required" id="tableNo" value="" name="tableNo" maxlength="10" placeholder="Table No">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="chairNo">Chair No</label>
-                                        <input type="text" class="form-control required" id="chairNo" value="<?php echo set_value('chairNo'); ?>" name="chairNo" maxlength="10" placeholder="Chair No">
+                                        <input type="text" class="form-control required" id="chairNo" value="" name="chairNo" maxlength="10" placeholder="Chair No">
                                     </div>
                                 </div>   
                             </div>

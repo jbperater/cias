@@ -581,13 +581,13 @@ class User extends BaseController
                 $this->load->model('user_model');
                 $result = $this->user_model->addjobRequest($jobInfo);
                 
-                if($result > 0)
+               if($result > 0)
                 {
-                    $this->session->set_flashdata('success', 'Added successfully');
+                    $this->session->set_flashdata('success', 'created successfully');
                 }
                 else
                 {
-                    $this->session->set_flashdata('error', 'Added failed');
+                    $this->session->set_flashdata('error', 'creation failed');
                 }
                 
                 redirect('jobRequest');
@@ -760,6 +760,27 @@ class User extends BaseController
             $this->loadViews("staff/viewRepairRequests", $this->global, $data, NULL);
         }
     }
+
+
+
+    function viewSummaryReport()
+    {
+        if($this->isEmployee() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {    $count = $this->user_model->viewSummaryReportCount($searchText);
+
+            $returns = $this->paginationCompress ( "viewSummaryReport/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewSummaryReport($searchText, $returns["page"], $returns["segment"]);
+            
+            $this->global['pageTitle'] = 'MEWU :Summary Report';
+            
+            $this->loadViews("maintenance/viewSummaryReport", $this->global, $data, NULL);
+        }
+    }    
 
      function viewTheEventRequest()
     {
