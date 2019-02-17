@@ -104,7 +104,7 @@ class Main_model extends CI_Model
   	}
 
   	function getNotification($roleId){
-      	$this->db->select('tbl_notification.id,tbl_notification.type,tbl_notification.ownerNotify,tbl_notification.adminNotify,tbl_notification.resBy,tbl_users.name');
+      	$this->db->select('tbl_notification.id,tbl_notification.nofiName,tbl_notification.type,tbl_notification.ownerNotify,tbl_notification.adminNotify,tbl_notification.resBy,tbl_users.name');
       	$this->db->from('tbl_notification');
       	$this->db->join('tbl_users','tbl_notification.resBy=tbl_users.userId');
       	if($roleId == 1){
