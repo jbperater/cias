@@ -152,6 +152,7 @@ class Main_model extends CI_Model
       		$this->db->where('resBy',$this->session->userdata('userId'));
          
       	}
+        $this->db->order_by('time','desc');
       	$result = $this->db->get();
      	return $result->result();
   	}

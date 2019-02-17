@@ -1,13 +1,7 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 require APPPATH . '/libraries/BaseController.php';
 require APPPATH . '/libraries/Statistics.php';
-/**
- * Class : Login (LoginController)
- * Login class to control to authenticate user credentials and starts user's session.
- * @author : Kishor Mali
- * @version : 1.1
- * @since : 15 November 2016
- */
+
 class Main extends BaseController
 {
     /**
