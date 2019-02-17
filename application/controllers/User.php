@@ -616,7 +616,7 @@ class User extends BaseController
             
             $count = $this->user_model->viewEventRequestCount($searchText);
 
-            $returns = $this->paginationCompress ( "viewEventRequest/", $count, 10 );
+            $returns = $this->paginationCompress ( "viewEventRequest/", $count, 20 );
             
             $data['userRecords'] = $this->user_model->viewEventRequest($searchText, $returns["page"], $returns["segment"]);
             
@@ -765,6 +765,48 @@ class User extends BaseController
             
             $this->loadViews("staff/viewRepairRequests", $this->global, $data, NULL);
         }
+    }
+
+     function viewTheEventRequest()
+    {
+
+            $id = $this->input->get('id');
+           
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewEventRequestCounts($searchText);
+
+            $returns = $this->paginationCompress ( "viewEventRequests/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewTheEventRequest($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU : View Event Request';
+            
+            $this->loadViews("admin/viewEventRequest", $this->global, $data, NULL);
+        
+    }
+
+     function viewTheRepairRequest()
+    {
+            $id=$this->input->get('id');
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewRepairRequestCounts($searchText);
+
+            $returns = $this->paginationCompress ( "viewTheRepairRequests/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewTheRepairRequests($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU :Repair Request';
+            
+            $this->loadViews("maintenance/viewTheRepairRequest", $this->global, $data, NULL);
+        
     }
     
    

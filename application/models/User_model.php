@@ -487,8 +487,11 @@ class User_model extends CI_Model
      */
     function viewEventRequest($searchText = '', $page, $segment)
     {
-        $this->db->select('BaseTbl.formNo, BaseTbl.noParticipant, BaseTbl.dateActual, BaseTbl.timeActual, BaseTbl.dateEnd, BaseTbl.timeEnd, BaseTbl.purpose,BaseTbl.tittleEvent,BaseTbl.contactNo,BaseTbl.departmentID,BaseTbl.venueID,BaseTbl.resBy,BaseTbl.dateReq');
+        $this->db->select('BaseTbl.formNo, BaseTbl.noParticipant, BaseTbl.dateActual, BaseTbl.timeActual, BaseTbl.dateEnd, BaseTbl.timeEnd, BaseTbl.purpose,BaseTbl.tittleEvent,BaseTbl.contactNo,BaseTb2.acroname,BaseTb3.name,BaseTb4.name as fullname,BaseTbl.dateReq');
         $this->db->from('tbl_reserve_request as BaseTbl');
+        $this->db->join('tbl_department as BaseTb2','BaseTbl.departmentID = BaseTb2.departId');
+        $this->db->join('tbl_venue as BaseTb3','BaseTbl.venueID = BaseTb3.venID');
+        $this->db->join('tbl_users as BaseTb4','BaseTbl.resBy = BaseTb4.userId');
         $this->db->where('status','pending');
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.tittleEvent  LIKE '%".$searchText."%'
@@ -506,8 +509,11 @@ class User_model extends CI_Model
 
     function viewTheEventRequest($searchText = '', $page, $segment,$id)
     {
-        $this->db->select('BaseTbl.formNo, BaseTbl.noParticipant, BaseTbl.dateActual, BaseTbl.timeActual, BaseTbl.dateEnd, BaseTbl.timeEnd, BaseTbl.purpose,BaseTbl.tittleEvent,BaseTbl.contactNo,BaseTbl.departmentID,BaseTbl.venueID,BaseTbl.resBy,BaseTbl.dateReq');
+         $this->db->select('BaseTbl.formNo, BaseTbl.noParticipant, BaseTbl.dateActual, BaseTbl.timeActual, BaseTbl.dateEnd, BaseTbl.timeEnd, BaseTbl.purpose,BaseTbl.tittleEvent,BaseTbl.contactNo,BaseTb2.acroname,BaseTb3.name,BaseTb4.name as fullname,BaseTbl.dateReq');
         $this->db->from('tbl_reserve_request as BaseTbl');
+        $this->db->join('tbl_department as BaseTb2','BaseTbl.departmentID = BaseTb2.departId');
+        $this->db->join('tbl_venue as BaseTb3','BaseTbl.venueID = BaseTb3.venID');
+        $this->db->join('tbl_users as BaseTb4','BaseTbl.resBy = BaseTb4.userId');
         $this->db->where('formNo',$id);
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.tittleEvent  LIKE '%".$searchText."%'
@@ -811,7 +817,47 @@ class User_model extends CI_Model
         return $result;
     }
 
+    function viewTheRepairRequestCount($searchText = '')
+    {
+        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateReq');
+        $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->where('remark','pending');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
+                            OR  BaseTbl.location  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $query = $this->db->get();
+        
+        return $query->num_rows();
+    }
     
+    /**
+     * This function is used to get the user listing count
+     * @param string $searchText : This is optional search text
+     * @param number $page : This is pagination offset
+     * @param number $segment : This is pagination limit
+     * @return array $result : This is result
+     */
+    function viewTheRepairRequests($searchText = '', $page, $segment,$id)
+    {
+        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateTimeStart, BaseTbl.remark, BaseTbl.dateReq');
+        $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->where('jobId',$id);
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
+                            OR  BaseTbl.location  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $this->db->order_by('BaseTbl.jobId', 'ASC');
+        $this->db->limit($page, $segment);
+        $query = $this->db->get();
+        
+        $result = $query->result();        
+        return $result;
+    }
 
 }
 

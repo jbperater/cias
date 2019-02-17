@@ -33,6 +33,7 @@ class Main extends BaseController
 
         $id = $this->input->get('id');
         $this->main_model->approveEventRequests($id);
+        $this->main_model->eventNotify($id);
         redirect(base_url().'user/viewEventRequest');
     }
 
@@ -42,6 +43,7 @@ class Main extends BaseController
         $date_actual = $this->input->post('date_actual');
         $personel = $this->input->post('personel');
         $this->main_model->approveJobRequests($id,$personel,$date_actual);
+        $this->main_model->jobRequestNotify($id,$personel);
         redirect(base_url().'user/viewRepairRequest');
     }
     public function assignJobRequests(){

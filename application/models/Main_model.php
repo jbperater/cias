@@ -10,6 +10,7 @@
 class Main_model extends CI_Model
 {
 
+
 	function approveEventRequests($id){
 		
       	$this->db->set('status','approve');
@@ -25,6 +26,31 @@ class Main_model extends CI_Model
       	$this->db->where('jobId',$id);
       	$this->db->update('tbl_job_request');
   	}
+
+    function assignNotify($id){
+    
+        $this->db->set('ownerNotify',1);
+        $this->db->where('id',$id);
+        $this->db->where('type','job_request');
+        $this->db->update('tbl_notification');
+    }
+
+    function eventNotify($id){
+    
+        $this->db->set('ownerNotify',1);
+        $this->db->where('id',$id);
+        $this->db->where('type','event');
+        $this->db->update('tbl_notification');
+    }
+
+    function jobRequestNotify($id,$personel){
+    
+        $this->db->set('ownerNotify',1);
+        $this->db->set('assign',$personel);
+        $this->db->where('id',$id);
+        $this->db->where('type','maintenance');
+        $this->db->update('tbl_notification');
+    }
     
     function getVenue(){
       	$this->db->select('venID,bldgNo,name,type');
@@ -114,14 +140,17 @@ class Main_model extends CI_Model
       	elseif($roleId == 2){
       		$this->db->where('ownerNotify',1);
       		$this->db->where('resBy',$this->session->userdata('userId'));
+          
       	}
       	elseif($roleId == 3){
       		$this->db->where('ownerNotify',1);
-      		$this->db->where('resBy',$this->session->userdata('userId'));
+      		$this->db->where('assign',$this->session->userdata('userId'));
+          
       	}
       	else{
       		$this->db->where('ownerNotify',1);
       		$this->db->where('resBy',$this->session->userdata('userId'));
+         
       	}
       	$result = $this->db->get();
      	return $result->result();
