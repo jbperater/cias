@@ -2,8 +2,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-users"></i> Repair Requests
-        <small>View/Approve</small>
+        <i class="fa fa-users"></i> Forecast
+        <small>View</small>
       </h1>
     </section>
     <section class="content">

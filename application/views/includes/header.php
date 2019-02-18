@@ -171,12 +171,12 @@
                             <li>
                                 <a href="<?php echo base_url(); ?>main/viewEventSchedule"> Event Schedules</a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="<?php echo base_url(); ?>blank_page/blank_page2"> Repair Schedules</a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url(); ?>forecast/lastMonthsData"> Troubleshot</a>
-                            </li>
+                            </li> -->
                           </ul>
             </li>
             <li class="treeview">
