@@ -59,7 +59,7 @@ class Main extends BaseController
         $this->global['name'] =$this->session->userdata('name');
         $this->global['role'] =$this->session->userdata('role');
         $this->global['role_text'] =$this->session->userdata('role');
-        $this->global['pageTitle'] = 'CodeInsect : Dashboard';
+        $this->global['pageTitle'] = 'MEWU : Dashboard';
         $this->loadViews("admin/addEquipment", $this->global, NULL, NULL);
     }
 
@@ -69,7 +69,7 @@ class Main extends BaseController
         $this->global['name'] =$this->session->userdata('name');
         $this->global['role'] =$this->session->userdata('role');
         $this->global['role_text'] =$this->session->userdata('role');
-        $this->global['pageTitle'] = 'CodeInsect : Dashboard';
+        $this->global['pageTitle'] = 'MEWU : Dashboard';
         $this->loadViews("maintenance/addHistory", $this->global, NULL, NULL);
     }
 

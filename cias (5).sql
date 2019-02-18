@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 17, 2019 at 05:08 AM
+-- Generation Time: Feb 18, 2019 at 01:05 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -21,33 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `cias`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `account`
---
-
-CREATE TABLE `account` (
-  `id` int(11) NOT NULL,
-  `year` year(4) DEFAULT NULL,
-  `purchase` int(11) DEFAULT NULL,
-  `sale` int(11) DEFAULT NULL,
-  `profit` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `account`
---
-
-INSERT INTO `account` (`id`, `year`, `purchase`, `sale`, `profit`) VALUES
-(1, 2013, 2000, 3000, 1000),
-(2, 2014, 4500, 5000, 500),
-(3, 2015, 3000, 4500, 1500),
-(4, 2016, 2000, 3000, 1000),
-(5, 2017, 2000, 4000, 2000),
-(6, 2018, 2200, 3000, 800),
-(7, 2019, 5000, 7000, 2000);
 
 -- --------------------------------------------------------
 
@@ -125,73 +98,11 @@ INSERT INTO `ass_reserve_equip_need` (`formNo`, `equipId`, `tableNo`, `chairNo`)
 (43, 0, 100, 100),
 (43, 0, 100, 100),
 (44, 0, 100, 100),
-(44, 0, 100, 100);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ass_reserve_venue`
---
-
-CREATE TABLE `ass_reserve_venue` (
-  `formNo` int(11) NOT NULL,
-  `venID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `ass_reserve_venue`
---
-
-INSERT INTO `ass_reserve_venue` (`formNo`, `venID`) VALUES
-(2, 100),
-(2, 2019),
-(2, 2019),
-(2, 0),
-(2, 0),
-(2, 0),
-(2, 3164975),
-(2, 1),
-(2, 1),
-(3, 100),
-(3, 2019),
-(3, 2019),
-(3, 0),
-(3, 0),
-(3, 0),
-(3, 3164975),
-(3, 1),
-(3, 1),
-(4, 100),
-(4, 2019),
-(4, 2019),
-(4, 0),
-(4, 0),
-(4, 0),
-(4, 3164975),
-(4, 1),
-(4, 1),
-(5, 1),
-(5, 3),
-(6, 1),
-(6, 3),
-(7, 1),
-(7, 3),
-(8, 1),
-(8, 3);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ci_sessions`
---
-
-CREATE TABLE `ci_sessions` (
-  `session_id` varchar(40) NOT NULL DEFAULT '0',
-  `ip_address` varchar(45) NOT NULL DEFAULT '0',
-  `user_agent` varchar(120) NOT NULL,
-  `last_activity` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `user_data` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+(44, 0, 100, 100),
+(45, 0, 100, 100),
+(45, 0, 100, 100),
+(46, 0, 100, 100),
+(46, 0, 100, 100);
 
 -- --------------------------------------------------------
 
@@ -275,8 +186,10 @@ CREATE TABLE `tbl_event_equip` (
 --
 
 INSERT INTO `tbl_event_equip` (`equipId`, `name`, `type`) VALUES
-(0, 'MIC', 'Electrical'),
-(0, 'Soundbox', 'Electrical');
+(1, 'Speaker', 'SoundBox'),
+(2, 'Mic', 'Electrical'),
+(3, 'Mic', 'Electrical'),
+(4, 'MIC', 'Electrical');
 
 -- --------------------------------------------------------
 
@@ -313,7 +226,9 @@ INSERT INTO `tbl_job_request` (`jobId`, `itemNo`, `workDescript`, `location`, `d
 (11, 4, '212', 'Bldg 23', '2019-02-19 00:00:00', NULL, 'approve', 9, 1, NULL, '2019-02-13 21:11:01'),
 (12, 4, '212', 'Bldg 23', NULL, NULL, 'approve', 3, 1, NULL, '2019-02-13 21:12:11'),
 (13, 21, 'sa', 'BLDG 21', '2019-02-22 00:00:00', NULL, 'pending', NULL, 1, NULL, '2019-02-16 21:27:40'),
-(14, 21, 'sa', 'BLDG 21', '2019-02-22 00:00:00', NULL, 'pending', NULL, 1, NULL, '2019-02-16 21:27:46');
+(14, 21, 'sa', 'BLDG 21', '2019-02-22 00:00:00', NULL, 'pending', NULL, 1, NULL, '2019-02-16 21:27:46'),
+(15, 4, 'work2x', 'Bldg 143', '2019-02-22 00:00:00', NULL, 'approve', 9, 11, NULL, '2019-02-17 06:50:16'),
+(16, 143, 'sumbagay', 'Bldg 143', '2019-02-06 00:00:00', NULL, 'approve', 9, 11, NULL, '2019-02-17 06:51:36');
 
 --
 -- Triggers `tbl_job_request`
@@ -414,7 +329,14 @@ INSERT INTO `tbl_last_login` (`id`, `userId`, `sessionData`, `machineIp`, `userA
 (67, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 72.0.3626.109', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36', 'Windows 10', '2019-02-17 02:38:58'),
 (68, 9, '{\"role\":\"3\",\"roleText\":\"Maintenance Staff\",\"name\":\"Joshua Brian Perater\"}', '::1', 'Chrome 72.0.3626.109', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36', 'Windows 10', '2019-02-17 02:41:05'),
 (69, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 72.0.3626.109', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36', 'Windows 10', '2019-02-17 05:18:49'),
-(70, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 72.0.3626.109', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36', 'Windows 10', '2019-02-17 11:43:43');
+(70, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 72.0.3626.109', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36', 'Windows 10', '2019-02-17 11:43:43'),
+(71, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 72.0.3626.109', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36', 'Windows 10', '2019-02-17 14:03:58'),
+(72, 10, '{\"role\":\"4\",\"roleText\":\"Student\",\"name\":\"Cristyfel Pagutayao\"}', '::1', 'Chrome 72.0.3626.109', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36', 'Windows 10', '2019-02-17 14:06:01'),
+(73, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Firefox 64.0', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'Windows 10', '2019-02-17 14:07:20'),
+(74, 11, '{\"role\":\"2\",\"roleText\":\"Faculty\",\"name\":\"Nikkie Eduria\"}', '::1', 'Chrome 72.0.3626.109', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36', 'Windows 10', '2019-02-17 14:49:51'),
+(75, 9, '{\"role\":\"3\",\"roleText\":\"Maintenance Staff\",\"name\":\"Joshua Brian Perater\"}', '::1', 'Chrome 72.0.3626.109', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36', 'Windows 10', '2019-02-17 15:12:32'),
+(76, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 72.0.3626.109', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36', 'Windows 10', '2019-02-18 07:23:27'),
+(77, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 72.0.3626.109', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36', 'Windows 10', '2019-02-18 07:29:36');
 
 -- --------------------------------------------------------
 
@@ -428,6 +350,7 @@ CREATE TABLE `tbl_notification` (
   `type` varchar(16) NOT NULL,
   `ownerNotify` int(11) NOT NULL,
   `adminNotify` int(11) NOT NULL,
+  `assign` int(11) NOT NULL,
   `resBy` int(11) NOT NULL,
   `time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -436,38 +359,42 @@ CREATE TABLE `tbl_notification` (
 -- Dumping data for table `tbl_notification`
 --
 
-INSERT INTO `tbl_notification` (`id`, `nofiName`, `type`, `ownerNotify`, `adminNotify`, `resBy`, `time`) VALUES
-(13, '', 'event', 0, 1, 1, '0000-00-00 00:00:00'),
-(14, '', 'event', 0, 1, 1, '0000-00-00 00:00:00'),
-(5, '', 'job_request', 0, 1, 1, '0000-00-00 00:00:00'),
-(6, '', 'job_request', 0, 1, 1, '0000-00-00 00:00:00'),
-(7, '', 'job_request', 0, 1, 1, '0000-00-00 00:00:00'),
-(8, '', 'job_request', 0, 1, 1, '0000-00-00 00:00:00'),
-(15, '', 'event', 0, 1, 1, '0000-00-00 00:00:00'),
-(16, '', 'event', 0, 1, 1, '0000-00-00 00:00:00'),
-(17, '', 'event', 0, 1, 1, '0000-00-00 00:00:00'),
-(9, '', 'job_request', 0, 1, 1, '0000-00-00 00:00:00'),
-(18, '', 'event', 0, 1, 1, '0000-00-00 00:00:00'),
-(19, '', 'event', 0, 1, 1, '0000-00-00 00:00:00'),
-(21, '', 'event', 0, 1, 1, '0000-00-00 00:00:00'),
-(22, '', 'event', 0, 1, 1, '0000-00-00 00:00:00'),
-(23, '', 'event', 0, 1, 1, '0000-00-00 00:00:00'),
-(10, '', 'job_request', 0, 1, 1, '0000-00-00 00:00:00'),
-(11, '', 'job_request', 0, 1, 1, '0000-00-00 00:00:00'),
-(12, '', 'job_request', 0, 1, 1, '0000-00-00 00:00:00'),
-(24, '', 'event', 0, 1, 1, '0000-00-00 00:00:00'),
-(25, '', 'event', 0, 1, 2, '0000-00-00 00:00:00'),
-(36, 'title', 'event', 0, 1, 1, '2019-02-17 00:00:00'),
-(37, 'Tiitle lang ni', 'event', 0, 1, 1, '2019-02-17 05:20:02'),
-(13, 'BLDG 21', 'maintenance', 1, 1, 1, '2019-02-17 05:27:40'),
-(14, 'BLDG 21', 'maintenance', 0, 1, 1, '2019-02-17 05:27:46'),
-(38, 'Tiitle lang ni', 'event', 0, 1, 1, '2019-02-17 05:50:12'),
-(39, 'Tiitle lang ni', 'event', 0, 1, 1, '2019-02-17 05:56:18'),
-(40, 'Tiitle lang ni', 'event', 0, 1, 1, '2019-02-17 05:57:51'),
-(41, 'Tiitle lang ni', 'event', 0, 1, 1, '2019-02-17 06:28:30'),
-(42, 'Tiitle lang ni', 'event', 0, 1, 1, '2019-02-17 06:30:17'),
-(43, 'Tiitle lang ni', 'event', 0, 1, 1, '2019-02-17 06:30:38'),
-(44, 'Tiitle lang ni', 'event', 0, 1, 1, '2019-02-17 06:47:42');
+INSERT INTO `tbl_notification` (`id`, `nofiName`, `type`, `ownerNotify`, `adminNotify`, `assign`, `resBy`, `time`) VALUES
+(13, '', 'event', 0, 1, 0, 1, '0000-00-00 00:00:00'),
+(14, '', 'event', 0, 1, 0, 1, '0000-00-00 00:00:00'),
+(5, '', 'job_request', 0, 1, 0, 1, '0000-00-00 00:00:00'),
+(6, '', 'job_request', 0, 1, 0, 1, '0000-00-00 00:00:00'),
+(7, '', 'job_request', 0, 1, 0, 1, '0000-00-00 00:00:00'),
+(8, '', 'job_request', 0, 1, 0, 1, '0000-00-00 00:00:00'),
+(15, '', 'event', 1, 1, 0, 1, '0000-00-00 00:00:00'),
+(16, '', 'event', 1, 1, 0, 1, '0000-00-00 00:00:00'),
+(17, '', 'event', 0, 1, 0, 1, '0000-00-00 00:00:00'),
+(9, '', 'job_request', 0, 1, 0, 1, '0000-00-00 00:00:00'),
+(18, '', 'event', 0, 1, 0, 1, '0000-00-00 00:00:00'),
+(19, '', 'event', 0, 1, 0, 1, '0000-00-00 00:00:00'),
+(21, '', 'event', 0, 1, 0, 1, '0000-00-00 00:00:00'),
+(22, '', 'event', 0, 1, 0, 1, '0000-00-00 00:00:00'),
+(23, '', 'event', 0, 1, 0, 1, '0000-00-00 00:00:00'),
+(10, '', 'job_request', 0, 1, 0, 1, '0000-00-00 00:00:00'),
+(11, '', 'job_request', 0, 1, 0, 1, '0000-00-00 00:00:00'),
+(12, '', 'job_request', 0, 1, 0, 1, '0000-00-00 00:00:00'),
+(24, '', 'event', 0, 1, 0, 1, '0000-00-00 00:00:00'),
+(25, '', 'event', 0, 1, 0, 2, '0000-00-00 00:00:00'),
+(36, 'title', 'event', 0, 1, 0, 1, '2019-02-17 00:00:00'),
+(37, 'Tiitle lang ni', 'event', 0, 1, 0, 1, '2019-02-17 05:20:02'),
+(13, 'BLDG 21', 'maintenance', 1, 1, 0, 1, '2019-02-17 05:27:40'),
+(14, 'BLDG 21', 'maintenance', 0, 1, 0, 1, '2019-02-17 05:27:46'),
+(38, 'Tiitle lang ni', 'event', 0, 1, 0, 1, '2019-02-17 05:50:12'),
+(39, 'Tiitle lang ni', 'event', 0, 1, 0, 1, '2019-02-17 05:56:18'),
+(40, 'Tiitle lang ni', 'event', 0, 1, 0, 1, '2019-02-17 05:57:51'),
+(41, 'Tiitle lang ni', 'event', 0, 1, 0, 1, '2019-02-17 06:28:30'),
+(42, 'Tiitle lang ni', 'event', 0, 1, 0, 1, '2019-02-17 06:30:17'),
+(43, 'Tiitle lang ni', 'event', 0, 1, 0, 1, '2019-02-17 06:30:38'),
+(44, 'Tiitle lang ni', 'event', 0, 1, 0, 1, '2019-02-17 06:47:42'),
+(45, '100', 'event', 1, 1, 0, 10, '2019-02-17 14:06:46'),
+(46, '1000', 'event', 0, 1, 0, 10, '2019-02-17 14:19:30'),
+(15, 'Bldg 143', 'maintenance', 1, 1, 9, 11, '2019-02-17 14:50:16'),
+(16, 'Bldg 143', 'maintenance', 1, 1, 0, 11, '2019-02-17 14:51:36');
 
 -- --------------------------------------------------------
 
@@ -498,28 +425,28 @@ CREATE TABLE `tbl_reserve_request` (
 --
 
 INSERT INTO `tbl_reserve_request` (`formNo`, `noParticipant`, `dateActual`, `timeActual`, `dateEnd`, `timeEnd`, `purpose`, `tittleEvent`, `status`, `contactNo`, `departmentID`, `venueID`, `resBy`, `conBy`, `dateReq`) VALUES
-(1, 100, '2019-02-01', NULL, '2019-02-14', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', 1, 0, 1, NULL, '2019-02-10 18:39:05'),
-(2, 100, '2019-02-01', NULL, '2019-02-14', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', 1, 0, 1, NULL, '2019-02-10 18:39:50'),
-(3, 100, '2019-02-01', NULL, '2019-02-14', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 0, 1, NULL, '2019-02-10 18:40:21'),
-(4, 100, '2019-02-16', NULL, '2019-02-05', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 0, 1, NULL, '2019-02-10 18:41:54'),
-(5, 100, '2019-02-11', NULL, '2019-02-12', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', 1, 0, 1, NULL, '2019-02-11 15:50:48'),
-(6, 100, '2019-02-11', '11:11:00', '2019-02-12', '11:11:00', 'wala ko kabalo', 'saba', 'pending', '03164975', 1, 0, 1, NULL, '2019-02-11 21:05:03'),
-(7, 100, '2019-02-13', '11:11:00', '2019-02-12', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 0, 1, NULL, '2019-02-12 05:38:50'),
-(8, 100, '2019-02-13', '11:11:00', '2019-02-12', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 0, 1, NULL, '2019-02-12 05:45:18'),
-(9, 100, '2019-02-13', '11:11:00', '2019-02-15', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-12 05:49:19'),
-(10, 100, '2019-02-13', '11:11:00', '2019-02-15', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-12 05:51:32'),
+(1, 100, '2019-02-01', NULL, '2019-02-14', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', 1, 1, 1, NULL, '2019-02-10 18:39:05'),
+(2, 100, '2019-02-01', NULL, '2019-02-14', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', 1, 1, 1, NULL, '2019-02-10 18:39:50'),
+(3, 100, '2019-02-01', NULL, '2019-02-14', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-10 18:40:21'),
+(4, 100, '2019-02-16', NULL, '2019-02-05', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-10 18:41:54'),
+(5, 100, '2019-02-11', NULL, '2019-02-12', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', 1, 1, 1, NULL, '2019-02-11 15:50:48'),
+(6, 100, '2019-02-11', '11:11:00', '2019-02-12', '11:11:00', 'wala ko kabalo', 'saba', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-11 21:05:03'),
+(7, 100, '2019-02-13', '11:11:00', '2019-02-12', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-12 05:38:50'),
+(8, 100, '2019-02-13', '11:11:00', '2019-02-12', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-12 05:45:18'),
+(9, 100, '2019-02-13', '11:11:00', '2019-02-15', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', 1, 1, 1, NULL, '2019-02-12 05:49:19'),
+(10, 100, '2019-02-13', '11:11:00', '2019-02-15', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', 1, 1, 10, NULL, '2019-02-12 05:51:32'),
 (13, 2, '2019-02-20', NULL, '2019-02-06', NULL, '21e12', 'e12e', 'e12e', 'e12e1', 1, 1, 1, NULL, '2019-02-13 17:50:44'),
 (14, 2, '2019-02-20', NULL, '2019-02-06', NULL, '21e12', 'e12e', 'e12e', 'e12e1', 1, 1, 1, NULL, '2019-02-13 17:50:52'),
-(15, 200, '2019-02-15', NULL, '2019-02-16', NULL, 'pag sure', 'tittle', 'pending', '09336', 1, 1, 1, NULL, '2019-02-13 20:49:49'),
-(16, 200, '2019-02-15', NULL, '2019-02-16', NULL, 'pag sure', 'tittle', 'pending', '09336', 1, 1, 1, NULL, '2019-02-13 20:50:06'),
+(15, 200, '2019-02-15', NULL, '2019-02-16', NULL, 'pag sure', 'tittle', 'approve', '09336', 1, 1, 1, NULL, '2019-02-13 20:49:49'),
+(16, 200, '2019-02-15', NULL, '2019-02-16', NULL, 'pag sure', 'tittle', 'approve', '09336', 1, 1, 1, NULL, '2019-02-13 20:50:06'),
 (17, 100, '2019-02-15', NULL, '2019-02-16', NULL, 'try agian', 'tittle again', 'approve', '0916994', 1, 1, 1, NULL, '2019-02-13 20:52:23'),
 (18, 100, '2019-02-14', NULL, '2019-02-15', NULL, 'pupose', 'tiiitle', 'approve', 'daw', 1, 1, 1, NULL, '2019-02-13 20:55:29'),
-(19, 100, '2019-02-14', NULL, '2019-02-15', NULL, 'pupose', 'tiiitle', 'pending', 'daw', 1, 1, 1, NULL, '2019-02-13 20:55:36'),
+(19, 100, '2019-02-14', NULL, '2019-02-15', NULL, 'pupose', 'tiiitle', 'pending', 'daw', 1, 1, 10, NULL, '2019-02-13 20:55:36'),
 (21, 100, '2019-02-14', NULL, '2019-02-15', NULL, 'purpose', 'title', 'pending', 'daw', 1, 1, 1, NULL, '2019-02-13 21:03:25'),
 (22, 10, '2019-02-22', NULL, '2019-02-16', NULL, 'purpose', 'tiile', 'pending', 'daw', 1, 1, 1, NULL, '2019-02-13 21:05:03'),
 (23, 10, '2019-02-22', NULL, '2019-02-16', NULL, 'purpose', 'tiile', 'pending', 'daw', 1, 1, 1, NULL, '2019-02-13 21:05:15'),
 (24, 100, '2019-02-22', '10:00:00', '2019-03-22', '10:00:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-13 21:17:06'),
-(25, 100, '2019-02-22', '08:11:00', '2019-02-22', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 2, NULL, '2019-02-13 22:32:38'),
+(25, 100, '2019-02-22', '08:11:00', '2019-02-22', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', 1, 1, 2, NULL, '2019-02-13 22:32:38'),
 (33, 100, '2019-02-13', NULL, '2019-02-13', NULL, 'qwqw', 'wqwqw', 'wqwq', 'wqw', 1, 1, 1, NULL, '2019-02-14 19:44:29'),
 (34, 100, '2019-01-04', NULL, '2019-01-11', NULL, 'daw', 'dawd', 'approve', 'daw', 1, 1, 1, NULL, '2019-02-14 19:45:17'),
 (36, 100, '2019-01-05', NULL, '2019-01-11', NULL, 'wala', 'title', 'pending', '0916355', 1, 1, 1, NULL, '2019-02-16 21:11:17'),
@@ -530,41 +457,17 @@ INSERT INTO `tbl_reserve_request` (`formNo`, `noParticipant`, `dateActual`, `tim
 (41, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-16 22:28:30'),
 (42, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-16 22:30:17'),
 (43, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-16 22:30:38'),
-(44, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-16 22:47:42');
+(44, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-16 22:47:42'),
+(45, 120, '2019-02-18', '11:11:00', '2019-02-18', '11:11:00', 'wala ko kabalo', '100', 'approve', '03164975', 1, 1, 10, NULL, '2019-02-17 06:06:46'),
+(46, 100, '2019-02-19', '11:11:00', '2019-02-19', '11:11:00', 'wala ko kabalo', '1000', 'approve', '03164975', 1, 1, 10, NULL, '2019-02-17 06:19:30');
 
 --
 -- Triggers `tbl_reserve_request`
 --
 DELIMITER $$
-CREATE TRIGGER `insertNotify` AFTER INSERT ON `tbl_reserve_request` FOR EACH ROW INSERT INTO tbl_notification VALUES (new.formNo,new.tittleEvent,"event",0,1,new.resBy,CURRENT_TIMESTAMP)
+CREATE TRIGGER `insertNotify` AFTER INSERT ON `tbl_reserve_request` FOR EACH ROW INSERT INTO tbl_notification VALUES (new.formNo,new.tittleEvent,"event",0,1,0,new.resBy,CURRENT_TIMESTAMP)
 $$
 DELIMITER ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_reset_password`
---
-
-CREATE TABLE `tbl_reset_password` (
-  `id` bigint(20) NOT NULL,
-  `email` varchar(128) NOT NULL,
-  `activation_id` varchar(32) NOT NULL,
-  `agent` varchar(512) NOT NULL,
-  `client_ip` varchar(32) NOT NULL,
-  `isDeleted` tinyint(4) NOT NULL DEFAULT '0',
-  `createdBy` bigint(20) NOT NULL DEFAULT '1',
-  `createdDtm` datetime NOT NULL,
-  `updatedBy` bigint(20) DEFAULT NULL,
-  `updatedDtm` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_reset_password`
---
-
-INSERT INTO `tbl_reset_password` (`id`, `email`, `activation_id`, `agent`, `client_ip`, `isDeleted`, `createdBy`, `createdDtm`, `updatedBy`, `updatedDtm`) VALUES
-(1, 'admin@example.com', 'A5MvZNqcwXCUp9n', 'Chrome 72.0.3626.109', '::1', 0, 1, '2019-02-14 17:23:00', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -615,7 +518,9 @@ INSERT INTO `tbl_users` (`userId`, `email`, `password`, `name`, `mobile`, `roleI
 (1, 'admin@example.com', '$2y$10$6NOKhXKiR2SAgpFF2WpCkuRgYKlSqFJaqM0NgIM3PT1gKHEM5/SM6', 'System Administrator', '9890098900', 1, 0, 0, '2015-07-01 18:56:49', 1, '2018-01-05 05:56:34'),
 (2, 'manager@example.com', '$2y$10$quODe6vkNma30rcxbAHbYuKYAZQqUaflBgc4YpV9/90ywd.5Koklm', 'Manager', '9890098900', 2, 0, 1, '2016-12-09 17:49:56', 1, '2018-01-12 07:22:11'),
 (3, 'employee@example.com', '$2y$10$UYsH1G7MkDg1cutOdgl2Q.ZbXjyX.CSjsdgQKvGzAgl60RXZxpB5u', 'Employee', '9890098900', 3, 0, 1, '2016-12-09 17:50:22', 3, '2018-01-04 07:58:28'),
-(9, 'ambot@gmail.com', '$2y$10$/OU6WZkh/vv3ydYDivKXrOjulVb21WrE6atrncVzNxzwX7BCsjbFq', 'Joshua Brian Perater', '0000000000', 3, 0, 1, '2019-02-14 10:19:19', 1, '2019-02-16 17:27:51');
+(9, 'ambot@gmail.com', '$2y$10$/OU6WZkh/vv3ydYDivKXrOjulVb21WrE6atrncVzNxzwX7BCsjbFq', 'Joshua Brian Perater', '0000000000', 3, 0, 1, '2019-02-14 10:19:19', 1, '2019-02-16 17:27:51'),
+(10, 'cristy@gmail.com', '$2y$10$/WpArcwvWMaDC9fhh6bjHuonrmoRm20zwsTaFgASMc4iLcqCCMUom', 'Cristyfel Pagutayao', '0000000000', 4, 0, 1, '2019-02-17 07:05:38', NULL, NULL),
+(11, 'eduria@gmail.com', '$2y$10$ptACJujjfnkGA7TGKHMfOOhqmiudXpP8vCBWV2wUMsh85eAGdY.vi', 'Nikkie Eduria', '1000000000', 2, 0, 1, '2019-02-17 07:47:07', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -645,19 +550,6 @@ INSERT INTO `tbl_venue` (`venID`, `bldgNo`, `name`, `type`) VALUES
 --
 
 --
--- Indexes for table `account`
---
-ALTER TABLE `account`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ci_sessions`
---
-ALTER TABLE `ci_sessions`
-  ADD PRIMARY KEY (`session_id`),
-  ADD KEY `last_activity_idx` (`last_activity`);
-
---
 -- Indexes for table `tbl_department`
 --
 ALTER TABLE `tbl_department`
@@ -667,6 +559,18 @@ ALTER TABLE `tbl_department`
 -- Indexes for table `tbl_equipment`
 --
 ALTER TABLE `tbl_equipment`
+  ADD PRIMARY KEY (`equipId`);
+
+--
+-- Indexes for table `tbl_equipment_history`
+--
+ALTER TABLE `tbl_equipment_history`
+  ADD KEY `equipId` (`equipId`);
+
+--
+-- Indexes for table `tbl_event_equip`
+--
+ALTER TABLE `tbl_event_equip`
   ADD PRIMARY KEY (`equipId`);
 
 --
@@ -685,13 +589,9 @@ ALTER TABLE `tbl_last_login`
 -- Indexes for table `tbl_reserve_request`
 --
 ALTER TABLE `tbl_reserve_request`
-  ADD PRIMARY KEY (`formNo`);
-
---
--- Indexes for table `tbl_reset_password`
---
-ALTER TABLE `tbl_reset_password`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`formNo`),
+  ADD KEY `departmentID` (`departmentID`),
+  ADD KEY `venueID` (`venueID`);
 
 --
 -- Indexes for table `tbl_roles`
@@ -716,11 +616,6 @@ ALTER TABLE `tbl_venue`
 --
 
 --
--- AUTO_INCREMENT for table `account`
---
-ALTER TABLE `account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
 -- AUTO_INCREMENT for table `tbl_department`
 --
 ALTER TABLE `tbl_department`
@@ -731,25 +626,25 @@ ALTER TABLE `tbl_department`
 ALTER TABLE `tbl_equipment`
   MODIFY `equipId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
+-- AUTO_INCREMENT for table `tbl_event_equip`
+--
+ALTER TABLE `tbl_event_equip`
+  MODIFY `equipId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `tbl_job_request`
 --
 ALTER TABLE `tbl_job_request`
-  MODIFY `jobId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `jobId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `tbl_last_login`
 --
 ALTER TABLE `tbl_last_login`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 --
 -- AUTO_INCREMENT for table `tbl_reserve_request`
 --
 ALTER TABLE `tbl_reserve_request`
-  MODIFY `formNo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
---
--- AUTO_INCREMENT for table `tbl_reset_password`
---
-ALTER TABLE `tbl_reset_password`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `formNo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT for table `tbl_roles`
 --
@@ -759,12 +654,29 @@ ALTER TABLE `tbl_roles`
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `tbl_venue`
 --
 ALTER TABLE `tbl_venue`
-  MODIFY `venID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;COMMIT;
+  MODIFY `venID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tbl_equipment_history`
+--
+ALTER TABLE `tbl_equipment_history`
+  ADD CONSTRAINT `tbl_equipment_history_ibfk_1` FOREIGN KEY (`equipId`) REFERENCES `tbl_equipment` (`equipId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_reserve_request`
+--
+ALTER TABLE `tbl_reserve_request`
+  ADD CONSTRAINT `tbl_reserve_request_ibfk_1` FOREIGN KEY (`departmentID`) REFERENCES `tbl_department` (`departId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_reserve_request_ibfk_2` FOREIGN KEY (`venueID`) REFERENCES `tbl_venue` (`venID`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

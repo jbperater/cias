@@ -49,7 +49,7 @@ class User extends BaseController
             
             $data['userRecords'] = $this->user_model->userListing($searchText, $returns["page"], $returns["segment"]);
             
-            $this->global['pageTitle'] = 'CodeInsect : User Listing';
+            $this->global['pageTitle'] = 'MEWU : User Listing';
             
             $this->loadViews("users", $this->global, $data, NULL);
         }
@@ -69,7 +69,7 @@ class User extends BaseController
             $this->load->model('user_model');
             $data['roles'] = $this->user_model->getUserRoles();
             
-            $this->global['pageTitle'] = 'CodeInsect : Add New User';
+            $this->global['pageTitle'] = 'MEWU : Add New User';
 
             $this->loadViews("addNew", $this->global, $data, NULL);
         }
@@ -166,7 +166,7 @@ class User extends BaseController
             $data['roles'] = $this->user_model->getUserRoles();
             $data['userInfo'] = $this->user_model->getUserInfo($userId);
             
-            $this->global['pageTitle'] = 'CodeInsect : Edit User';
+            $this->global['pageTitle'] = 'MEWU : Edit User';
             
             $this->loadViews("editOld", $this->global, $data, NULL);
         }
@@ -265,7 +265,7 @@ class User extends BaseController
      */
     function pageNotFound()
     {
-        $this->global['pageTitle'] = 'CodeInsect : 404 - Page Not Found';
+        $this->global['pageTitle'] = 'MEWU : 404 - Page Not Found';
         
         $this->loadViews("404", $this->global, NULL, NULL);
     }
@@ -302,7 +302,7 @@ class User extends BaseController
 
             $data['userRecords'] = $this->user_model->loginHistory($userId, $searchText, $fromDate, $toDate, $returns["page"], $returns["segment"]);
             
-            $this->global['pageTitle'] = 'CodeInsect : User Login History';
+            $this->global['pageTitle'] = 'MEWU : User Login History';
             
             $this->loadViews("loginHistory", $this->global, $data, NULL);
         }        
@@ -316,7 +316,7 @@ class User extends BaseController
         $data["userInfo"] = $this->user_model->getUserInfoWithRole($this->vendorId);
         $data["active"] = $active;
         
-        $this->global['pageTitle'] = $active == "details" ? 'CodeInsect : My Profile' : 'CodeInsect : Change Password';
+        $this->global['pageTitle'] = $active == "details" ? 'MEWU : My Profile' : 'MEWU : Change Password';
         $this->loadViews("profile", $this->global, $data, NULL);
     }
 
@@ -705,7 +705,7 @@ class User extends BaseController
             
             $data['jobInfo'] = $this->user_model->getJobInfo($jobId);
             
-            $this->global['pageTitle'] = 'CodeInsect : Edit Job';
+            $this->global['pageTitle'] = 'MEWU : Edit Job';
             
             $this->loadViews("updateSchedule", $this->global, $data, NULL);
         }
