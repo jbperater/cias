@@ -123,6 +123,11 @@ class Main_model extends CI_Model
 		}	
 	}
 
+  function adminEventEquipmentInsert($data) {
+    $this->db->insert('tbl_event_equip',$data); 
+    
+  }
+
 	function getEquipment(){
       	$this->db->select('equipName,brand,model,serialNo,office,department,type,yearAcc');
       	$result = $this->db->get('tbl_equipment');

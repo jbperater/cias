@@ -22,20 +22,20 @@
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
-                    <form role="form" id="addUser" action="<?php echo base_url() ?>Main/viewAddNewEventEquipment" method="post" role="form">
+                    <form role="form" id="addUser" action="<?php echo base_url() ?>Main/adminEventEquipmentInsert" method="post" role="form">
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" class="form-control required" value="<?php echo set_value('name'); ?>" id="name" name="name" maxlength="128" placeholder="Equipment Name">
+                                        <input type="text" class="form-control required" value="" id="name" name="name" maxlength="128" placeholder="Equipment Name">
                                     </div>
                                     
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="Type">Type</label>
-                                        <input type="text" class="form-control required " id="Type" value="<?php echo set_value('Type'); ?>" name="Type" maxlength="128" placeholder="Type">
+                                        <input type="text" class="form-control required " id="Type" value="" name="type" maxlength="128" placeholder="Type">
                                     </div>
                                 </div>
                             </div>

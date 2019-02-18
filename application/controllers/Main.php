@@ -257,6 +257,39 @@ class Main extends BaseController
             }
     }
 
+    public function adminEventEquipmentInsert(){
+
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $this->load->library('session');
+        
+        // set validation rules
+        
+        $this->form_validation->set_rules('name', 'Name', 'required');
+        
+
+        
+        if ($this->form_validation->run() == false) {
+            
+            $this->viewAddNewEventEquipment();
+            
+            } else {
+                
+                $this->load->model('main_model');
+            
+            $data = array(  
+                'name' => $this->input->post('name'),
+                'type' => $this->input->post('type'),
+                
+            );  
+
+            $this->main_model->adminEventEquipmentInsert($data);
+            $this->session->set_flashdata('success')  ;
+            $this->viewAddNewEventEquipment();
+            // redirect('/viewDepartment');   
+            }
+    }
+
     public function eventRequestInsert(){
 
         $this->load->helper('form');
