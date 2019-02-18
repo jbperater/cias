@@ -823,6 +823,28 @@ class User extends BaseController
             $this->loadViews("maintenance/viewTheRepairRequest", $this->global, $data, NULL);
         
     }
+
+     function viewStudentRequest()
+    {
+
+            $id = $this->session->userdata('userId');
+           
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewEventRequestCounts($searchText);
+
+            $returns = $this->paginationCompress ("student/viewStudentRequests", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewStudentRequests($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU : View Event Request';
+            
+            $this->loadViews("student/viewStudentRequests", $this->global, $data, NULL);
+        
+    }
     
    
 }

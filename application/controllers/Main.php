@@ -362,10 +362,11 @@ class Main extends BaseController
             
             $data = array(  
                 'itemNo' => $this->input->post('itemNo'),
-                'location' => $this->input->post('location'),
                 'workDescript' => $this->input->post('description'),
+                'location' => $this->input->post('location'),
                 'resBy' => $this->session->userdata('userId'),
                 'remark' => 'pending'
+
             );  
 
             $this->main_model->jobRequestInsert($data);

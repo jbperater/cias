@@ -859,6 +859,28 @@ class User_model extends CI_Model
         return $result;
     }
 
+    function viewStudentRequests($searchText = '', $page, $segment,$id)
+    {
+        $this->db->select('BaseTbl.formNo, BaseTbl.noParticipant, BaseTbl.dateActual, BaseTbl.timeActual, BaseTbl.dateEnd, BaseTbl.timeEnd, BaseTbl.purpose,BaseTbl.tittleEvent,BaseTbl.contactNo,BaseTb2.acroname,BaseTb3.name,BaseTb4.name as fullname,BaseTbl.dateReq');
+        $this->db->from('tbl_reserve_request as BaseTbl');
+        $this->db->join('tbl_department as BaseTb2','BaseTbl.departmentID = BaseTb2.departId');
+        $this->db->join('tbl_venue as BaseTb3','BaseTbl.venueID = BaseTb3.venID');
+        $this->db->join('tbl_users as BaseTb4','BaseTbl.resBy = BaseTb4.userId');
+        $this->db->where('resBy',$id);
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.tittleEvent  LIKE '%".$searchText."%'
+                            OR  BaseTbl.resBy  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $this->db->order_by('BaseTbl.formNo', 'ASC');
+        $this->db->limit($page, $segment);
+        $query = $this->db->get();
+        
+        $result = $query->result();        
+        return $result;
+    }
+
 }
 
   

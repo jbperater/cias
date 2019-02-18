@@ -257,9 +257,9 @@
             <li class="treeview">
                <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i> View Requests <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo1" class="collapse">
-                            <li>
+                            <!-- <li>
                                 <a href="<?php echo base_url(); ?>User/viewEventRequests"> All My Event Requests</a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="<?php echo base_url(); ?>User/viewRepairRequests"> All My Repair Requests</a>
                             </li>
