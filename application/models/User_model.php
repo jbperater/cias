@@ -744,8 +744,7 @@ class User_model extends CI_Model
         return $query->num_rows();
     }
     
-    /**
-     * This function is used to get the user listing count
+    /**on is used to get the user listing count
      * @param string $searchText : This is optional search text
      * @param number $page : This is pagination offset
      * @param number $segment : This is pagination limit
