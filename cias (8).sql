@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2019 at 06:03 PM
+-- Generation Time: Feb 25, 2019 at 07:38 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -360,7 +360,9 @@ INSERT INTO `tbl_last_login` (`id`, `userId`, `sessionData`, `machineIp`, `userA
 
 CREATE TABLE `tbl_location` (
   `locID` int(11) NOT NULL,
-  `name` int(11) NOT NULL
+  `bldgNo` varchar(15) NOT NULL,
+  `roomNo` varchar(15) NOT NULL,
+  `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
