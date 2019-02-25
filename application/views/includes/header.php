@@ -234,15 +234,7 @@
                             </li>
                           </ul>
               </li>
-             <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo6"><i class="fa fa-fw fa-file"></i> Forecasts <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo6" class="collapse">
-                            <li>
-                                <a href="<?php echo base_url(); ?>forecast/forecast"> View Forecasts</a>
-                            </li>
-                        </ul>
-              </li>
-           <li class="treeview">
+              <li class="treeview">
               <a href="<?php echo base_url(); ?>userListing">
                 <i class="fa fa-users"></i>
                 <span>Accounts</span>
