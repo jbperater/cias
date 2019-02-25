@@ -155,13 +155,13 @@
                           </ul>
             </li>
              <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo21"><i class="fa fa-fw fa-thumb-tack"></i><span>View All Requests </span><i class="fa fa-fw fa-caret-down"></i></a>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo21"><i class="fa fa-fw fa-thumb-tack"></i><span>My Requests </span><i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo21" class="collapse">
                             <li class="treeview">
-                                <a href="<?php echo base_url(); ?>User/viewAllEventRequest">  View All Event Requests</a>
+                                <a href="<?php echo base_url(); ?>User/viewAllEventRequest">  View All My Event Requests</a>
                             </li>
                             <li class="treeview">
-                                <a href="<?php echo base_url(); ?>User/viewAllRepairRequest"> View All Repair Requests</a>
+                                <a href="<?php echo base_url(); ?>User/viewAllRepairRequest"> View All My Repair Requests</a>
                             </li>
                           </ul>
             </li>
@@ -224,13 +224,24 @@
                           </ul>
               </li>
               <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo20"><i class="fa fa-fw fa-file"></i> Department <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo20" class="collapse">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo6"><i class="fa fa-fw fa-file"></i> Department <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo6" class="collapse">
                             <li>
                                 <a href="<?php echo base_url(); ?>Main/viewAddNewDepartment"> Add Department</a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url(); ?>User/viewDepartment"> View Department</a>
+                            </li>
+                          </ul>
+              </li>
+              <li class="treeview">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo7"><i class="fa fa-fw fa-file"></i> Location <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo7" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>Main/viewAddNewLocation"> Add Location</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>User/viewLocation"> View Location</a>
                             </li>
                           </ul>
               </li>

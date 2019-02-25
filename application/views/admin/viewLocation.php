@@ -2,8 +2,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-users"></i> Repair Requests
-        <small>View/Approve</small>
+        <i class="fa fa-users"></i>Location
+        <small>View</small>
       </h1>
     </section>
     <section class="content">
@@ -13,9 +13,9 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Repair Requests</h3>
+                    <h3 class="box-title">Location</h3>
                     <div class="box-tools">
-                        <form action="<?php echo base_url() ?>viewRepairRequests" method="POST" id="searchList">
+                        <form action="<?php echo base_url() ?>viewLocation" method="POST" id="searchList">
                             <div class="input-group">
                               <input type="text" name="searchText" value="<?php echo $searchText; ?>" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
                               <div class="input-group-btn">
@@ -28,13 +28,9 @@
                 <div class="box-body table-responsive no-padding">
                   <table class="table table-hover">
                     <tr>
-                        <th>Number of Items</th>
-                        <th>Work Description</th>
-                        <th>Location</th>
-                        <th>Date Requested</th>
-                        <th>Reserved By</th>
-                        <th>Remark</th>
-                          <th class="text-center">Actions</th>
+                        <th>Name</th>
+                        <th>Building Number</th>
+                        <th>Room Number</th>
                     </tr>
                     <?php
                     if(!empty($userRecords))
@@ -43,16 +39,9 @@
                         {
                     ?>
                     <tr>
-                        <td><?php echo $record->itemNo ?></td>
-                        <td><?php echo $record->workDescript ?></td>
-                        <td><?php echo $record->name.' '.$record->bldgNo.' '.$record->roomNo  ?></td>
-                        <td><?php echo $record->dateReq ?></td>
-                        <td><?php echo $record->Resname ?></td>
-                        <td><?php echo $record->remark ?></td>
-                         <td class="text-center">
-                            <a class="btn btn-sm btn-info" data-userid="" href="<?php echo base_url() ?>main/assignJobRequests?id=<?php echo $record->jobId ?>" title="Approve"><i class="fa fa-pencil"></i></a>
-                            <a class="btn btn-sm btn-danger deleteUser" href="#" data-userid="" title="Disapprove"><i class="fa fa-trash"></i></a>
-                        </td>
+                        <td><?php echo $record->name ?></td>
+                        <td><?php echo $record->bldgNo ?></td>
+                        <td><?php echo $record->roomNo ?></td>
                     </tr>
                     <?php
                         }
