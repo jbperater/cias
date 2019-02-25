@@ -31,22 +31,40 @@ class Main_model extends CI_Model
     
         $this->db->set('ownerNotify',1);
         $this->db->where('id',$id);
-        $this->db->where('type','job_request');
+        $this->db->where('type','maintenance');
         $this->db->update('tbl_notification');
     }
 
     function eventNotify($id){
-    
         $this->db->set('ownerNotify',1);
         $this->db->where('id',$id);
         $this->db->where('type','event');
         $this->db->update('tbl_notification');
     }
 
-    function jobRequestNotify($id,$personel){
-    
+    function eventUnNotifyAdmin($id){
+        $this->db->set('adminNotify',0);
+        $this->db->where('id',$id);
+        $this->db->where('type','event');
+        $this->db->update('tbl_notification');
+    }
+    function eventUnNotify($id){
+        $this->db->set('ownerNotify',0);
+        $this->db->where('id',$id);
+        $this->db->where('type','event');
+        $this->db->update('tbl_notification');
+    }
+
+     function jobRequestNotify($id,$personel){
         $this->db->set('ownerNotify',1);
         $this->db->set('assign',$personel);
+        $this->db->where('id',$id);
+        $this->db->where('type','maintenance');
+        $this->db->update('tbl_notification');
+    }
+
+    function jobRequestUnNotify($id){
+        $this->db->set('ownerNotify',0);
         $this->db->where('id',$id);
         $this->db->where('type','maintenance');
         $this->db->update('tbl_notification');
