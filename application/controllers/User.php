@@ -811,7 +811,14 @@ class User extends BaseController
     {
 
             $id = $this->input->get('id');
-           
+
+            if($this->session->userdata('roleText') == 'System Administrator'){
+                $this->main_model->eventUnNotifyAdmin($id);
+            }else{
+                $this->main_model->eventUnNotify($id);
+            }
+            $this->global['notification'] =$this->main_model->getNotification($this->session->userdata('role'));
+
             $searchText = $this->security->xss_clean($this->input->post('searchText'));
             $data['searchText'] = $searchText;
             
@@ -832,6 +839,16 @@ class User extends BaseController
      function viewTheRepairRequest()
     {
             $id=$this->input->get('id');
+
+            $id = $this->input->get('id');
+
+            if($this->session->userdata('roleText') == 'System Administrator'){
+                $this->main_model->eventUnNotifyAdmin($id);
+            }else{
+                $this->main_model->jobRequestUnNotify($id);
+            }
+            $this->global['notification'] =$this->main_model->getNotification($this->session->userdata('role'));
+
             $searchText = $this->security->xss_clean($this->input->post('searchText'));
             $data['searchText'] = $searchText;
             
@@ -839,7 +856,7 @@ class User extends BaseController
             
             $count = $this->user_model->viewRepairRequestCounts($searchText);
 
-            $returns = $this->paginationCompress ( "viewTheRepairRequests/", $count, 10 );
+            $returns = $this->paginationCompress ( "admin/viewTheRepairRequests/", $count, 10 );
             
             $data['userRecords'] = $this->user_model->viewTheRepairRequests($searchText, $returns["page"], $returns["segment"],$id);
             

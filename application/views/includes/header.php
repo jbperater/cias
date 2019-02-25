@@ -69,7 +69,12 @@
                 </ul>
               </li>
               <li class="dropdown user user-menu" style="background-color: #fbb414" id="drop1">
-                <a href="#drop1" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o"></i>
+                <?php  if($notification != NUll){ ?>
+                  <a href="#drop1" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i>
+                <?php }else{?>
+                   <a href="#drop1" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-slash-o"></i>
+                 <?php }?>
+
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <?php foreach($notification as $notification){ if($notification->type == 'event'){?>
