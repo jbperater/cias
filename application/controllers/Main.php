@@ -423,7 +423,234 @@ class Main extends BaseController
             redirect('maintenance/addHistory');   
             }
     }
-     
+
+    function viewStudentAllRequest()
+    {
+
+            $id = $this->session->userdata('userId');
+           
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->main_model->viewStudentRequestsCounts($searchText);
+
+            $returns = $this->paginationCompress ("student/viewStudentRequests", $count, 10 );
+            
+            $data['userRecords'] = $this->main_model->viewStudentRequests($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU : View Event Request';
+            $this->global['name'] =$this->session->userdata('name');
+            $this->global['role'] =$this->session->userdata('role');
+            $this->global['role_text'] =$this->session->userdata('role_text');
+            
+            $this->loadViews("student/viewStudentRequests", $this->global, $data, NULL);
+        
+    }
+
+    function viewStudentApproveRequest()
+    {
+
+            $id = $this->session->userdata('userId');
+           
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->main_model->viewStudentApproveRequestsCounts($searchText);
+
+            $returns = $this->paginationCompress ("student/viewStudentRequests", $count, 10 );
+            
+            $data['userRecords'] = $this->main_model->viewStudentApproveRequests($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU : View Event Request';
+            $this->global['name'] =$this->session->userdata('name');
+            $this->global['role'] =$this->session->userdata('role');
+            $this->global['role_text'] =$this->session->userdata('role_text');
+            
+            $this->loadViews("student/viewStudentRequests", $this->global, $data, NULL);
+        
+    }
+
+    function viewStudentPendingRequest()
+    {
+
+            $id = $this->session->userdata('userId');
+           
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->main_model->viewStudentPendingRequestsCounts($searchText);
+
+            $returns = $this->paginationCompress ("student/viewStudentRequests", $count, 10 );
+            
+            $data['userRecords'] = $this->main_model->viewStudentPendingRequests($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU : View Event Request';
+            $this->global['name'] =$this->session->userdata('name');
+            $this->global['role'] =$this->session->userdata('role');
+            $this->global['role_text'] =$this->session->userdata('role_text');
+            
+            $this->loadViews("student/viewStudentRequests", $this->global, $data, NULL);
+        
+    }
+
+    function viewStudentDeclineRequest()
+    {
+
+            $id = $this->session->userdata('userId');
+           
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->main_model->viewStudentDeclineRequestsCounts($searchText);
+
+            $returns = $this->paginationCompress ("student/viewStudentRequests", $count, 10 );
+            
+            $data['userRecords'] = $this->main_model->viewStudentDeclineRequests($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU : View Event Request';
+            $this->global['name'] =$this->session->userdata('name');
+            $this->global['role'] =$this->session->userdata('role');
+            $this->global['role_text'] =$this->session->userdata('role_text');
+            
+            $this->loadViews("student/viewStudentRequests", $this->global, $data, NULL);
+        
+    }
+
+    function viewRepairAllRequests()
+    {
+
+            $id = $this->session->userdata('userId');
+           
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->main_model->viewRepairRequestCounts($searchText);
+
+            $returns = $this->paginationCompress ("staff/viewEventRequest", $count, 10 );
+            
+            $data['userRecords'] = $this->main_model->viewRepairRequests($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU : View Event Request';
+            $this->global['name'] =$this->session->userdata('name');
+            $this->global['role'] =$this->session->userdata('role');
+            $this->global['role_text'] =$this->session->userdata('role_text');
+            
+            $this->loadViews("staff/viewRepairRequests", $this->global, $data, NULL);
+        
+    }
+
+    function viewRepairtPendingRequest()
+    {
+
+            $id = $this->session->userdata('userId');
+           
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->main_model->viewRepairPendingRequestCounts($searchText);
+
+            $returns = $this->paginationCompress ("staff/viewRepairRequest", $count, 10 );
+            
+            $data['userRecords'] = $this->main_model->viewRepairPendingRequests($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU : View Event Request';
+            $this->global['name'] =$this->session->userdata('name');
+            $this->global['role'] =$this->session->userdata('role');
+            $this->global['role_text'] =$this->session->userdata('role_text');
+            
+            $this->loadViews("staff/viewRepairRequests", $this->global, $data, NULL);
+        
+    }
+
+    function viewRepairApproveRequest()
+    {
+
+            $id = $this->session->userdata('userId');
+           
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->main_model->viewRepairApproveRequestCounts($searchText);
+
+            $returns = $this->paginationCompress ("staff/viewRepairRequest", $count, 10 );
+            
+            $data['userRecords'] = $this->main_model->viewRepairApproveRequests($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU : View Event Request';
+            $this->global['name'] =$this->session->userdata('name');
+            $this->global['role'] =$this->session->userdata('role');
+            $this->global['role_text'] =$this->session->userdata('role_text');
+            
+            $this->loadViews("staff/viewRepairRequests", $this->global, $data, NULL);
+        
+    }
+
+    function viewRepairDeclineRequest()
+    {
+
+            $id = $this->session->userdata('userId');
+           
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->main_model->viewRepairDeclineRequestCounts($searchText);
+
+            $returns = $this->paginationCompress ("staff/viewRepairRequest", $count, 10 );
+            
+            $data['userRecords'] = $this->main_model->viewRepairDeclineRequests($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU : View Event Request';
+            $this->global['name'] =$this->session->userdata('name');
+            $this->global['role'] =$this->session->userdata('role');
+            $this->global['role_text'] =$this->session->userdata('role_text');
+            
+            $this->loadViews("staff/viewRepairRequests", $this->global, $data, NULL);
+        
+    }
+
+    function viewRepairFinishedRequest()
+    {
+
+            $id = $this->session->userdata('userId');
+           
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->main_model->viewRepairFinishedRequestCounts($searchText);
+
+            $returns = $this->paginationCompress ("staff/viewRepairRequest", $count, 10 );
+            
+            $data['userRecords'] = $this->main_model->viewRepairFinishedRequests($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU : View Event Request';
+            $this->global['name'] =$this->session->userdata('name');
+            $this->global['role'] =$this->session->userdata('role');
+            $this->global['role_text'] =$this->session->userdata('role_text');
+            
+            $this->loadViews("staff/viewRepairRequests", $this->global, $data, NULL);
+        
+    }
+
+
+    
 
 }
 

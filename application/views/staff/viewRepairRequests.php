@@ -32,6 +32,7 @@
                         <th>Work Description</th>
                         <th>Location</th>
                         <th>dateReq</th>
+                        <th>Remark</th>
                     </tr>
                     <?php
                     if(!empty($userRecords))
@@ -44,6 +45,7 @@
                         <td><?php echo $record->workDescript ?></td>
                         <td><?php echo $record->location ?></td>
                         <td><?php echo $record->dateReq ?></td>
+                         <td><?php echo $record->remark ?></td>
                     </tr>
                     <?php
                         }

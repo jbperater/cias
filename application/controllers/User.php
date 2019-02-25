@@ -610,7 +610,7 @@ class User extends BaseController
             
             $count = $this->user_model->viewEventRequestCount($searchText);
 
-            $returns = $this->paginationCompress ( "viewEventRequest/", $count, 20 );
+            $returns = $this->paginationCompress ( "user/viewEventRequest/", $count, 10 );
             
             $data['userRecords'] = $this->user_model->viewEventRequest($searchText, $returns["page"], $returns["segment"]);
             
@@ -635,7 +635,7 @@ class User extends BaseController
             
             $count = $this->user_model->viewRepairRequestCount($searchText);
 
-            $returns = $this->paginationCompress ( "viewRepairRequest/", $count, 10 );
+            $returns = $this->paginationCompress ( "user/viewRepairRequest/", $count, 10 );
             
             $data['userRecords'] = $this->user_model->viewRepairRequest($searchText, $returns["page"], $returns["segment"]);
             
@@ -821,6 +821,28 @@ class User extends BaseController
             $this->global['pageTitle'] = 'MEWU :Repair Request';
             
             $this->loadViews("maintenance/viewTheRepairRequest", $this->global, $data, NULL);
+        
+    }
+
+    function viewAllEventRequest()
+    {
+
+            $id = $this->input->get('id');
+           
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewAllEventRequestCounts($searchText);
+
+            $returns = $this->paginationCompress ( "viewEventRequests/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewAllEventRequest($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU : View Event Request';
+            
+            $this->loadViews("admin/viewAllEventRequest", $this->global, $data, NULL);
         
     }
 
