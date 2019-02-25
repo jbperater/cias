@@ -15,7 +15,7 @@
                 <div class="box-header">
                     <h3 class="box-title">Event Requests</h3>
                     <div class="box-tools">
-                        <form action="<?php echo base_url() ?>user/viewEventRequest" method="POST" id="searchList">
+                        <form action="<?php echo base_url() ?>user/viewAllEventRequest" method="POST" id="searchList">
                             <div class="input-group">
                               <input type="text" name="searchText" value="<?php echo $searchText; ?>" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
                               <div class="input-group-btn">
@@ -66,7 +66,7 @@
                         <td><?php echo $record->status ?></td>
                         <td><?php echo $record->dateReq ?></td>
                          <td class="text-center">
-                            <a class="btn btn-sm btn-info" href="<?php echo base_url() ?>main/approveEventRequests?id=<?php echo $record->formNo ?>" title="Approve"><i class="fa fa-pencil"></i></a>
+                            <!-- <a class="btn btn-sm btn-info" href="<?php echo base_url() ?>main/approveEventRequests?id=<?php echo $record->formNo ?>" title="Approve"><i class="fa fa-pencil"></i></a> -->
                             <a class="btn btn-sm btn-danger deleteUser" href="#" data-userid="" title="Disapprove"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>

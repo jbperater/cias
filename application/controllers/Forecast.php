@@ -16,6 +16,8 @@ class Forecast extends Statistics
     {
         parent::__construct();
         $this->load->model('login_model');
+        $this->load->model('main_model');
+         $this->global['notification'] =$this->main_model->getNotification($this->session->userdata('role'));
     }
 
     /**
@@ -54,7 +56,7 @@ class Forecast extends Statistics
         $y=array(43,56,23,12,67,87,34,9,16,40,11,23);
         $forecast_number = 0; // number of future data in $y you want to predict
         $forecasts = array(); // output array, size will be length of $y + $forecast_number
-        $seasons = 3;
+        $seasons = 4;
         $ma = array();
 
         $out = $this->time_series_forecast_multiplicative_model($y, $seasons, $forecast_number, $forecasts);
@@ -66,7 +68,8 @@ class Forecast extends Statistics
         $data = (array)json_decode($what);
         // foreach ($koyim as $m ) {
         //    echo $m;
-           
+        // echo json_encode($out);
+        // exit;
         //  }
         $datani['data'] = $data;
         $this->global['name'] =$this->session->userdata('name');

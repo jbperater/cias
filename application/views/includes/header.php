@@ -154,6 +154,17 @@
                             </li>
                           </ul>
             </li>
+             <li class="treeview">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo21"><i class="fa fa-fw fa-thumb-tack"></i><span>View All Requests </span><i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo21" class="collapse">
+                            <li class="treeview">
+                                <a href="<?php echo base_url(); ?>User/viewAllEventRequest">  View All Event Requests</a>
+                            </li>
+                            <li class="treeview">
+                                <a href="<?php echo base_url(); ?>User/viewAllRepairRequest"> View All Repair Requests</a>
+                            </li>
+                          </ul>
+            </li>
             <li class="treeview">
                <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i> Set Schedules <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo1" class="collapse">
@@ -255,15 +266,45 @@
                           </ul>
             </li>
             <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i> View Requests <i class="fa fa-fw fa-caret-down"></i></a>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-thumb-tack"></i>View My Event Request <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo2" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>Main/viewStudentAllRequest"> View All My Request </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>Main/viewStudentPendingRequest">View All Pending Request</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>main/viewStudentApproveRequest">View All Approve Request</a>
+                            </li>
+                             <li>
+                                <a href="<?php echo base_url(); ?>Main/viewStudentDeclineRequest">View All Decline Request</a>
+                            </li>
+                          </ul>
+            </li>
+            <li class="treeview">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i> View Repair Requests <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo1" class="collapse">
                             <!-- <li>
                                 <a href="<?php echo base_url(); ?>User/viewEventRequests"> All My Event Requests</a>
                             </li> -->
                             <li>
-                                <a href="<?php echo base_url(); ?>User/viewRepairRequests"> All My Repair Requests</a>
+                                <a href="<?php echo base_url(); ?>main/viewRepairAllRequests"> All My Repair Requests</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>Main/viewRepairtPendingRequest">View All Pending Request</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>main/viewRepairApproveRequest">View All Approve Request</a>
+                            </li>
+                             <li>
+                                <a href="<?php echo base_url(); ?>Main/viewRepairDeclineRequest">View All Decline Request</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>Main/viewRepairFinishedRequest">View All Finished Request</a>
                             </li>
                           </ul>
+             </li>
              <li class="treeview">
               <a href="<?php echo base_url(); ?>main/viewEventSchedule">
                 <i class="fa fa-users"></i>
@@ -286,6 +327,23 @@
                 <i class="fa fa-thumb-tack"></i>
                 <span>View My Requests</span>
               </a>
+            </li>
+            <li class="treeview">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-thumb-tack"></i>View My Request <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="<?php echo base_url(); ?>Main/viewStudentAllRequest"> View All My Request </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>Main/viewStudentPendingRequest">View All Pending Request</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>main/viewStudentApproveRequest">View All Approve Request</a>
+                            </li>
+                             <li>
+                                <a href="<?php echo base_url(); ?>Main/viewStudentDeclineRequest">View All Decline Request</a>
+                            </li>
+                          </ul>
             </li>
              <li class="treeview">
               <a href="<?php echo base_url(); ?>main/viewEventSchedule">

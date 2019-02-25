@@ -32,6 +32,7 @@
                         <th>Work Description</th>
                         <th>Location</th>
                         <th>dateReq</th>
+                        <th>Remark</th>
                           <th class="text-center">Actions</th>
                     </tr>
                     <?php
@@ -45,6 +46,7 @@
                         <td><?php echo $record->workDescript ?></td>
                         <td><?php echo $record->location ?></td>
                         <td><?php echo $record->dateReq ?></td>
+                        <td><?php echo $record->remark ?></td>
                          <td class="text-center">
                             <a class="btn btn-sm btn-info" data-userid="" href="<?php echo base_url() ?>main/assignJobRequests?id=<?php echo $record->jobId ?>" title="Approve"><i class="fa fa-pencil"></i></a>
                             <a class="btn btn-sm btn-danger deleteUser" href="#" data-userid="" title="Disapprove"><i class="fa fa-trash"></i></a>
