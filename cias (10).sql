@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2019 at 07:38 PM
+-- Generation Time: Feb 26, 2019 at 04:48 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -105,7 +105,8 @@ INSERT INTO `ass_reserve_equip_need` (`formNo`, `equipId`, `tableNo`, `chairNo`)
 (46, 0, 100, 100),
 (47, 1, 100, 100),
 (48, 1, 100, 100),
-(48, 2, 100, 100);
+(48, 2, 100, 100),
+(49, 1, 12, 12);
 
 -- --------------------------------------------------------
 
@@ -210,6 +211,7 @@ CREATE TABLE `tbl_job_request` (
   `dateTimeStart` datetime DEFAULT NULL,
   `dateTimeEnd` datetime DEFAULT NULL,
   `remark` varchar(50) NOT NULL,
+  `description` varchar(250) DEFAULT NULL,
   `personAtend` int(11) DEFAULT NULL,
   `resBy` int(11) NOT NULL,
   `AppBy` int(11) DEFAULT NULL,
@@ -220,22 +222,22 @@ CREATE TABLE `tbl_job_request` (
 -- Dumping data for table `tbl_job_request`
 --
 
-INSERT INTO `tbl_job_request` (`jobId`, `itemNo`, `workDescript`, `location`, `dateTimeStart`, `dateTimeEnd`, `remark`, `personAtend`, `resBy`, `AppBy`, `dateReq`) VALUES
-(1, 4, 'guba ang plaka', 'Bldg 23', NULL, NULL, 'approve', 3, 1, NULL, '2019-02-11 16:38:19'),
-(5, 21, 'sa', 'dadawd', '2019-02-22 00:00:00', '2019-02-14 00:00:00', 'pending', 9, 1, NULL, '2019-02-13 18:32:50'),
-(6, 21, 'sa', 'dadawd', '2019-02-02 00:00:00', '2019-02-08 00:00:00', 'pending', NULL, 1, NULL, '2019-02-13 18:32:54'),
-(7, 21, 'sa', 'dadawd', NULL, NULL, 'pending', NULL, 1, NULL, '2019-02-13 18:34:09'),
-(8, 21, 'sa', 'dadawd', NULL, NULL, 'pending', NULL, 1, NULL, '2019-02-13 18:34:12'),
-(9, 21, 'sa', 'dadawd', NULL, NULL, 'pending', NULL, 1, NULL, '2019-02-13 20:53:57'),
-(10, 21, 'sa', 'dadawd', '2019-02-04 00:00:00', NULL, 'approve', 9, 1, NULL, '2019-02-13 21:10:11'),
-(11, 4, '212', 'Bldg 23', '2019-02-19 00:00:00', NULL, 'approve', 9, 1, NULL, '2019-02-13 21:11:01'),
-(12, 4, '212', 'Bldg 23', NULL, NULL, 'approve', 3, 1, NULL, '2019-02-13 21:12:11'),
-(13, 21, 'sa', 'BLDG 21', '2019-02-19 00:00:00', NULL, 'approve', 9, 1, NULL, '2019-02-16 21:27:40'),
-(14, 21, 'sa', 'BLDG 21', '2019-02-04 00:00:00', NULL, 'approve', 9, 1, NULL, '2019-02-16 21:27:46'),
-(15, 4, 'work2x', 'Bldg 143', '2019-02-22 00:00:00', NULL, 'approve', 9, 11, NULL, '2019-02-17 06:50:16'),
-(16, 143, 'sumbagay', 'Bldg 143', '2019-02-06 00:00:00', NULL, 'approve', 9, 11, NULL, '2019-02-17 06:51:36'),
-(18, 21, 'sa', 'dadawd', NULL, NULL, 'secret', NULL, 1, NULL, '2019-02-21 16:33:57'),
-(21, 143, 'guba', 'Bldg 23', NULL, NULL, 'pending', NULL, 1, NULL, '2019-02-25 16:58:38');
+INSERT INTO `tbl_job_request` (`jobId`, `itemNo`, `workDescript`, `location`, `dateTimeStart`, `dateTimeEnd`, `remark`, `description`, `personAtend`, `resBy`, `AppBy`, `dateReq`) VALUES
+(1, 4, 'guba ang plaka', 'Bldg 23', NULL, NULL, 'approve', NULL, 3, 1, NULL, '2019-02-11 16:38:19'),
+(5, 21, 'sa', 'dadawd', '2019-02-04 00:00:00', '2019-02-14 00:00:00', 'approve', NULL, 9, 1, NULL, '2019-02-13 18:32:50'),
+(6, 21, 'sa', '1', '2019-02-28 00:00:00', '2019-02-08 00:00:00', 'disapprove', 'jobrequesti bay', 9, 1, NULL, '2019-02-13 18:32:54'),
+(7, 21, 'sa', 'dadawd', NULL, NULL, 'pending', NULL, NULL, 1, NULL, '2019-02-13 18:34:09'),
+(8, 21, 'sa', 'dadawd', NULL, NULL, 'pending', NULL, NULL, 1, NULL, '2019-02-13 18:34:12'),
+(9, 21, 'sa', 'dadawd', NULL, NULL, 'pending', NULL, NULL, 1, NULL, '2019-02-13 20:53:57'),
+(10, 21, 'sa', 'dadawd', '2019-02-04 00:00:00', NULL, 'approve', NULL, 9, 1, NULL, '2019-02-13 21:10:11'),
+(11, 4, '212', 'Bldg 23', '2019-02-19 00:00:00', NULL, 'approve', NULL, 9, 1, NULL, '2019-02-13 21:11:01'),
+(12, 4, '212', 'Bldg 23', NULL, NULL, 'approve', NULL, 3, 1, NULL, '2019-02-13 21:12:11'),
+(13, 21, 'sa', 'BLDG 21', '2019-02-19 00:00:00', NULL, 'approve', NULL, 9, 1, NULL, '2019-02-16 21:27:40'),
+(14, 21, 'sa', 'BLDG 21', '2019-02-04 00:00:00', NULL, 'approve', NULL, 9, 1, NULL, '2019-02-16 21:27:46'),
+(15, 4, 'work2x', 'Bldg 143', '2019-02-22 00:00:00', NULL, 'approve', NULL, 9, 11, NULL, '2019-02-17 06:50:16'),
+(16, 143, 'sumbagay', 'Bldg 143', '2019-02-06 00:00:00', NULL, 'approve', NULL, 9, 11, NULL, '2019-02-17 06:51:36'),
+(18, 21, 'sa', 'dadawd', NULL, NULL, 'secret', NULL, NULL, 1, NULL, '2019-02-21 16:33:57'),
+(21, 143, 'guba', 'Bldg 23', NULL, NULL, 'pending', NULL, NULL, 1, NULL, '2019-02-25 16:58:38');
 
 --
 -- Triggers `tbl_job_request`
@@ -350,7 +352,10 @@ INSERT INTO `tbl_last_login` (`id`, `userId`, `sessionData`, `machineIp`, `userA
 (81, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 72.0.3626.109', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36', 'Windows 10', '2019-02-22 00:13:56'),
 (82, 10, '{\"role\":\"4\",\"roleText\":\"Student\",\"name\":\"Cristyfel Pagutayao\"}', '::1', 'Chrome 72.0.3626.109', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36', 'Windows 10', '2019-02-22 01:00:45'),
 (83, 11, '{\"role\":\"2\",\"roleText\":\"Faculty\",\"name\":\"Nikkie Eduria\"}', '::1', 'Chrome 72.0.3626.109', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36', 'Windows 10', '2019-02-22 01:42:59'),
-(84, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 72.0.3626.109', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36', 'Windows 10', '2019-02-26 00:49:44');
+(84, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 72.0.3626.109', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36', 'Windows 10', '2019-02-26 00:49:44'),
+(85, 11, '{\"role\":\"2\",\"roleText\":\"Faculty\",\"name\":\"Nikkie Eduria\"}', '::1', 'Firefox 65.0', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0', 'Windows 10', '2019-02-26 03:07:16'),
+(86, 9, '{\"role\":\"3\",\"roleText\":\"Maintenance Staff\",\"name\":\"Joshua Brian Perater\"}', '::1', 'Firefox 65.0', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0', 'Windows 10', '2019-02-26 04:30:13'),
+(87, 1, '{\"role\":\"1\",\"roleText\":\"System Administrator\",\"name\":\"System Administrator\"}', '::1', 'Chrome 72.0.3626.119', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36', 'Windows 10', '2019-02-26 19:43:05');
 
 -- --------------------------------------------------------
 
@@ -364,6 +369,13 @@ CREATE TABLE `tbl_location` (
   `roomNo` varchar(15) NOT NULL,
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_location`
+--
+
+INSERT INTO `tbl_location` (`locID`, `bldgNo`, `roomNo`, `name`) VALUES
+(1, '401', '1', 'ICT');
 
 -- --------------------------------------------------------
 
@@ -393,12 +405,12 @@ INSERT INTO `tbl_notification` (`id`, `nofiName`, `type`, `ownerNotify`, `adminN
 (6, '', 'job_request', 0, 1, 0, 1, '0000-00-00 00:00:00'),
 (7, '', 'job_request', 0, 1, 0, 1, '0000-00-00 00:00:00'),
 (8, '', 'job_request', 0, 1, 0, 1, '0000-00-00 00:00:00'),
-(15, '', 'event', 1, 1, 0, 1, '0000-00-00 00:00:00'),
-(16, '', 'event', 1, 1, 0, 1, '0000-00-00 00:00:00'),
+(15, '', 'event', 0, 1, 0, 1, '0000-00-00 00:00:00'),
+(16, '', 'event', 0, 1, 0, 1, '0000-00-00 00:00:00'),
 (17, '', 'event', 0, 1, 0, 1, '0000-00-00 00:00:00'),
 (9, '', 'job_request', 0, 1, 0, 1, '0000-00-00 00:00:00'),
 (18, '', 'event', 0, 1, 0, 1, '0000-00-00 00:00:00'),
-(19, '', 'event', 0, 1, 0, 1, '0000-00-00 00:00:00'),
+(19, '', 'event', 1, 1, 0, 1, '0000-00-00 00:00:00'),
 (21, '', 'event', 0, 1, 0, 1, '0000-00-00 00:00:00'),
 (22, '', 'event', 0, 1, 0, 1, '0000-00-00 00:00:00'),
 (23, '', 'event', 0, 1, 0, 1, '0000-00-00 00:00:00'),
@@ -406,25 +418,26 @@ INSERT INTO `tbl_notification` (`id`, `nofiName`, `type`, `ownerNotify`, `adminN
 (11, '', 'job_request', 0, 1, 0, 1, '0000-00-00 00:00:00'),
 (12, '', 'job_request', 0, 1, 0, 1, '0000-00-00 00:00:00'),
 (24, '', 'event', 0, 1, 0, 1, '0000-00-00 00:00:00'),
-(25, '', 'event', 0, 1, 0, 2, '0000-00-00 00:00:00'),
+(25, '', 'event', 0, 0, 0, 2, '0000-00-00 00:00:00'),
 (36, 'title', 'event', 0, 1, 0, 1, '2019-02-17 00:00:00'),
 (37, 'Tiitle lang ni', 'event', 0, 1, 0, 1, '2019-02-17 05:20:02'),
-(13, 'BLDG 21', 'maintenance', 1, 1, 9, 1, '2019-02-17 05:27:40'),
-(14, 'BLDG 21', 'maintenance', 1, 1, 9, 1, '2019-02-17 05:27:46'),
+(13, 'BLDG 21', 'maintenance', 0, 1, 9, 1, '2019-02-17 05:27:40'),
+(14, 'BLDG 21', 'maintenance', 0, 1, 9, 1, '2019-02-17 05:27:46'),
 (38, 'Tiitle lang ni', 'event', 0, 1, 0, 1, '2019-02-17 05:50:12'),
 (39, 'Tiitle lang ni', 'event', 0, 1, 0, 1, '2019-02-17 05:56:18'),
 (40, 'Tiitle lang ni', 'event', 0, 1, 0, 1, '2019-02-17 05:57:51'),
-(41, 'Tiitle lang ni', 'event', 0, 1, 0, 1, '2019-02-17 06:28:30'),
-(42, 'Tiitle lang ni', 'event', 0, 1, 0, 1, '2019-02-17 06:30:17'),
-(43, 'Tiitle lang ni', 'event', 0, 1, 0, 1, '2019-02-17 06:30:38'),
-(44, 'Tiitle lang ni', 'event', 0, 1, 0, 1, '2019-02-17 06:47:42'),
-(45, '100', 'event', 1, 1, 0, 10, '2019-02-17 14:06:46'),
+(41, 'Tiitle lang ni', 'event', 1, 1, 0, 1, '2019-02-17 06:28:30'),
+(42, 'Tiitle lang ni', 'event', 1, 1, 0, 1, '2019-02-17 06:30:17'),
+(43, 'Tiitle lang ni', 'event', 1, 1, 0, 1, '2019-02-17 06:30:38'),
+(44, 'Tiitle lang ni', 'event', 1, 1, 0, 1, '2019-02-17 06:47:42'),
+(45, '100', 'event', 1, 0, 0, 10, '2019-02-17 14:06:46'),
 (46, '1000', 'event', 0, 1, 0, 10, '2019-02-17 14:19:30'),
-(15, 'Bldg 143', 'maintenance', 1, 1, 9, 11, '2019-02-17 14:50:16'),
-(16, 'Bldg 143', 'maintenance', 1, 1, 0, 11, '2019-02-17 14:51:36'),
-(47, 'Tittle lang', 'event', 0, 1, 0, 11, '2019-02-18 10:49:03'),
-(48, 'Event NI', 'event', 0, 1, 0, 1, '2019-02-18 10:58:08'),
-(21, 'Bldg 23', 'maintenance', 0, 1, 0, 1, '2019-02-26 00:58:38');
+(15, 'Bldg 143', 'maintenance', 0, 1, 9, 11, '2019-02-17 14:50:16'),
+(16, 'Bldg 143', 'maintenance', 0, 1, 0, 11, '2019-02-17 14:51:36'),
+(47, 'Tittle lang', 'event', 1, 0, 0, 11, '2019-02-18 10:49:03'),
+(48, 'Event NI', 'event', 1, 1, 0, 1, '2019-02-18 10:58:08'),
+(21, 'Bldg 23', 'maintenance', 0, 1, 0, 1, '2019-02-26 00:58:38'),
+(49, 'try lang ni', 'event', 0, 0, 0, 11, '2019-02-26 03:09:57');
 
 -- --------------------------------------------------------
 
@@ -443,6 +456,7 @@ CREATE TABLE `tbl_reserve_request` (
   `tittleEvent` varchar(64) NOT NULL,
   `status` varchar(32) NOT NULL,
   `contactNo` varchar(32) NOT NULL,
+  `description` varchar(250) DEFAULT NULL,
   `departmentID` int(11) NOT NULL,
   `venueID` int(11) NOT NULL,
   `resBy` int(11) NOT NULL,
@@ -454,44 +468,45 @@ CREATE TABLE `tbl_reserve_request` (
 -- Dumping data for table `tbl_reserve_request`
 --
 
-INSERT INTO `tbl_reserve_request` (`formNo`, `noParticipant`, `dateActual`, `timeActual`, `dateEnd`, `timeEnd`, `purpose`, `tittleEvent`, `status`, `contactNo`, `departmentID`, `venueID`, `resBy`, `conBy`, `dateReq`) VALUES
-(1, 100, '2019-02-01', NULL, '2019-02-14', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', 1, 1, 1, NULL, '2019-02-10 18:39:05'),
-(2, 100, '2019-02-01', NULL, '2019-02-14', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', 1, 1, 1, NULL, '2019-02-10 18:39:50'),
-(3, 100, '2019-02-01', NULL, '2019-02-14', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-10 18:40:21'),
-(4, 100, '2019-02-16', NULL, '2019-02-05', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-10 18:41:54'),
-(5, 100, '2019-02-11', NULL, '2019-02-12', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', 1, 1, 1, NULL, '2019-02-11 15:50:48'),
-(6, 100, '2019-02-11', '11:11:00', '2019-02-12', '11:11:00', 'wala ko kabalo', 'saba', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-11 21:05:03'),
-(7, 100, '2019-02-13', '11:11:00', '2019-02-12', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-12 05:38:50'),
-(8, 100, '2019-02-13', '11:11:00', '2019-02-12', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-12 05:45:18'),
-(9, 100, '2019-02-13', '11:11:00', '2019-02-15', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', 1, 1, 1, NULL, '2019-02-12 05:49:19'),
-(10, 100, '2019-02-13', '11:11:00', '2019-02-15', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', 1, 1, 10, NULL, '2019-02-12 05:51:32'),
-(13, 2, '2019-02-20', NULL, '2019-02-06', NULL, '21e12', 'e12e', 'e12e', 'e12e1', 1, 1, 1, NULL, '2019-02-13 17:50:44'),
-(14, 2, '2019-02-20', NULL, '2019-02-06', NULL, '21e12', 'e12e', 'e12e', 'e12e1', 1, 1, 1, NULL, '2019-02-13 17:50:52'),
-(15, 200, '2019-02-15', NULL, '2019-02-16', NULL, 'pag sure', 'tittle', 'approve', '09336', 1, 1, 1, NULL, '2019-02-13 20:49:49'),
-(16, 200, '2019-02-15', NULL, '2019-02-16', NULL, 'pag sure', 'tittle', 'approve', '09336', 1, 1, 1, NULL, '2019-02-13 20:50:06'),
-(17, 100, '2019-02-15', NULL, '2019-02-16', NULL, 'try agian', 'tittle again', 'approve', '0916994', 1, 1, 1, NULL, '2019-02-13 20:52:23'),
-(18, 100, '2019-02-14', NULL, '2019-02-15', NULL, 'pupose', 'tiiitle', 'approve', 'daw', 1, 1, 1, NULL, '2019-02-13 20:55:29'),
-(19, 100, '2019-02-14', NULL, '2019-02-15', NULL, 'pupose', 'tiiitle', 'pending', 'daw', 1, 1, 10, NULL, '2019-02-13 20:55:36'),
-(21, 100, '2019-02-14', NULL, '2019-02-15', NULL, 'purpose', 'title', 'pending', 'daw', 1, 1, 1, NULL, '2019-02-13 21:03:25'),
-(22, 10, '2019-02-22', NULL, '2019-02-16', NULL, 'purpose', 'tiile', 'pending', 'daw', 1, 1, 1, NULL, '2019-02-13 21:05:03'),
-(23, 10, '2019-02-22', NULL, '2019-02-16', NULL, 'purpose', 'tiile', 'pending', 'daw', 1, 1, 1, NULL, '2019-02-13 21:05:15'),
-(24, 100, '2019-02-22', '10:00:00', '2019-03-22', '10:00:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-13 21:17:06'),
-(25, 100, '2019-02-22', '08:11:00', '2019-02-22', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', 1, 1, 2, NULL, '2019-02-13 22:32:38'),
-(33, 100, '2019-02-13', NULL, '2019-02-13', NULL, 'qwqw', 'wqwqw', 'wqwq', 'wqw', 1, 1, 1, NULL, '2019-02-14 19:44:29'),
-(34, 100, '2019-01-04', NULL, '2019-01-11', NULL, 'daw', 'dawd', 'approve', 'daw', 1, 1, 1, NULL, '2019-02-14 19:45:17'),
-(36, 100, '2019-01-05', NULL, '2019-01-11', NULL, 'wala', 'title', 'pending', '0916355', 1, 1, 1, NULL, '2019-02-16 21:11:17'),
-(37, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-16 21:20:02'),
-(38, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-16 21:50:12'),
-(39, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-16 21:56:18'),
-(40, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-16 21:57:51'),
-(41, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-16 22:28:30'),
-(42, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-16 22:30:17'),
-(43, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-16 22:30:38'),
-(44, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', 1, 1, 1, NULL, '2019-02-16 22:47:42'),
-(45, 120, '2019-02-18', '11:11:00', '2019-02-18', '11:11:00', 'wala ko kabalo', '100', 'approve', '03164975', 1, 1, 10, NULL, '2019-02-17 06:06:46'),
-(46, 100, '2019-02-19', '11:11:00', '2019-02-19', '11:11:00', 'wala ko kabalo', '1000', 'approve', '03164975', 1, 1, 10, NULL, '2019-02-17 06:19:30'),
-(47, 100, '2019-02-19', '11:11:00', '2019-02-19', '11:11:00', 'wala ko kabalo', 'Tittle lang', 'pending', '03164975', 1, 1, 11, NULL, '2019-02-18 02:49:03'),
-(48, 100, '2019-02-19', '11:11:00', '2019-02-20', '11:11:00', 'purpose', 'Event NI', 'pending', '0935194266', 1, 1, 1, NULL, '2019-02-18 02:58:08');
+INSERT INTO `tbl_reserve_request` (`formNo`, `noParticipant`, `dateActual`, `timeActual`, `dateEnd`, `timeEnd`, `purpose`, `tittleEvent`, `status`, `contactNo`, `description`, `departmentID`, `venueID`, `resBy`, `conBy`, `dateReq`) VALUES
+(1, 100, '2019-02-01', NULL, '2019-02-14', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', NULL, 1, 1, 1, NULL, '2019-02-10 18:39:05'),
+(2, 100, '2019-02-01', NULL, '2019-02-14', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', NULL, 1, 1, 1, NULL, '2019-02-10 18:39:50'),
+(3, 100, '2019-02-01', NULL, '2019-02-14', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', NULL, 1, 1, 1, NULL, '2019-02-10 18:40:21'),
+(4, 100, '2019-02-16', NULL, '2019-02-05', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', NULL, 1, 1, 1, NULL, '2019-02-10 18:41:54'),
+(5, 100, '2019-02-11', NULL, '2019-02-12', NULL, 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', NULL, 1, 1, 1, NULL, '2019-02-11 15:50:48'),
+(6, 100, '2019-02-11', '11:11:00', '2019-02-12', '11:11:00', 'wala ko kabalo', 'saba', 'approve', '03164975', 'hahahah', 1, 1, 1, NULL, '2019-02-11 21:05:03'),
+(7, 100, '2019-02-13', '11:11:00', '2019-02-12', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', NULL, 1, 1, 1, NULL, '2019-02-12 05:38:50'),
+(8, 100, '2019-02-13', '11:11:00', '2019-02-12', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', NULL, 1, 1, 1, NULL, '2019-02-12 05:45:18'),
+(9, 100, '2019-02-13', '11:11:00', '2019-02-15', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', NULL, 1, 1, 1, NULL, '2019-02-12 05:49:19'),
+(10, 100, '2019-02-13', '11:11:00', '2019-02-15', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', NULL, 1, 1, 10, NULL, '2019-02-12 05:51:32'),
+(13, 2, '2019-02-20', NULL, '2019-02-06', NULL, '21e12', 'e12e', 'e12e', 'e12e1', NULL, 1, 1, 1, NULL, '2019-02-13 17:50:44'),
+(14, 2, '2019-02-20', NULL, '2019-02-06', NULL, '21e12', 'e12e', 'e12e', 'e12e1', NULL, 1, 1, 1, NULL, '2019-02-13 17:50:52'),
+(15, 200, '2019-02-15', NULL, '2019-02-16', NULL, 'pag sure', 'tittle', 'approve', '09336', NULL, 1, 1, 1, NULL, '2019-02-13 20:49:49'),
+(16, 200, '2019-02-15', NULL, '2019-02-16', NULL, 'pag sure', 'tittle', 'approve', '09336', NULL, 1, 1, 1, NULL, '2019-02-13 20:50:06'),
+(17, 100, '2019-02-15', NULL, '2019-02-16', NULL, 'try agian', 'tittle again', 'approve', '0916994', NULL, 1, 1, 1, NULL, '2019-02-13 20:52:23'),
+(18, 100, '2019-02-14', NULL, '2019-02-15', NULL, 'pupose', 'tiiitle', 'approve', 'daw', NULL, 1, 1, 1, NULL, '2019-02-13 20:55:29'),
+(19, 100, '2019-02-14', NULL, '2019-02-15', NULL, 'pupose', 'tiiitle', 'disapprove', 'daw', 'disapprove ni sya kay bati', 1, 1, 10, NULL, '2019-02-13 20:55:36'),
+(21, 100, '2019-02-14', NULL, '2019-02-15', NULL, 'purpose', 'title', 'pending', 'daw', NULL, 1, 1, 1, NULL, '2019-02-13 21:03:25'),
+(22, 10, '2019-02-22', NULL, '2019-02-16', NULL, 'purpose', 'tiile', 'pending', 'daw', NULL, 1, 1, 1, NULL, '2019-02-13 21:05:03'),
+(23, 10, '2019-02-22', NULL, '2019-02-16', NULL, 'purpose', 'tiile', 'pending', 'daw', NULL, 1, 1, 1, NULL, '2019-02-13 21:05:15'),
+(24, 100, '2019-02-22', '10:00:00', '2019-03-22', '10:00:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', NULL, 1, 1, 1, NULL, '2019-02-13 21:17:06'),
+(25, 100, '2019-02-22', '08:11:00', '2019-02-22', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', NULL, 1, 1, 2, NULL, '2019-02-13 22:32:38'),
+(33, 100, '2019-02-13', NULL, '2019-02-13', NULL, 'qwqw', 'wqwqw', 'wqwq', 'wqw', NULL, 1, 1, 1, NULL, '2019-02-14 19:44:29'),
+(34, 100, '2019-01-04', NULL, '2019-01-11', NULL, 'daw', 'dawd', 'approve', 'daw', NULL, 1, 1, 1, NULL, '2019-02-14 19:45:17'),
+(36, 100, '2019-01-05', NULL, '2019-01-11', NULL, 'wala', 'title', 'pending', '0916355', NULL, 1, 1, 1, NULL, '2019-02-16 21:11:17'),
+(37, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', NULL, 1, 1, 1, NULL, '2019-02-16 21:20:02'),
+(38, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', NULL, 1, 1, 1, NULL, '2019-02-16 21:50:12'),
+(39, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', NULL, 1, 1, 1, NULL, '2019-02-16 21:56:18'),
+(40, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'pending', '03164975', NULL, 1, 1, 1, NULL, '2019-02-16 21:57:51'),
+(41, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'disapprove', '03164975', 'wawdadad', 1, 1, 1, NULL, '2019-02-16 22:28:30'),
+(42, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', '', 1, 1, 1, NULL, '2019-02-16 22:30:17'),
+(43, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', '', 1, 1, 1, NULL, '2019-02-16 22:30:38'),
+(44, 100, '2019-02-20', '11:11:00', '2019-02-21', '11:11:00', 'wala ko kabalo', 'Tiitle lang ni', 'approve', '03164975', 'hahhaa na dis approve', 1, 1, 1, NULL, '2019-02-16 22:47:42'),
+(45, 120, '2019-02-18', '11:11:00', '2019-02-18', '11:11:00', 'wala ko kabalo', '100', 'approve', '03164975', NULL, 1, 1, 10, NULL, '2019-02-17 06:06:46'),
+(46, 100, '2019-02-19', '11:11:00', '2019-02-19', '11:11:00', 'wala ko kabalo', '1000', 'approve', '03164975', NULL, 1, 1, 10, NULL, '2019-02-17 06:19:30'),
+(47, 100, '2019-02-19', '11:11:00', '2019-02-19', '11:11:00', 'wala ko kabalo', 'Tittle lang', 'approve', '03164975', 'disapprove lang', 1, 1, 11, NULL, '2019-02-18 02:49:03'),
+(48, 100, '2019-02-19', '11:11:00', '2019-02-20', '11:11:00', 'purpose', 'Event NI', 'approve', '0935194266', 'wakakak', 1, 1, 1, NULL, '2019-02-18 02:58:08'),
+(49, 5, '2019-02-26', '11:11:00', '2019-02-27', '11:11:00', '11', 'try lang ni', 'approve', '11', NULL, 2, 1, 11, NULL, '2019-02-25 19:09:57');
 
 --
 -- Triggers `tbl_reserve_request`
@@ -552,7 +567,8 @@ INSERT INTO `tbl_users` (`userId`, `email`, `password`, `name`, `mobile`, `roleI
 (3, 'employee@example.com', '$2y$10$UYsH1G7MkDg1cutOdgl2Q.ZbXjyX.CSjsdgQKvGzAgl60RXZxpB5u', 'Employee', '9890098900', 3, 0, 1, '2016-12-09 17:50:22', 3, '2018-01-04 07:58:28'),
 (9, 'ambot@gmail.com', '$2y$10$/OU6WZkh/vv3ydYDivKXrOjulVb21WrE6atrncVzNxzwX7BCsjbFq', 'Joshua Brian Perater', '0000000000', 3, 0, 1, '2019-02-14 10:19:19', 1, '2019-02-16 17:27:51'),
 (10, 'cristy@gmail.com', '$2y$10$/WpArcwvWMaDC9fhh6bjHuonrmoRm20zwsTaFgASMc4iLcqCCMUom', 'Cristyfel Pagutayao', '0000000000', 4, 0, 1, '2019-02-17 07:05:38', NULL, NULL),
-(11, 'eduria@gmail.com', '$2y$10$ptACJujjfnkGA7TGKHMfOOhqmiudXpP8vCBWV2wUMsh85eAGdY.vi', 'Nikkie Eduria', '1000000000', 2, 0, 1, '2019-02-17 07:47:07', NULL, NULL);
+(11, 'eduria@gmail.com', '$2y$10$ptACJujjfnkGA7TGKHMfOOhqmiudXpP8vCBWV2wUMsh85eAGdY.vi', 'Nikkie Eduria', '1000000000', 2, 0, 1, '2019-02-17 07:47:07', 1, '2019-02-26 12:49:50'),
+(12, 'naruto@gmail.com', '$2y$10$I55zGkbvYGne9mbIqwK/vexV2r1hAdI8Tu/F3hyOwr2e7dxML6Kb6', 'Naruto', '0000000000', 4, 0, 1, '2019-02-26 12:53:01', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -619,6 +635,12 @@ ALTER TABLE `tbl_last_login`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_location`
+--
+ALTER TABLE `tbl_location`
+  ADD PRIMARY KEY (`locID`);
+
+--
 -- Indexes for table `tbl_reserve_request`
 --
 ALTER TABLE `tbl_reserve_request`
@@ -672,12 +694,17 @@ ALTER TABLE `tbl_job_request`
 -- AUTO_INCREMENT for table `tbl_last_login`
 --
 ALTER TABLE `tbl_last_login`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+--
+-- AUTO_INCREMENT for table `tbl_location`
+--
+ALTER TABLE `tbl_location`
+  MODIFY `locID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tbl_reserve_request`
 --
 ALTER TABLE `tbl_reserve_request`
-  MODIFY `formNo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `formNo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT for table `tbl_roles`
 --
@@ -687,7 +714,7 @@ ALTER TABLE `tbl_roles`
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `tbl_venue`
 --
