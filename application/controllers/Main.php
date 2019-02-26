@@ -36,9 +36,18 @@ class Main extends BaseController
         $id = $this->input->post('id');
         $date_actual = $this->input->post('date_actual');
         $personel = $this->input->post('personel');
-        $this->main_model->approveJobRequests($id,$personel,$date_actual);
-        $this->main_model->jobRequestNotify($id,$personel);
-        redirect(base_url().'user/viewRepairRequest');
+        if($date_actual <= date('Y-m-d H:i:s')){
+            $this->session->set_flashdata('error', 'Input Right Date');
+             redirect(base_url().'main/assignJobRequests');
+         }else{
+            $this->main_model->approveJobRequests($id,$personel,$date_actual);
+            $this->main_model->jobRequestNotify($id,$personel);
+            $this->session->set_flashdata('success', 'Successfull Assign');
+            redirect(base_url().'main/assignJobRequestst');
+         }
+       
+        
+        
     }
     public function assignJobRequests(){
 
@@ -305,11 +314,11 @@ class Main extends BaseController
         if ($this->form_validation->run() == false || $this->input->post('dateActual') <= date('Y-m-d H:i:s')) {
             
             // $this->viewAddNewEventRequest();
-            echo $this->input->post('dateActual').'/l';
-
-            echo date('Y-m-d H:i:s');
+            // 
+            // 
+            $this->session->set_flashdata('error', 'Input Right Date');
+            redirect(base_url().'main/viewAddNewEventRequest');
            
-            echo 'suprise';
             
             } else {
             // $venue = $this->input->post('venue[]');
