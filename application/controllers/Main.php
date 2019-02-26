@@ -37,6 +37,7 @@ class Main extends BaseController
         $description = $this->input->post('description');
         $this->main_model->approveEventRequests($id,$description);
         $this->main_model->eventNotify($id);
+        $this->session->set_flashdata('success','successfully');
         redirect(base_url().'user/viewEventRequest');
     }
 
@@ -54,6 +55,7 @@ class Main extends BaseController
         $description = $this->input->post('description');
         $this->main_model->disapproveEventRequests($id,$description);
         $this->main_model->eventNotify($id);
+        $this->session->set_flashdata('error','successfully Disapprove');
         redirect(base_url().'user/viewEventRequest');
     }
 
@@ -87,6 +89,7 @@ class Main extends BaseController
         $description = $this->input->post('description');
         $this->main_model->disapproveJobRequests($id,$description);
         $this->main_model->jobRequestNotify($id,NULL);
+        $this->session->set_flashdata('error', 'Input Right Date');
         redirect(base_url().'user/viewRepairRequest');
     }
 
