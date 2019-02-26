@@ -23,42 +23,80 @@ class Main extends BaseController
         $this->isLoggedIn();
     }
 
-    public function approveEventRequests(){
+    public function approveEventDescription(){
+        $this->global['id'] =$this->input->get('id');
+        $this->global['name'] =$this->session->userdata('name');
+        $this->global['role'] =$this->session->userdata('role');
+        $this->global['role_text'] =$this->session->userdata('role');
+        $this->global['pageTitle'] = 'MEWU: Assign';
+        $this->loadViews("admin/eventAddDescription", $this->global, NULL, NULL);
+    }
 
-        $id = $this->input->get('id');
-        $this->main_model->approveEventRequests($id);
+    public function approveEventRequests(){
+        $id = $this->input->post('id');
+        $description = $this->input->post('description');
+        $this->main_model->approveEventRequests($id,$description);
+        $this->main_model->eventNotify($id);
+        redirect(base_url().'user/viewEventRequest');
+    }
+
+    public function approveEventDescriptionDisapprove(){
+        $this->global['id'] =$this->input->get('id');
+        $this->global['name'] =$this->session->userdata('name');
+        $this->global['role'] =$this->session->userdata('role');
+        $this->global['role_text'] =$this->session->userdata('role');
+        $this->global['pageTitle'] = 'MEWU: Assign';
+        $this->loadViews("admin/eventAddDescriptionDisapprove", $this->global, NULL, NULL);
+    }
+
+     public function disapproveEventRequests(){
+        $id = $this->input->post('id');
+        $description = $this->input->post('description');
+        $this->main_model->disapproveEventRequests($id,$description);
         $this->main_model->eventNotify($id);
         redirect(base_url().'user/viewEventRequest');
     }
 
     public function approveJobRequests(){
-
         $id = $this->input->post('id');
         $date_actual = $this->input->post('date_actual');
+        $description = $this->input->post('description');
         $personel = $this->input->post('personel');
         if($date_actual <= date('Y-m-d H:i:s')){
             $this->session->set_flashdata('error', 'Input Right Date');
              redirect(base_url().'main/assignJobRequests');
          }else{
-            $this->main_model->approveJobRequests($id,$personel,$date_actual);
+            $this->main_model->approveJobRequests($id,$personel,$date_actual,$description);
             $this->main_model->jobRequestNotify($id,$personel);
             $this->session->set_flashdata('success', 'Successfull Assign');
-            redirect(base_url().'main/assignJobRequestst');
+            redirect(base_url().'main/assignJobRequests');
          }
-       
-        
-        
     }
-    public function assignJobRequests(){
 
-        $this->load->model('user_model');
+     public function disapproveJobDescriptionDisapprove(){
+        $this->global['id'] =$this->input->get('id');
+        $this->global['name'] =$this->session->userdata('name');
+        $this->global['role'] =$this->session->userdata('role');
+        $this->global['role_text'] =$this->session->userdata('role');
+        $this->global['pageTitle'] = 'MEWU: Assign';
+        $this->loadViews("admin/jobAddDescriptionDis", $this->global, NULL, NULL);
+    }
+
+     public function disapproveJobRequests(){
+        $id = $this->input->post('id');
+        $description = $this->input->post('description');
+        $this->main_model->disapproveJobRequests($id,$description);
+        $this->main_model->jobRequestNotify($id,NULL);
+        redirect(base_url().'user/viewRepairRequest');
+    }
+
+    public function assignJobRequests(){
         $this->global['id'] =$this->input->get('id');
         $this->global['name'] =$this->session->userdata('name');
         $this->global['role'] =$this->session->userdata('role');
         $this->global['role_text'] =$this->session->userdata('role');
         $this->global['pageTitle'] = 'MEWU: Assign';
         $this->global['option'] = $this->main_model->getMaintenanceStaff();
-        
         $this->loadViews("admin/assignPersonJobRequest", $this->global, NULL, NULL);
     }
     

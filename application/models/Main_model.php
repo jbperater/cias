@@ -11,21 +11,38 @@ class Main_model extends CI_Model
 {
 
 
-	function approveEventRequests($id){
-		
+	function approveEventRequests($id,$description){
       	$this->db->set('status','approve');
+        $this->db->set('description',$description);
       	$this->db->where('formNo',$id);
       	$this->db->update('tbl_reserve_request');
   	}
 
-	function approveJobRequests($id,$personel,$date_actual){
+  function disapproveEventRequests($id,$description){
+        $this->db->set('status','disapprove');
+        $this->db->set('description',$description);
+        $this->db->where('formNo',$id);
+        $this->db->update('tbl_reserve_request');
+    }
+
+	function approveJobRequests($id,$personel,$date_actual,$description){
 
       	$this->db->set('remark','approve');
         $this->db->set('dateTimeStart',$date_actual);
       	$this->db->set('personAtend',$personel);
+        $this->db->set('description',$description);
       	$this->db->where('jobId',$id);
       	$this->db->update('tbl_job_request');
   	}
+
+    function disapproveJobRequests($id,$description){
+
+        $this->db->set('remark','disapprove');
+        $this->db->set('description',$description);
+        $this->db->where('jobId',$id);
+        $this->db->update('tbl_job_request');
+    }
+
 
     function assignNotify($id){
     

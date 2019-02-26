@@ -66,8 +66,8 @@
                         <td><?php echo $record->status ?></td>
                         <td><?php echo $record->dateReq ?></td>
                          <td class="text-center">
-                            <a class="btn btn-sm btn-info" href="<?php echo base_url() ?>main/approveEventRequests?id=<?php echo $record->formNo ?>" title="Approve"><i class="fa fa-pencil"></i></a>
-                            <a class="btn btn-sm btn-danger deleteUser" href="#" data-userid="" title="Disapprove"><i class="fa fa-trash"></i></a>
+                            <a class="btn btn-sm btn-info" href="<?php echo base_url() ?>main/approveEventDescription?id=<?php echo $record->formNo ?>" title="Approve"><i class="fa fa-pencil"></i></a>
+                            <a class="btn btn-sm btn-danger" href="<?php echo base_url() ?>main/approveEventDescriptionDisapprove?id=<?php echo $record->formNo ?>" data-userid="" title="Disapprove"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     <?php
