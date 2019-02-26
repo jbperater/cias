@@ -83,12 +83,12 @@ class Main extends BaseController
     }
 
     public function viewAddJobRequest(){
-
+        $data['option']=$this->main_model->getLocation();
         $this->global['name'] =$this->session->userdata('name');
         $this->global['role'] =$this->session->userdata('role');
         $this->global['role_text'] =$this->session->userdata('role_text');
         $this->global['pageTitle'] = 'MEWU : Add Repair Request';
-        $this->loadViews("jobRequest", $this->global, NULL, NULL);
+        $this->loadViews("jobRequest", $this->global, $data, NULL);
     }
 
     public function viewAddJobRequestEdit(){
@@ -120,6 +120,15 @@ class Main extends BaseController
         $this->loadViews("admin/addDepartment", $this->global, NULL, NULL);
     }
 
+    public function viewAddNewLocation(){
+
+        $this->global['name'] =$this->session->userdata('name');
+        $this->global['role'] =$this->session->userdata('role');
+        $this->global['role_text'] =$this->session->userdata('role_text');
+        $this->global['pageTitle'] = 'MEWU : Add New Location';
+        $this->loadViews("admin/addLocation", $this->global, NULL, NULL);
+    }
+
     public function viewAddNewEventEquipment(){
 
         $this->global['name'] =$this->session->userdata('name');
@@ -140,6 +149,17 @@ class Main extends BaseController
         $this->global['role_text'] =$this->session->userdata('role_text');
         $this->global['pageTitle'] = 'MEWU : Add New Venue';
         $this->loadViews("addEventRequest", $this->global, $data, NULL);
+    }
+
+    public function viewAddNewJobRequest(){
+
+        $this->load->model('main_model');
+        $data['option']=$this->main_model->getLocation();
+        $this->global['name'] =$this->session->userdata('name');
+        $this->global['role'] =$this->session->userdata('role');
+        $this->global['role_text'] =$this->session->userdata('role_text');
+        $this->global['pageTitle'] = 'MEWU : Add New Venue';
+        $this->loadViews("jobRequest", $this->global, $data, NULL);
     }
 
     public function viewEventSchedule(){
@@ -226,6 +246,36 @@ class Main extends BaseController
 
             $this->main_model->departmentInsert($data);
             $this->viewAddNewDepartment();
+            // redirect('/viewDepartment');   
+            }
+    }
+
+    public function locationInsert(){
+
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $this->load->library('session');
+        
+        // set validation rules
+        $this->form_validation->set_rules('bldgNo', 'bldgNo', 'required');
+        
+        if ($this->form_validation->run() == false) {
+            
+            $this->viewAddNewLocation();
+            
+            } else {
+                
+                $this->load->model('main_model');
+            
+            $data = array(  
+                
+                'bldgNo' => $this->input->post('bldgNo'),
+                'roomNo' => $this->input->post('roomNo'),
+                'name' => $this->input->post('name'),
+            );  
+
+            $this->main_model->locationInsert($data);
+            $this->viewAddNewLocation();
             // redirect('/viewDepartment');   
             }
     }
@@ -358,12 +408,11 @@ class Main extends BaseController
         
         // set validation rules
         $this->form_validation->set_rules('itemNo', 'Item Number', 'required|alpha_numeric');
-        $this->form_validation->set_rules('location', 'Location', 'required');
         $this->form_validation->set_rules('description', 'Description', 'required');
         
         if ($this->form_validation->run() == false) {
             
-            $this->viewAddNewVenue();
+            $this->viewAddNewJobRequest();
             
             } else {
                 

@@ -553,6 +553,31 @@ class User extends BaseController
         }
     }
 
+     function viewLocation()
+    {
+        if($this->isAdmin() == TRUE)
+        {
+            $this->loadThis();
+        }
+        else
+        {        
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewDepartmentCount($searchText);
+
+            $returns = $this->paginationCompress ( "viewLocation/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewLocation($searchText, $returns["page"], $returns["segment"]);
+            
+            $this->global['pageTitle'] = 'MEWU : View Location';
+            
+            $this->loadViews("admin/viewLocation", $this->global, $data, NULL);
+        }
+    }
+
      function addJobRequest()
     {
         if($this->isAdmin() == TRUE)

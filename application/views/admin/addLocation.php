@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <i class="fa fa-users"></i> Add Repair Request
+        <i class="fa fa-users"></i> Location Management
         <small>Add</small>
       </h1>
     </section>
@@ -13,46 +13,42 @@
             <!-- left column -->
             <div class="col-md-8">
               <!-- general form elements -->
+                
+                
+                
                 <div class="box box-primary">
                     <div class="box-header">
                         <h3 class="box-title">Enter Details</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
-                    <form role="form" id="addUser" action="<?php echo base_url() ?>Main/jobRequestInsert" method="post" role="form">
+                    <form role="form" id="addUser" action="<?php echo base_url() ?>Main/locationInsert" method="post" role="form">
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-6">                                
                                     <div class="form-group">
-
-                                        <label for="itemNo">Item Number:</label>
-                                        <input type="text" class="form-control required" value="<?php echo set_value('itemNo'); ?>" id="itemNo" name="itemNo" maxlength="128" placeholder="Item Number">
-
+                                        <label for="acroname">Name</label>
+                                        <input type="text" class="form-control required" value="" id="name" name="name" maxlength="128" placeholder="Name">
                                     </div>
+                                    
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="location">Location (please select)</label>
-                                            <select name="location" id="" class="form-control">
-                                                  <?php foreach($option as $option){?>
-                                                <option value=<?=$option->locID;?>><?=$option->bldgNo;?> - &nbsp<?=$option->roomNo;?> - &nbsp<?=$option->name;?></option>
-                                                <?php }?>
-                                                </select>
+                                        <label for="name">Building Number</label>
+                                        <input type="text" class="form-control required " id="bldgNo" value="" name="bldgNo" maxlength="128" placeholder="Building Number">
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="description">Work Description:</label>
-                                        <input type="textarea" class="form-control required " id="description" value="<?php echo set_value('description'); ?>" name="description" maxlength="128" placeholder="Work Description" style="height: 50px;">
-
+                                        <label for="name">Room Number</label>
+                                        <input type="text" class="form-control required " id="roomNo" value="" name="roomNo" maxlength="128" placeholder="Room Number">
                                     </div>
                                 </div>
                             </div>
-                           
                         </div><!-- /.box-body -->
     
                         <div class="box-footer">
@@ -95,4 +91,4 @@
     </section>
     
 </div>
-<script src="<?php echo base_url(); ?>assets/js/addUser.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/js/addUser.js" type="text/javascript"></script>   

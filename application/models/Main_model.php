@@ -95,6 +95,12 @@ class Main_model extends CI_Model
      	return $result->result();
   	}
 
+    function getLocation(){
+        $this->db->select('locID,bldgNo,roomNo,name');
+        $result = $this->db->get('tbl_location');
+      return $result->result();
+    }
+
   	function getLastId(){
       	$last=$this->db->insert_id('tbl_reserve_request',array('form_no' => 'value'));
 		return $last;
@@ -114,6 +120,9 @@ class Main_model extends CI_Model
 	function departmentInsert($data) {
 		$this->db->insert('tbl_department',$data);		
 	}
+  function locationInsert($data) {
+    $this->db->insert('tbl_location',$data);    
+  }
 
 	function equipmentInsert($data) {
 		$this->db->insert('tbl_equipment',$data);		
