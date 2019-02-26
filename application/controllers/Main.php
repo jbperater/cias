@@ -395,16 +395,25 @@ class Main extends BaseController
         
         // set validation rules
         
+        $dateActual = $this->input->post('dateActual');
+        $timeActual = $this->input->post('timeActual');
+        $dateEnd = $this->input->post('dateEnd');
+        $timeEnd = $this->input->post('timeEnd');
+        $venueID = $this->input->post('venue');
+        $validate = $this->main_model->validateRequest($dateActual,$timeActual,$dateEnd,$timeEnd,$venueID);
         $this->form_validation->set_rules('tittleEvent', 'Tittle', 'required');
-        
 
         
-        if ($this->form_validation->run() == false || $this->input->post('dateActual') <= date('Y-m-d H:i:s')) {
+        if ($this->form_validation->run() == false || $this->input->post('dateActual') < date('Y-m-d H:i:s') || $validate == FALSE) {
             
             // $this->viewAddNewEventRequest();
-            // 
-            // 
-            $this->session->set_flashdata('error', 'Input Right Date');
+            
+            if($validate == FALSE){
+                $this->session->set_flashdata('error', 'Occupied Time and Date For Event');
+            }else{
+                $this->session->set_flashdata('error', 'Input Right Date');
+            }
+            
             redirect(base_url().'main/viewAddNewEventRequest');
            
             

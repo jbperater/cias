@@ -612,6 +612,27 @@ class Main_model extends CI_Model
         return $result;
     }
 
+    function validateRequest($dateActual,$timeActual,$dateEnd,$timeEnd,$venueID){
+
+        $this->db->select('*');
+        $this->db->from('tbl_reserve_request');
+        $this->db->where('status','approve');
+        $this->db->where('dateActual',$dateActual);
+        $this->db->where('timeActual <=',$timeEnd);
+        $this->db->where('dateEnd',$dateEnd);
+        $this->db->where('timeEnd >=',$timeActual);
+        $this->db->where('venueID',$venueID);
+        $query = $this->db->get();
+        $result = $query->result(); 
+        if($result == NUll){
+            return TRUE;
+        }else{
+            return FALSE;
+        }      
+        
+
+    }
+
 
 	
 }
