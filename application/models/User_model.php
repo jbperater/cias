@@ -1,4 +1,4 @@
-<?php if(!defined('BASEPATH')) exit('No direct script access allowed');
+F<?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
  * Class : User_model (User Model)
@@ -643,6 +643,52 @@ class User_model extends CI_Model
      * @return array $result : This is result
      */
     function viewRepairRequest($searchText = '', $page, $segment)
+    {
+       $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl3.name,BaseTbl3.bldgNo,BaseTbl3.roomNo, BaseTbl.dateReq, BaseTbl2.name as Resname, BaseTbl.remark');
+        $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->join('tbl_users as BaseTbl2','BaseTbl.resBy = BaseTbl2.userId');
+        $this->db->join('tbl_location as BaseTbl3','BaseTbl.location = BaseTbl3.locID');
+        $this->db->where('remark','pending');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
+                            OR  BaseTbl.location  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $this->db->order_by('BaseTbl.jobId', 'ASC');
+        $this->db->limit($page, $segment);
+        $query = $this->db->get();
+        
+        $result = $query->result();        
+        return $result;
+    }
+
+     function viewMyRepairRequestCount($searchText = '')
+    {
+        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl3.name,BaseTbl3.bldgNo,BaseTbl3.roomNo, BaseTbl.dateReq, BaseTbl2.name as Resname, BaseTbl.remark');
+        $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->join('tbl_users as BaseTbl2','BaseTbl.resBy = BaseTbl2.userId');
+        $this->db->join('tbl_location as BaseTbl3','BaseTbl.location = BaseTbl3.locID');
+        $this->db->where('remark','pending');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
+                            OR  BaseTbl.location  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $query = $this->db->get();
+        
+        return $query->num_rows();
+    }
+    
+    /**
+     * This function is used to get the user listing count
+     * @param string $searchText : This is optional search text
+     * @param number $page : This is pagination offset
+     * @param number $segment : This is pagination limit
+     * @return array $result : This is result
+     */
+    function viewMyRepairRequest($searchText = '', $page, $segment)
     {
        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl3.name,BaseTbl3.bldgNo,BaseTbl3.roomNo, BaseTbl.dateReq, BaseTbl2.name as Resname, BaseTbl.remark');
         $this->db->from('tbl_job_request as BaseTbl');

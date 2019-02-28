@@ -166,7 +166,7 @@
                                 <a href="<?php echo base_url(); ?>User/viewAllEventRequest">  View All My Event Requests</a>
                             </li>
                             <li class="treeview">
-                                <a href="<?php echo base_url(); ?>User/viewAllRepairRequest"> View All My Repair Requests</a>
+                                <a href="<?php echo base_url(); ?>User/viewAllMyRepairRequest"> View All My Repair Requests</a>
                             </li>
                           </ul>
             </li>

@@ -888,6 +888,28 @@ class User extends BaseController
         
     }
 
+     function viewAllMyRepairRequest()
+    {
+
+            $id = $this->input->get('id');
+           
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewMyRepairRequestCount($searchText);
+
+            $returns = $this->paginationCompress ( "viewMyRepairRequest/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewMyRepairRequest($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU : View Repair Request';
+            
+            $this->loadViews("admin/viewAllRepairRequest", $this->global, $data, NULL);
+        
+    }
+
      function viewStudentRequest()
     {
 
