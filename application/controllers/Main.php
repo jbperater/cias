@@ -12,9 +12,9 @@ class Main extends BaseController
         parent::__construct();
         $this->load->model('login_model');
         $this->load->model('main_model');
-        $this->global['notification'] =$this->main_model->getNotification($this->session->userdata('role'));
+        $this->global['notification'] = $this->main_model->getNotification($this->session->userdata('role'));
     }   
-
+    
     /**
      * Index Page for this controller.
      */
