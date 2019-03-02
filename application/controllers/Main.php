@@ -316,8 +316,8 @@ class Main extends BaseController
             );  
 
             $this->main_model->locationInsert($data);
-            $this->viewAddNewLocation();
-            // redirect('/viewDepartment');   
+            // $this->viewAddNewLocation();
+            redirect('User/viewLocation');   
             }
     }
 

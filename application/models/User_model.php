@@ -1,4 +1,4 @@
-F<?php if(!defined('BASEPATH')) exit('No direct script access allowed');
+<?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
  * Class : User_model (User Model)
@@ -956,8 +956,10 @@ class User_model extends CI_Model
 
     function viewTheRepairRequestCount($searchText = '')
     {
-        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateReq');
+        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl3.name,BaseTbl3.bldgNo,BaseTbl3.roomNo,BaseTbl.dateTimeStart, BaseTbl.dateReq, BaseTbl2.name as Resname, BaseTbl.remark');
         $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->join('tbl_users as BaseTbl2','BaseTbl.resBy = BaseTbl2.userId');
+        $this->db->join('tbl_location as BaseTbl3','BaseTbl.location = BaseTbl3.locID');
         $this->db->where('remark','pending');
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
@@ -969,7 +971,7 @@ class User_model extends CI_Model
         
         return $query->num_rows();
     }
-    
+        
     /**
      * This function is used to get the user listing count
      * @param string $searchText : This is optional search text
@@ -979,8 +981,10 @@ class User_model extends CI_Model
      */
     function viewTheRepairRequests($searchText = '', $page, $segment,$id)
     {
-        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateTimeStart, BaseTbl.remark, BaseTbl.dateReq');
+         $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl3.name,BaseTbl3.bldgNo,BaseTbl3.roomNo, BaseTbl.dateTimeStart, BaseTbl.dateReq, BaseTbl2.name as Resname, BaseTbl.remark');
         $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->join('tbl_users as BaseTbl2','BaseTbl.resBy = BaseTbl2.userId');
+        $this->db->join('tbl_location as BaseTbl3','BaseTbl.location = BaseTbl3.locID');
         $this->db->where('jobId',$id);
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'

@@ -19,6 +19,7 @@
     <!-- fullcalendar -->
     <link href="<?php echo base_url() ?>assets/bower_components/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
     <link href="<?php echo base_url();?>assets/assets/bower_components/morris.js/morris.css" rel="stylesheet">
+     <link href="<?php echo base_url(); ?>assets/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
 
     <style>
     	.error{
@@ -70,9 +71,10 @@
               </li>
               <li class="dropdown user user-menu" style="background-color: #fbb414" id="drop1">
                 <?php  if($notification != NUll){ ?>
-                  <a href="#drop1" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i>
+                  <a href="#drop1" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell">  <span class="fa fa-comment"></span></i>
+
                 <?php }else{?>
-                   <a href="#drop1" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-slash-o"></i>
+                   <a href="#drop1" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i>
                  <?php }?>
 
                 <span class="caret"></span></a>
@@ -149,7 +151,7 @@
             {
             ?>
             <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-thumb-tack"></i><span>View Requests </span><i class="fa fa-fw fa-caret-down"></i></a>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-envelope"></i><span>View Requests </span><i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li class="treeview">
                                 <a href="<?php echo base_url(); ?>User/viewEventRequest">  View Event Requests</a>
@@ -160,18 +162,18 @@
                           </ul>
             </li>
              <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo21"><i class="fa fa-fw fa-thumb-tack"></i><span>My Requests </span><i class="fa fa-fw fa-caret-down"></i></a>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo21"><i class="fa fa-envelope-o"></i><span>Requests </span><i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo21" class="collapse">
                             <li class="treeview">
-                                <a href="<?php echo base_url(); ?>User/viewAllEventRequest">  View All My Event Requests</a>
+                                <a href="<?php echo base_url(); ?>User/viewAllEventRequest">  View All Event Requests</a>
                             </li>
                             <li class="treeview">
-                                <a href="<?php echo base_url(); ?>User/viewAllMyRepairRequest"> View All My Repair Requests</a>
+                                <a href="<?php echo base_url(); ?>User/viewAllMyRepairRequest"> View All Repair Requests</a>
                             </li>
                           </ul>
             </li>
             <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i> Set Schedules <i class="fa fa-fw fa-caret-down"></i></a>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-calendar-plus-o"></i> Set Schedules <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo1" class="collapse">
                             <li>
                                 <a href="<?php echo base_url(); ?>Main/viewAddNewEventRequest"> Set Event Schedule</a>
@@ -182,7 +184,7 @@
                           </ul>
               </li>
              <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-file"></i> View Schedules<i class="fa fa-fw fa-caret-down"></i></a>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-calendar"></i> View Schedules<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo2" class="collapse">
                             <li>
                                 <a href="<?php echo base_url(); ?>main/viewEventSchedule"> Event Schedules</a>
@@ -196,7 +198,7 @@
                           </ul>
             </li>
             <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo3"><i class="fa fa-fw fa-file"></i> Equipments <i class="fa fa-fw fa-caret-down"></i></a>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo3"><i class="fa fa-cogs"></i> Equipments <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo3" class="collapse">
                             <li>
                                 <a href="<?php echo base_url(); ?>Main/viewAddNewEquipment"> Add Equipments</a>
@@ -207,7 +209,7 @@
                           </ul>
               </li>
              <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo4"><i class="fa fa-fw fa-file"></i> Event Equipments <i class="fa fa-fw fa-caret-down"></i></a>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo4"><i class="fa fa-gears"></i> Event Equipments <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo4" class="collapse">
                             <li>
                                 <a href="<?php echo base_url(); ?>Main/viewAddNewEventEquipment"> Add Event Equipments</a>
@@ -218,7 +220,7 @@
                           </ul>
             </li>
             <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo5"><i class="fa fa-fw fa-file"></i> Venue <i class="fa fa-fw fa-caret-down"></i></a>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo5"><i class="fa fa-building-o"></i> Venue <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo5" class="collapse">
                             <li>
                                 <a href="<?php echo base_url(); ?>Main/viewAddNewVenue"> Add Venue</a>
@@ -229,7 +231,7 @@
                           </ul>
               </li>
               <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo6"><i class="fa fa-fw fa-file"></i> Department <i class="fa fa-fw fa-caret-down"></i></a>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo6"><i class="fa fa-bookmark"></i> Department <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo6" class="collapse">
                             <li>
                                 <a href="<?php echo base_url(); ?>Main/viewAddNewDepartment"> Add Department</a>
@@ -240,7 +242,7 @@
                           </ul>
               </li>
               <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo7"><i class="fa fa-fw fa-file"></i> Location <i class="fa fa-fw fa-caret-down"></i></a>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo7"><i class="fa fa-location-arrow"></i> Location <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo7" class="collapse">
                             <li>
                                 <a href="<?php echo base_url(); ?>Main/viewAddNewLocation"> Add Location</a>
@@ -263,7 +265,7 @@
             {
             ?>
             <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-thumb-tack"></i>Request <i class="fa fa-fw fa-caret-down"></i></a>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-calendar-plus-o"></i>Add Request <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
                                 <a href="<?php echo base_url(); ?>Main/viewAddNewEventRequest">  Add Event Requests</a>
@@ -274,7 +276,7 @@
                           </ul>
             </li>
             <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-thumb-tack"></i>View My Event Request <i class="fa fa-fw fa-caret-down"></i></a>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-envelope-o"></i>View My Event Request <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo2" class="collapse">
                             <li>
                                 <a href="<?php echo base_url(); ?>Main/viewStudentAllRequest"> View All My Request </a>
@@ -291,7 +293,7 @@
                           </ul>
             </li>
             <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file"></i> View Repair Requests <i class="fa fa-fw fa-caret-down"></i></a>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-envelope"></i> View Repair Requests <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo1" class="collapse">
                             <!-- <li>
                                 <a href="<?php echo base_url(); ?>User/viewEventRequests"> All My Event Requests</a>
@@ -326,23 +328,23 @@
             ?>
              <li class="treeview">
               <a href="<?php echo base_url(); ?>Main/viewAddNewEventRequest">
-                <i class="fa fa-thumb-tack"></i>
+                <i class="fa fa-calendar-plus-o"></i>
                 <span>Add Event Requests</span>
               </a>
             </li>
              <li class="treeview">
-              <a href="<?php echo base_url(); ?>User/viewStudentRequest">
-                <i class="fa fa-thumb-tack"></i>
+               <a href="<?php echo base_url(); ?>Main/viewStudentAllRequest">
+                <i class="fa fa-envelope-o"></i>
                 <span>View My Requests</span>
               </a>
             </li>
-            <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-thumb-tack"></i>View My Request <i class="fa fa-fw fa-caret-down"></i></a>
+           <!-- <li class="treeview">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-envelope"></i>View My Request <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
                                 <a href="<?php echo base_url(); ?>Main/viewStudentAllRequest"> View All My Request </a>
                             </li>
-                            <li>
+                          <!--   <li>
                                 <a href="<?php echo base_url(); ?>Main/viewStudentPendingRequest">View All Pending Request</a>
                             </li>
                             <li>
@@ -352,7 +354,7 @@
                                 <a href="<?php echo base_url(); ?>Main/viewStudentDeclineRequest">View All Decline Request</a>
                             </li>
                           </ul>
-            </li>
+            </li> -->
              <li class="treeview">
               <a href="<?php echo base_url(); ?>main/viewEventSchedule">
                 <i class="fa fa-users"></i>
@@ -366,19 +368,19 @@
             ?>
              <li class="treeview">
               <a href="<?php echo base_url(); ?>User/viewEquipmentMaintenance">
-                <i class="fa fa-thumb-tack"></i>
+                <i class="fa fa-cogs"></i>
                 <span>Equipments</span>
               </a>
             </li>
              <li class="treeview">
               <a href="<?php echo base_url(); ?>User/viewMySchedule">
-                <i class="fa fa-thumb-tack"></i>
+                <i class="fa fa-calendar"></i>
                 <span>View My Schedule</span>
               </a>
             </li>
              <li class="treeview">
               <a href="<?php echo base_url(); ?>User/viewSummaryReport">
-                <i class="fa fa-thumb-tack"></i>
+                <i class="fa fa-building-o"></i>
                 <span>View Summary Report</span>
               </a>
             </li>

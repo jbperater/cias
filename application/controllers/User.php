@@ -672,12 +672,12 @@ class User extends BaseController
 
      function viewMySchedule()
     {
-        if($this->isEmployee() == TRUE)
-        {
-            $this->loadThis();
-        }
-        else
-        {        
+        // if($this->isEmployee() == TRUE || $this->isAdmin() == TRUE)
+        // {
+        //     $this->loadThis();
+        // }
+        // else
+        // {        
             $searchText = $this->security->xss_clean($this->input->post('searchText'));
             $data['searchText'] = $searchText;
             
@@ -693,7 +693,7 @@ class User extends BaseController
             
             $this->loadViews("maintenance/viewMySchedule", $this->global, $data, NULL);
         }
-    }
+    
 
     function viewHistory()
     {
@@ -795,7 +795,12 @@ class User extends BaseController
             $this->loadThis();
         }
         else
-        {    $count = $this->user_model->viewSummaryReportCount($searchText);
+        {   
+              $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+             $count = $this->user_model->viewSummaryReportCount($searchText);
 
             $returns = $this->paginationCompress ( "viewSummaryReport/", $count, 10 );
             
@@ -861,8 +866,13 @@ class User extends BaseController
             $data['userRecords'] = $this->user_model->viewTheRepairRequests($searchText, $returns["page"], $returns["segment"],$id);
             
             $this->global['pageTitle'] = 'MEWU :Repair Request';
+
+            if($this->session->userdata('role') == 1){
+                $this->loadViews("admin/viewRepairRequest", $this->global, $data, NULL);
+            }else{
+                 $this->loadViews("maintenance/viewTheRepairRequest", $this->global, $data, NULL);
+            }
             
-            $this->loadViews("maintenance/viewTheRepairRequest", $this->global, $data, NULL);
         
     }
 

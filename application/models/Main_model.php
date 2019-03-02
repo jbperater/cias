@@ -62,7 +62,7 @@ class Main_model extends CI_Model
     function eventUnNotifyAdmin($id){
         $this->db->set('adminNotify',0);
         $this->db->where('id',$id);
-        $this->db->where('type','event');
+        $this->db->where('type','maintenance');
         $this->db->update('tbl_notification');
     }
     function eventUnNotify($id){

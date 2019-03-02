@@ -54,8 +54,8 @@
                         <td><?php echo $record->type ?></td>
                         <td><?php echo $record->yearAcc ?></td>
                         <td class="text-center">
-                            <a class="btn btn-sm btn-info" href="<?= base_url().'main/viewAddNewHistory?id='.$record->equipId; ?>" data-userid="" title="Add Records"><i class="fa fa-pencil"></i></a>
-                            <a class="btn btn-sm btn-info" href="<?= base_url().'user/viewHistory?id='.$record->equipId; ?>" data-userid="" title="View Records"><i class="fa fa-trash"></i></a>
+                            <a class="btn btn-sm btn-info" href="<?= base_url().'main/viewAddNewHistory?id='.$record->equipId; ?>" data-userid="" title="Add Records"><i class="fa fa-check"></i></a>
+                            <a class="btn btn-sm btn-info" href="<?= base_url().'user/viewHistory?id='.$record->equipId; ?>" data-userid="" title="View Records"><i class="fa fa-pencil"></i></a>
                         </td>
                     </tr>
                     <?php

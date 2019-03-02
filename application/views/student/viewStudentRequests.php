@@ -41,9 +41,7 @@
                         <th>Venue</th>
                         <th>Reserved By</th>
                         <th>Date Requested</th>
-                        <th>Status</th>
-                          <th class="text-center">Actions</th>
-                    </tr>
+                        <th>Status</th>                    </tr>
                     <?php
                     if(!empty($userRecords))
                     {

@@ -32,6 +32,7 @@
                         <th>Work Description</th>
                         <th>Location</th>
                         <th>Date and Time Started</th>
+                        <th>Date and Time Finished</th>
                         <th>Date and Time Requested</th>
                         <th>Remarks</th>
                          <th class="text-center">Actions</th>
@@ -45,8 +46,9 @@
                     <tr>
                         <td><?php echo $record->itemNo ?></td>
                         <td><?php echo $record->workDescript ?></td>
-                        <td><?php echo $record->name.' '.$record->bldgNo.' '.$record->roomNo  ?></td>
+                        <td><?php echo $record->location ?></td>
                         <td><?php echo $record->dateTimeStart ?></td>
+                        <td><?php echo $record->dateTimeEnd ?></td>
                         <td><?php echo $record->dateReq ?></td>
                         <td><?php echo $record->remark ?></td>
                         <td class="text-center">

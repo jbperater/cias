@@ -9,6 +9,21 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+
+i.fa-bell {
+  position: relative;
+  font-size: 1.3em;
+  color: blue;
+  cursor: pointer;
+}
+span.fa-comment {
+  position: absolute;
+  font-size: 1em;
+  top: -8px;
+  color: red;
+  right: -10px;
+}
+
 body {
   margin: 0;
 }
