@@ -22,7 +22,7 @@
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
-                    <form role="form" id="addUser" action="<?php echo base_url() ?>Main/departmentInsert" method="post" role="form">
+                    <form role="form" id="addDepartment" action="<?php echo base_url() ?>Main/departmentInsert" method="post" role="form">
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-6">                                
@@ -83,4 +83,4 @@
     </section>
     
 </div>
-<script src="<?php echo base_url(); ?>assets/js/addUser.js" type="text/javascript"></script>   
+<script src="<?php echo base_url(); ?>assets/js/addDepartment.js" type="text/javascript"></script>   
