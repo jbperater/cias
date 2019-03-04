@@ -21,17 +21,14 @@ class Login_model extends CI_Model
         $this->db->from('tbl_users as BaseTbl');
         $this->db->join('tbl_roles as Roles','Roles.roleId = BaseTbl.roleId');
         $this->db->where('BaseTbl.email', $email);
+        $this->db->where('BaseTbl.password', $password);
         $this->db->where('BaseTbl.isDeleted', 0);
         $query = $this->db->get();
         
         $user = $query->row();
         
         if(!empty($user)){
-            if(verifyHashedPassword($password, $user->password)){
-                return $user;
-            } else {
-                return array();
-            }
+            return $user;
         } else {
             return array();
         }
