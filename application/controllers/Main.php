@@ -513,22 +513,26 @@ class Main extends BaseController
         
         if ($this->form_validation->run() == false) {
             
+
             redirect('main/viewAddNewHistory');
-            
+
+           
             } else {
 
             $data = array(  
-                
+
                 'equipId' => $this->input->get('id'),
                 'dateReq' => $this->input->post('dateReq'),
                 'description' => $this->input->post('description'),
                 'partRep' => $this->input->post('partRep'),
                 'dateRep' => $this->input->post('dateRep'),
                 'timeRep' => $this->input->post('timeRep'),
-                'datefin' => 'datefin',
+                'dateFin' => $this->input->post('dateFin'),
                 'remark' => $this->input->post('remark'),
-                'performedBy' => $this->session->userdata('userId'),
-            );  
+
+   
+            );     
+
             $this->main_model->historyInsert($data);
             redirect('main/viewAddNewHistory');   
             }
