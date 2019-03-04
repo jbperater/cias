@@ -879,7 +879,7 @@ class User extends BaseController
                  $this->loadViews("staff/viewRepairRequests", $this->global, $data, NULL);
             }
             if($this->session->userdata('role') == 3){
-                 $this->loadViews("maintenance/viewTheRepairRequests", $this->global, $data, NULL);
+                 $this->loadViews("maintenance/viewTheRepairRequest", $this->global, $data, NULL);
             }
             
         

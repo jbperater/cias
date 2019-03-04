@@ -43,7 +43,7 @@
                     <tr>
                         <td><?php echo $record->itemNo ?></td>
                         <td><?php echo $record->workDescript ?></td>
-                        <td><?php echo $record->location ?></td>
+                        <td><?php echo $record->name.' '.$record->bldgNo.' '.$record->roomNo  ?></td>
                         <td><?php echo $record->dateReq ?></td>
                          <td><?php echo $record->remark ?></td>
                     </tr>
