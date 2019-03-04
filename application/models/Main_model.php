@@ -146,7 +146,7 @@ class Main_model extends CI_Model
 	}
 
 	function departmentInsert($data) {
-		$this->db->insert('tbl_department',$data);		
+    $this->db->insert('tbl_department',$data);  
 	}
   function locationInsert($data) {
     $this->db->insert('tbl_location',$data);    
