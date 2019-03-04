@@ -408,7 +408,7 @@ class Main extends BaseController
         $this->form_validation->set_rules('tittleEvent', 'Tittle', 'required');
 
         
-        if ($this->form_validation->run() == false || $this->input->post('dateActual') < date('Y-m-d H:i:s') || $validate == FALSE) {
+        if ($this->form_validation->run() == false || $this->input->post('dateActual') < date('Y-m-d H:i:s') || $this->input->post('dateEnd') < date('Y-m-d H:i:s') || $validate == FALSE) {
             
             // $this->viewAddNewEventRequest();
             
