@@ -75,54 +75,55 @@
                                     </div>
                                 </div>
                             </div>
-                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="remark">Performed By</label>
-                                        <input type="text" class="form-control required" id="performedBy" value="" name="performedBy" maxlength="10" placeholder="Performed By">
-                                    </div>
-                                </div>
-                            </div>
                         </div><!-- /.box-body -->
-    
-                        <div class="box-footer">
-                            <input type="submit" class="btn btn-primary" value="Submit" />
+            <div class="box-footer">
+                            <input type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal"value="Submit" />
                             <input type="reset" class="btn btn-default" value="Reset" />
                         </div>
                     </form>
                 </div>
             </div>
-            <div class="col-md-4">
-                <?php
-                    $this->load->helper('form');
-                    $error = $this->session->flashdata('error');
-                    if($error)
-                    {
-                ?>
-                <div class="alert alert-danger alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <?php echo $this->session->flashdata('error'); ?>                    
+            <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+            
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Notice</h4>
                 </div>
-                <?php } ?>
-                <?php  
-                    $success = $this->session->flashdata('success');
-                    if($success)
-                    {
-                ?>
-                <div class="alert alert-success alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <?php echo $this->session->flashdata('success'); ?>
+                <div class="modal-body">
+                  <p>Successfully Added!</p>
                 </div>
-                <?php } ?>
-                
-                <div class="row">
-                    <div class="col-md-12">
-                        <?php echo validation_errors('<div class="alert alert-danger alert-dismissable">', ' <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></div>'); ?>
-                    </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
+              </div>
+              
             </div>
-        </div>    
+          </div>
+          
     </section>
-    
 </div>
-<script src="<?php echo base_url(); ?>assets/js/addUser.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/common.js" charset="utf-8"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery('ul.pagination li a').click(function (e) {
+            e.preventDefault();            
+            var link = jQuery(this).get(0).href;            
+            var value = link.substring(link.lastIndexOf('/') + 1);
+            jQuery("#searchList").attr("action", baseURL + "Main/historyInsert/" + value);
+            jQuery("#searchList").submit();
+        });
+    });
+
+    <?php  
+    $this->load->helper('form');
+    $success = $this->session->flashdata('success');
+        if($success){?>
+            $(document).ready(function(){
+                $("#myModal").modal('show');
+            });
+    <?php } ?>
+
+</script>
