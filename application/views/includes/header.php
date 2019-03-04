@@ -162,10 +162,21 @@
                           </ul>
             </li>
              <li class="treeview">
-               <a href="javascript:;" data-toggle="collapse" data-target="#demo21"><i class="fa fa-envelope-o"></i><span>Requests </span><i class="fa fa-fw fa-caret-down"></i></a>
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo21"><i class="fa fa-envelope-o"></i><span>All Requests </span><i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo21" class="collapse">
                             <li class="treeview">
                                 <a href="<?php echo base_url(); ?>User/viewAllEventRequest">  View All Event Requests</a>
+                            </li>
+                            <li class="treeview">
+                                <a href="<?php echo base_url(); ?>User/viewAllRepairRequest"> View All Repair Requests</a>
+                            </li>
+                          </ul>
+            </li>
+            <li class="treeview">
+               <a href="javascript:;" data-toggle="collapse" data-target="#demo22"><i class="fa fa-envelope-o"></i><span>My Requests </span><i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo22" class="collapse">
+                            <li class="treeview">
+                                <a href="<?php echo base_url(); ?>User/viewAllMyEventRequest">  View All Event Requests</a>
                             </li>
                             <li class="treeview">
                                 <a href="<?php echo base_url(); ?>User/viewAllMyRepairRequest"> View All Repair Requests</a>

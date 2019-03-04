@@ -898,6 +898,51 @@ class User extends BaseController
         
     }
 
+    function viewAllRepairRequest()
+    {
+
+            $id = $this->input->get('id');
+           
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewAllRepairRequestCount($searchText);
+
+            $returns = $this->paginationCompress ( "viewRepairRequest/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewAllRepairRequest($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU : View Repair Request';
+            
+            $this->loadViews("admin/viewAllRepairRequest", $this->global, $data, NULL);
+        
+    }
+
+    function viewAllMyEventRequest()
+    {
+
+            $id = $this->input->get('id');
+           
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewAllMyEventRequestCounts($searchText);
+
+            $returns = $this->paginationCompress ( "viewEventRequests/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewAllMyEventRequest($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU : View Event Request';
+            
+            $this->loadViews("admin/viewAllEventRequest", $this->global, $data, NULL);
+        
+    }
+
+
      function viewAllMyRepairRequest()
     {
 

@@ -541,14 +541,52 @@ class User_model extends CI_Model
         
         return $query->num_rows();
     }
+
+    function viewAllMyEventRequestCounts($searchText = '')
+    {
+        $this->db->select('BaseTbl.formNo, BaseTbl.noParticipant, BaseTbl.dateActual, BaseTbl.timeActual, BaseTbl.dateEnd, BaseTbl.timeEnd, BaseTbl.purpose,BaseTbl.tittleEvent,BaseTbl.contactNo,BaseTb2.acroname,BaseTb3.name,BaseTb4.name as fullname,BaseTbl.dateReq,BaseTbl.status');
+        $this->db->from('tbl_reserve_request as BaseTbl');
+        $this->db->join('tbl_department as BaseTb2','BaseTbl.departmentID = BaseTb2.departId');
+        $this->db->join('tbl_venue as BaseTb3','BaseTbl.venueID = BaseTb3.venID');
+        $this->db->join('tbl_users as BaseTb4','BaseTbl.resBy = BaseTb4.userId');
+        $this->db->where('resBy',$this->session->userdata('userId'));
+        $this->db->order_by('dateReq','DESC');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.tittleEvent  LIKE '%".$searchText."%'
+                            OR  BaseTbl.resBy  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $query = $this->db->get();
+        
+        return $query->num_rows();
+    }
+
+    function viewAllMyEventRequest($searchText = '', $page, $segment)
+    {
+        $this->db->select('BaseTbl.formNo, BaseTbl.noParticipant, BaseTbl.dateActual, BaseTbl.timeActual, BaseTbl.dateEnd, BaseTbl.timeEnd, BaseTbl.purpose,BaseTbl.tittleEvent,BaseTbl.contactNo,BaseTb2.acroname,BaseTb3.name,BaseTb4.name as fullname,BaseTbl.dateReq,BaseTbl.status');
+        $this->db->from('tbl_reserve_request as BaseTbl');
+        $this->db->join('tbl_department as BaseTb2','BaseTbl.departmentID = BaseTb2.departId');
+        $this->db->join('tbl_venue as BaseTb3','BaseTbl.venueID = BaseTb3.venID');
+        $this->db->join('tbl_users as BaseTb4','BaseTbl.resBy = BaseTb4.userId');
+        $this->db->where('resBy',$this->session->userdata('userId'));
+        $this->db->order_by('dateReq','DESC');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.tittleEvent  LIKE '%".$searchText."%'
+                            OR  BaseTbl.resBy  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $this->db->order_by('BaseTbl.formNo', 'DESC');
+        $this->db->limit($page, $segment);
+        $query = $this->db->get();
+        
+        $result = $query->result();        
+        return $result;
+    }
     
-    /**
-     * This function is used to get the user listing count
-     * @param string $searchText : This is optional search text
-     * @param number $page : This is pagination offset
-     * @param number $segment : This is pagination limit
-     * @return array $result : This is result
-     */
+    
+   
     function viewEventRequest($searchText = '', $page, $segment)
     {
         $this->db->select('BaseTbl.formNo, BaseTbl.noParticipant, BaseTbl.dateActual, BaseTbl.timeActual, BaseTbl.dateEnd, BaseTbl.timeEnd, BaseTbl.purpose,BaseTbl.tittleEvent,BaseTbl.contactNo,BaseTb2.acroname,BaseTb3.name,BaseTb4.name as fullname,BaseTbl.dateReq,BaseTbl.status');
@@ -701,7 +739,87 @@ class User_model extends CI_Model
             $this->db->where($likeCriteria);
         }
        
-        $this->db->order_by('BaseTbl.jobId', 'ASC');
+        $this->db->order_by('BaseTbl.jobId', 'DESC');
+        $this->db->limit($page, $segment);
+        $query = $this->db->get();
+        
+        $result = $query->result();        
+        return $result;
+    }
+
+    function viewAllRepairRequestCount($searchText = '')
+    {
+        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl3.name,BaseTbl3.bldgNo,BaseTbl3.roomNo, BaseTbl.dateReq, BaseTbl2.name as Resname, BaseTbl.remark');
+        $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->join('tbl_users as BaseTbl2','BaseTbl.resBy = BaseTbl2.userId');
+        $this->db->join('tbl_location as BaseTbl3','BaseTbl.location = BaseTbl3.locID');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
+                            OR  BaseTbl.location  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $query = $this->db->get();
+        
+        return $query->num_rows();
+    }
+    
+    
+    function viewAllRepairRequest($searchText = '', $page, $segment)
+    {
+       $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl3.name,BaseTbl3.bldgNo,BaseTbl3.roomNo, BaseTbl.dateReq, BaseTbl2.name as Resname, BaseTbl.remark');
+        $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->join('tbl_users as BaseTbl2','BaseTbl.resBy = BaseTbl2.userId');
+        $this->db->join('tbl_location as BaseTbl3','BaseTbl.location = BaseTbl3.locID');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
+                            OR  BaseTbl.location  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $this->db->order_by('BaseTbl.jobId', 'DESC');
+        $this->db->limit($page, $segment);
+        $query = $this->db->get();
+        
+        $result = $query->result();        
+        return $result;
+    }
+
+    function viewAllMyRepairRequestCount($searchText = '')
+    {
+        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl3.name,BaseTbl3.bldgNo,BaseTbl3.roomNo, BaseTbl.dateReq, BaseTbl2.name as Resname, BaseTbl.remark');
+        $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->join('tbl_users as BaseTbl2','BaseTbl.resBy = BaseTbl2.userId');
+        $this->db->join('tbl_location as BaseTbl3','BaseTbl.location = BaseTbl3.locID');
+        $this->db->where('resBy',$this->session->userdata('userId'));
+        
+       
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
+                            OR  BaseTbl.location  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $query = $this->db->get();
+        
+        return $query->num_rows();
+    }
+    
+    
+    function viewAllMyRepairRequest($searchText = '', $page, $segment)
+    {
+       $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl3.name,BaseTbl3.bldgNo,BaseTbl3.roomNo, BaseTbl.dateReq, BaseTbl2.name as Resname, BaseTbl.remark');
+        $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->join('tbl_users as BaseTbl2','BaseTbl.resBy = BaseTbl2.userId');
+        $this->db->join('tbl_location as BaseTbl3','BaseTbl.location = BaseTbl3.locID');
+        $this->db->where('resBy',$this->session->userdata('userId'));
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
+                            OR  BaseTbl.location  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $this->db->order_by('BaseTbl.jobId', 'DESC');
         $this->db->limit($page, $segment);
         $query = $this->db->get();
         
