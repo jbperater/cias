@@ -836,10 +836,22 @@ class User extends BaseController
             $data['userRecords'] = $this->user_model->viewTheEventRequest($searchText, $returns["page"], $returns["segment"],$id);
             
             $this->global['pageTitle'] = 'MEWU : View Event Request';
+
+            if($this->session->userdata('role') == 1){
+                $this->loadViews("admin/viewEventRequest", $this->global, $data, NULL);
+
+            }
+            if($this->session->userdata('role') == 2){
+                 $this->loadViews("staff/viewEventRequests", $this->global, $data, NULL);
+            }
+            if($this->session->userdata('role') == 4){
+
+            $this->loadViews("student/viewStudentRequests", $this->global, $data, NULL);
             
-            $this->loadViews("admin/viewEventRequest", $this->global, $data, NULL);
+            // $this->loadViews("admin/viewEventRequest", $this->global, $data, NULL);
         
     }
+}
 
      function viewTheRepairRequest()
     {

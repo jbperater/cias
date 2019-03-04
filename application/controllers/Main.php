@@ -258,7 +258,8 @@ class Main extends BaseController
             );  
 
             $this->main_model->venueInsert($data);
-            redirect('/viewVenue'); 
+            $this->session->set_flashdata('success', 'New Venue created successfully');
+            redirect(base_url().'main/viewAddNewVenue'); 
             }
     }
 
@@ -286,7 +287,7 @@ class Main extends BaseController
             );  
             $this->main_model->departmentInsert($data);
 
-            $this->session->set_flashdata('success', 'New User created successfully');
+            $this->session->set_flashdata('success', 'New Department created successfully');
             
             redirect(base_url().'main/viewAddNewDepartment');   
             }
@@ -317,8 +318,9 @@ class Main extends BaseController
             );  
 
             $this->main_model->locationInsert($data);
+            $this->session->set_flashdata('success', 'New Location created successfully');
             // $this->viewAddNewLocation();
-            redirect('User/viewLocation');   
+            redirect(base_url().'main/viewAddNewLocation');   
             }
     }
 
@@ -353,8 +355,9 @@ class Main extends BaseController
                 'yearAcc' => $this->input->post('yearAcc')
             );  
             $this->main_model->equipmentInsert($data);
-            $this->viewAddNewEquipment();
-            // redirect('/viewDepartment');   
+            $this->session->set_flashdata('success', 'New Equipment added successfully');
+            // $this->viewAddNewEquipment();
+            redirect(base_url().'main/viewAddNewEquipment');   
             }
     }
 
@@ -385,9 +388,10 @@ class Main extends BaseController
             );  
 
             $this->main_model->adminEventEquipmentInsert($data);
-            $this->session->set_flashdata('success')  ;
+            $this->session->set_flashdata('success', 'New Event Equipment added successfully');
+            // $this->session->set_flashdata('success')  ;
             $this->viewAddNewEventEquipment();
-            // redirect('/viewDepartment');   
+            redirect(base_url().'main/viewAddNewEventEquipment');   
             }
     }
 
@@ -446,8 +450,9 @@ class Main extends BaseController
             $lastId = $this->main_model->getLastId();
             // $this->main_model->eventVenueInsert($lastId,$venue);
             $this->main_model->eventEquipmentInsert($lastId,$equipment,$tableNo,$chairNo);
-            $this->viewAddNewEventRequest();
-            // redirect('/viewDepartment');   
+            $this->session->set_flashdata('success', 'New Event created successfully');
+            // $this->viewAddNewEventRequest();
+            redirect(base_url().'Main/viewAddNewEventRequest');   
             }
     }
 
@@ -479,7 +484,8 @@ class Main extends BaseController
             );  
 
             $this->main_model->jobRequestInsert($data);
-            redirect('main/jobRequestInsert'); 
+            $this->session->set_flashdata('success', 'New  Repair Request created successfully');
+            redirect(base_url().'main/jobRequestInsert'); 
             }
     }
 
