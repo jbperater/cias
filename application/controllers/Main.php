@@ -287,7 +287,7 @@ class Main extends BaseController
             $this->main_model->departmentInsert($data);
 
             $this->session->set_flashdata('success', 'New User created successfully');
-            
+
             redirect(base_url().'main/viewAddNewDepartment');   
             }
     }
@@ -446,8 +446,8 @@ class Main extends BaseController
             $lastId = $this->main_model->getLastId();
             // $this->main_model->eventVenueInsert($lastId,$venue);
             $this->main_model->eventEquipmentInsert($lastId,$equipment,$tableNo,$chairNo);
-            $this->viewAddNewEventRequest();
-            // redirect('/viewDepartment');   
+            $this->session->set_flashdata('success', 'Successfully Added Request');
+            redirect(base_url().'main/viewAddNewEventRequest');   
             }
     }
 
