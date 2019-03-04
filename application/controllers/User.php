@@ -817,7 +817,7 @@ class User extends BaseController
 
             $id = $this->input->get('id');
 
-            if($this->session->userdata('roleText') == 'System Administrator'){
+            if($this->session->userdata('role') == 1){
                 $this->main_model->eventUnNotifyAdmin($id);
             }else{
                 $this->main_model->eventUnNotify($id);
@@ -847,8 +847,8 @@ class User extends BaseController
 
             $id = $this->input->get('id');
 
-            if($this->session->userdata('roleText') == 'System Administrator'){
-                $this->main_model->eventUnNotifyAdmin($id);
+            if($this->session->userdata('role') == 1){
+                $this->main_model->jobUnNotifyAdmin($id);
             }else{
                 $this->main_model->jobRequestUnNotify($id);
             }
@@ -941,6 +941,28 @@ class User extends BaseController
             $returns = $this->paginationCompress ( "viewRepairRequest/", $count, 10 );
             
             $data['userRecords'] = $this->user_model->viewAllVerifiedRepairRequest($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU : View Repair Request';
+            
+            $this->loadViews("admin/viewAllRepairRequest", $this->global, $data, NULL);
+        
+    }
+
+    function viewAllMyVerifiedRepairRequest()
+    {
+
+            $id = $this->input->get('id');
+           
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewAllMyVerifiedRepairRequestcount($searchText);
+
+            $returns = $this->paginationCompress ( "viewRepairRequest/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewAllMyVerifiedRepairRequest($searchText, $returns["page"], $returns["segment"],$id);
             
             $this->global['pageTitle'] = 'MEWU : View Repair Request';
             

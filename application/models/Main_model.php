@@ -62,9 +62,11 @@ class Main_model extends CI_Model
     function eventUnNotifyAdmin($id){
         $this->db->set('adminNotify',0);
         $this->db->where('id',$id);
-        $this->db->where('type','maintenance');
+        $this->db->where('type','event');
         $this->db->update('tbl_notification');
     }
+
+
     function eventUnNotify($id){
         $this->db->set('ownerNotify',0);
         $this->db->where('id',$id);
@@ -87,12 +89,14 @@ class Main_model extends CI_Model
         $this->db->update('tbl_notification');
     }
 
-    function jobNotifyAdmin($id){
-        $this->db->set('adminNotify',1);
+    function jobUnNotifyAdmin($id){
+        $this->db->set('adminNotify',0);
         $this->db->where('id',$id);
         $this->db->where('type','maintenance');
         $this->db->update('tbl_notification');
     }
+
+
     
     function getVenue(){
       	$this->db->select('venID,bldgNo,name,type');
