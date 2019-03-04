@@ -628,17 +628,21 @@ class Main_model extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_reserve_request');
         $this->db->where('status','approve');
-        $this->db->where('dateActual',$dateActual);
+        $this->db->where('dateActual >=',$dateActual);
         $this->db->where('timeActual <=',$timeEnd);
-        $this->db->where('dateEnd',$dateEnd);
+        $this->db->where('dateEnd <=',$dateEnd);
         $this->db->where('timeEnd >=',$timeActual);
         $this->db->where('venueID',$venueID);
         $query = $this->db->get();
         $result = $query->result(); 
+        var_dump($result);
+        
         if($result == NUll){
-            return TRUE;
+           return TRUE;
+            echo "TRUE";
         }else{
             return FALSE;
+            echo "FALSE";
         }      
         
 
