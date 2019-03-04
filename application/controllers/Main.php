@@ -286,6 +286,7 @@ class Main extends BaseController
             );  
 
             $this->main_model->departmentInsert($data);
+            $this->session->set_flashdata('success');
             $this->viewAddNewDepartment();
             // redirect('/viewDepartment');   
             }
