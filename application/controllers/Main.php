@@ -284,11 +284,11 @@ class Main extends BaseController
                 'acroname' => $this->input->post('acroname'),
                 'name' => $this->input->post('name'),
             );  
-
             $this->main_model->departmentInsert($data);
-            $this->session->set_flashdata('success');
-            $this->viewAddNewDepartment();
-            // redirect('/viewDepartment');   
+
+            $this->session->set_flashdata('success', 'New User created successfully');
+            
+            redirect(base_url().'main/viewAddNewDepartment');   
             }
     }
 
