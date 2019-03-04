@@ -672,7 +672,7 @@ class User extends BaseController
 
      function viewMySchedule()
     {
-        // if($this->isEmployee() == TRUE)
+        // if($this->isEmployee() == TRUE || $this->isAdmin() == TRUE)
         // {
         //     $this->loadThis();
         // }
@@ -836,19 +836,14 @@ class User extends BaseController
             $data['userRecords'] = $this->user_model->viewTheEventRequest($searchText, $returns["page"], $returns["segment"],$id);
             
             $this->global['pageTitle'] = 'MEWU : View Event Request';
-
-            if($this->session->userdata('role')==1){
-                $this->loadViews("admin/viewEventRequest", $this->global, $data, NULL);
-            }else{
-                $this->loadViews("student/viewStudentRequests");
-            }
             
-           
+            $this->loadViews("admin/viewEventRequest", $this->global, $data, NULL);
         
     }
 
      function viewTheRepairRequest()
-     {
+    {
+            $id=$this->input->get('id');
 
             $id = $this->input->get('id');
 
@@ -874,11 +869,13 @@ class User extends BaseController
 
             if($this->session->userdata('role') == 1){
                 $this->loadViews("admin/viewRepairRequest", $this->global, $data, NULL);
+
             }
             if($this->session->userdata('role') == 2){
                  $this->loadViews("staff/viewRepairRequests", $this->global, $data, NULL);
             }
             if($this->session->userdata('role') == 3){
+
                  $this->loadViews("maintenance/viewTheRepairRequest", $this->global, $data, NULL);
             }
             
@@ -922,6 +919,28 @@ class User extends BaseController
             $returns = $this->paginationCompress ( "viewRepairRequest/", $count, 10 );
             
             $data['userRecords'] = $this->user_model->viewAllRepairRequest($searchText, $returns["page"], $returns["segment"],$id);
+            
+            $this->global['pageTitle'] = 'MEWU : View Repair Request';
+            
+            $this->loadViews("admin/viewAllRepairRequest", $this->global, $data, NULL);
+        
+    }
+
+    function viewAllVerifiedRepairRequest()
+    {
+
+            $id = $this->input->get('id');
+           
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+            
+            $count = $this->user_model->viewAllVerifiedRepairRequestcount($searchText);
+
+            $returns = $this->paginationCompress ( "viewRepairRequest/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewAllVerifiedRepairRequest($searchText, $returns["page"], $returns["segment"],$id);
             
             $this->global['pageTitle'] = 'MEWU : View Repair Request';
             

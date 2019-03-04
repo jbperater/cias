@@ -759,8 +759,16 @@ class Main extends BaseController
             $this->global['role'] =$this->session->userdata('role');
             $this->global['role_text'] =$this->session->userdata('role_text');
             
-            $this->loadViews("staff/viewRepairRequests", $this->global, $data, NULL);
+            $this->loadViews("staff/viewRepairRequestsFinished", $this->global, $data, NULL);
         
+    }
+
+    function jobRequestVerified(){
+        $id = $this->input->get('id');
+        $this->main_model->jobRequestVerified($id);
+        $this->main_model->jobNotifyAdmin($id);
+
+        redirect('main/viewRepairFinishedRequest');
     }
 
     

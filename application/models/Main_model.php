@@ -86,6 +86,13 @@ class Main_model extends CI_Model
         $this->db->where('type','maintenance');
         $this->db->update('tbl_notification');
     }
+
+    function jobNotifyAdmin($id){
+        $this->db->set('adminNotify',1);
+        $this->db->where('id',$id);
+        $this->db->where('type','maintenance');
+        $this->db->update('tbl_notification');
+    }
     
     function getVenue(){
       	$this->db->select('venID,bldgNo,name,type');
@@ -631,6 +638,13 @@ class Main_model extends CI_Model
         }      
         
 
+    }
+
+    function jobRequestVerified($id){
+
+        $this->db->set('remark','verified');
+        $this->db->where('jobId',$id);
+        $this->db->update('tbl_job_request');
     }
 
 

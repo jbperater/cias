@@ -170,6 +170,9 @@
                             <li class="treeview">
                                 <a href="<?php echo base_url(); ?>User/viewAllRepairRequest"> View All Repair Requests</a>
                             </li>
+                             <li class="treeview">
+                                <a href="<?php echo base_url(); ?>User/viewAllVerifiedRepairRequest"> View Verified Repair Requests</a>
+                            </li>
                           </ul>
             </li>
             <li class="treeview">
@@ -322,7 +325,7 @@
                                 <a href="<?php echo base_url(); ?>Main/viewRepairDeclineRequest">View All Decline Request</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>Main/viewRepairFinishedRequest">View All Finished Request</a>
+                                <a href="<?php echo base_url(); ?>Main/viewRepairFinishedRequest">View All Completed Request</a>
                             </li>
                           </ul>
              </li>
