@@ -94,7 +94,7 @@
                                 <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="department">Department (please select)</label>
-                                            <select name="department" id="" class="form-control">
+                                            <select name="department" id="" class="form-control" required="">
                                                   <?php foreach($option as $option){?>
                                                 <option value=<?=$option->departId;?>><?=$option->acroname;?> - &nbsp<?=$option->name;?></option>
                                                 <?php }?>
