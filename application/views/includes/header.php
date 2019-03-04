@@ -170,6 +170,9 @@
                             <li class="treeview">
                                 <a href="<?php echo base_url(); ?>User/viewAllRepairRequest"> View All Repair Requests</a>
                             </li>
+                             <li class="treeview">
+                                <a href="<?php echo base_url(); ?>User/viewAllVerifiedRepairRequest"> View Verified Repair Requests</a>
+                            </li>
                           </ul>
             </li>
             <li class="treeview">

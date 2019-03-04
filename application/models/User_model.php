@@ -827,6 +827,49 @@ class User_model extends CI_Model
         return $result;
     }
 
+     function viewAllVerifiedRepairRequestCount($searchText = '')
+    {
+        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl3.name,BaseTbl3.bldgNo,BaseTbl3.roomNo, BaseTbl.dateReq, BaseTbl2.name as Resname, BaseTbl.remark');
+        $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->join('tbl_users as BaseTbl2','BaseTbl.resBy = BaseTbl2.userId');
+        $this->db->join('tbl_location as BaseTbl3','BaseTbl.location = BaseTbl3.locID');
+        $this->db->where('remark','verified');
+        
+       
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
+                            OR  BaseTbl.location  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $query = $this->db->get();
+        
+        return $query->num_rows();
+    }
+    
+    
+    function viewAllVerifiedRepairRequest($searchText = '', $page, $segment)
+    {
+       $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl3.name,BaseTbl3.bldgNo,BaseTbl3.roomNo, BaseTbl.dateReq, BaseTbl2.name as Resname, BaseTbl.remark');
+        $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->join('tbl_users as BaseTbl2','BaseTbl.resBy = BaseTbl2.userId');
+        $this->db->join('tbl_location as BaseTbl3','BaseTbl.location = BaseTbl3.locID');
+        $this->db->where('remark','verified');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
+                            OR  BaseTbl.location  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $this->db->order_by('BaseTbl.jobId', 'DESC');
+        $this->db->limit($page, $segment);
+        $query = $this->db->get();
+        
+        $result = $query->result();        
+        return $result;
+    }
+
+
      function viewMyScheduleCount($searchText = '')
     {
        
