@@ -28,7 +28,7 @@
                                 <div class="col-md-6">                                
                                     <div class="form-group">
                                         <label for="acroname">Name</label>
-                                        <input type="text" class="form-control required" value="" id="name" name="name" maxlength="128" placeholder="Name">
+                                        <input type="text" class="form-control required" required="" value="" id="name" name="name" maxlength="128" placeholder="Name">
                                     </div>
                                     
                                 </div>
