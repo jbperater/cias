@@ -327,6 +327,9 @@
                             <li>
                                 <a href="<?php echo base_url(); ?>Main/viewRepairFinishedRequest">View All Completed Request</a>
                             </li>
+                            <li class="treeview">
+                                <a href="<?php echo base_url(); ?>User/viewAllMyVerifiedRepairRequest"> View Verified Repair Requests</a>
+                            </li>
                           </ul>
              </li>
              <li class="treeview">
