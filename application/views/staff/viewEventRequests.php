@@ -41,6 +41,7 @@
                         <th>Venue</th>
                         <th>Reserved By</th>
                         <th>Date Requested</th>
+                        <th>Status</th>
                     </tr>
                     <?php
                     if(!empty($userRecords))
@@ -58,10 +59,11 @@
                         <td><?php echo $record->purpose ?></td>
                         <td><?php echo $record->tittleEvent ?></td>
                         <td><?php echo $record->contactNo ?></td>
-                        <td><?php echo $record->departmentID ?></td>
-                        <td><?php echo $record->venueID ?></td>
-                        <td><?php echo $record->resBy ?></td>
+                        <td><?php echo $record->acroname ?></td>
+                        <td><?php echo $record->name ?></td>
+                        <td><?php echo $record->fullname ?></td>
                         <td><?php echo $record->dateReq ?></td>
+                        <td><?php echo $record->status ?></td>
                     </tr>
                     <?php
                         }

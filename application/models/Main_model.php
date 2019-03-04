@@ -96,6 +96,13 @@ class Main_model extends CI_Model
         $this->db->update('tbl_notification');
     }
 
+    function jobRequestNotifyAdmin($id){
+        $this->db->set('adminNotify',1);
+        $this->db->where('id',$id);
+        $this->db->where('type','maintenance');
+        $this->db->update('tbl_notification');
+    }
+
 
     
     function getVenue(){

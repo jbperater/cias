@@ -777,7 +777,7 @@ class Main extends BaseController
     function jobRequestVerified(){
         $id = $this->input->get('id');
         $this->main_model->jobRequestVerified($id);
-        $this->main_model->jobNotifyAdmin($id);
+        $this->main_model->jobRequestNotifyAdmin($id);
 
         redirect('main/viewRepairFinishedRequest');
     }
