@@ -32,8 +32,6 @@ class Main_model extends CI_Model
       	$this->db->set('personAtend',$personel);
         $this->db->set('description',$description);
       	$this->db->where('jobId',$id);
-        echo ($id);
-        exit();
       	$this->db->update('tbl_job_request');
   	}
 

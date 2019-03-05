@@ -64,7 +64,8 @@ class Main extends BaseController
         $date_actual = $this->input->post('date_actual');
         $description = $this->input->post('description');
         $personel = $this->input->post('personel');
-        if($date_actual >= date('Y-m-d'){
+
+        if($date_actual < date('Y-m-d H:i:s')){
             $this->session->set_flashdata('error', 'Input Right Date');
              redirect(base_url().'main/assignJobRequests?id='.$id);
          }else{
