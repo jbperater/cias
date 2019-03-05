@@ -60,7 +60,7 @@ class Main extends BaseController
     }
 
     public function approveJobRequests(){
-        $id = $this->input->post('id');
+        $id = $this->input->get('id');
         $date_actual = $this->input->post('date_actual');
         $description = $this->input->post('description');
         $personel = $this->input->post('personel');

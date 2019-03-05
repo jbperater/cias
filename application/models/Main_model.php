@@ -32,6 +32,8 @@ class Main_model extends CI_Model
       	$this->db->set('personAtend',$personel);
         $this->db->set('description',$description);
       	$this->db->where('jobId',$id);
+        echo ($id);
+        exit();
       	$this->db->update('tbl_job_request');
   	}
 
@@ -421,8 +423,9 @@ class Main_model extends CI_Model
 
   function viewRepairRequestCounts($searchText = '')
     {
-        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateReq');
+        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl2.name, BaseTbl2.roomNo,BaseTbl2.bldgNo, BaseTbl.dateReq, BaseTbl.remark');
         $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->join('tbl_location as BaseTbl2','BaseTbl.location = BaseTbl2.locID');
         $this->db->where('resBy',$this->session->userdata('userId'));
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
@@ -444,8 +447,9 @@ class Main_model extends CI_Model
      */
     function viewRepairRequests($searchText = '', $page, $segment,$id)
     {
-        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateTimeStart, BaseTbl.remark, BaseTbl.dateReq');
+       $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl2.name, BaseTbl2.roomNo,BaseTbl2.bldgNo, BaseTbl.dateReq, BaseTbl.remark');
         $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->join('tbl_location as BaseTbl2','BaseTbl.location = BaseTbl2.locID');
         $this->db->where('resBy',$this->session->userdata('userId'));
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
