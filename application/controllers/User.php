@@ -884,7 +884,7 @@ class User extends BaseController
 
             }
             if($this->session->userdata('role') == 2){
-                 $this->loadViews("staff/viewRepairRequests", $this->global, $data, NULL);
+                 $this->loadViews("staff/viewRepairRequestsFinished", $this->global, $data, NULL);
             }
             if($this->session->userdata('role') == 3){
 
@@ -1047,6 +1047,25 @@ class User extends BaseController
             
             $this->loadViews("student/viewStudentRequests", $this->global, $data, NULL);
         
+    }
+
+    function viewMyRepairRequest(){
+
+            $searchText = $this->security->xss_clean($this->input->post('searchText'));
+
+            $data['searchText'] = $searchText;
+            
+            $this->load->library('pagination');
+             $count = $this->user_model->viewMyReportCount($searchText);
+
+            $returns = $this->paginationCompress ( "viewTheRepairRequest/", $count, 10 );
+            
+            $data['userRecords'] = $this->user_model->viewMyReport($searchText, $returns["page"], $returns["segment"]);
+            
+            $this->global['pageTitle'] = 'MEWU :Summary Report';
+            
+            $this->loadViews("maintenance/viewTheRepairRequest", $this->global, $data, NULL);
+
     }
     
    

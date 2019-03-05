@@ -103,6 +103,13 @@ class Main_model extends CI_Model
         $this->db->update('tbl_notification');
     }
 
+    function jobRequestNotifyOwner($id){
+        $this->db->set('ownerNotify',1);
+        $this->db->where('id',$id);
+        $this->db->where('type','maintenance');
+        $this->db->update('tbl_notification');
+    }
+
 
     
     function getVenue(){
@@ -625,8 +632,8 @@ class Main_model extends CI_Model
         $this->db->order_by('BaseTbl.jobId', 'ASC');
         $this->db->limit($page, $segment);
         $query = $this->db->get();
-        
-        $result = $query->result();        
+      
+        $result = $query->result();      
         return $result;
     }
 

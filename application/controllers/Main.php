@@ -64,14 +64,14 @@ class Main extends BaseController
         $date_actual = $this->input->post('date_actual');
         $description = $this->input->post('description');
         $personel = $this->input->post('personel');
-        if($date_actual <= date('Y-m-d H:i:s')){
+        if($date_actual < date('Y-m-d')){
             $this->session->set_flashdata('error', 'Input Right Date');
-             redirect(base_url().'main/assignJobRequests');
+             redirect(base_url().'main/assignJobRequests?id='.$id);
          }else{
             $this->main_model->approveJobRequests($id,$personel,$date_actual,$description);
             $this->main_model->jobRequestNotify($id,$personel);
             $this->session->set_flashdata('success', 'Successfull Assign');
-            redirect(base_url().'main/assignJobRequests');
+            redirect(base_url().'user/viewRepairRequest');
          }
     }
 
@@ -403,7 +403,9 @@ class Main extends BaseController
         $this->load->library('session');
         
         // set validation rules
-        
+        $noParticipant = $this->input->post('noParticipant');
+        $tableNo = $this->input->post('tableNo');
+        $chairNo = $this->input->post('chairNo');
         $dateActual = $this->input->post('dateActual');
         $timeActual = $this->input->post('timeActual');
         $dateEnd = $this->input->post('dateEnd');
@@ -415,14 +417,22 @@ class Main extends BaseController
        
 
         
-        if ($this->form_validation->run() == false || $this->input->post('dateActual') < date('Y-m-d') || $this->input->post('dateEnd') < date('Y-m-d') || $timeActual > $timeEnd || $validate == FALSE) {
+        if ($this->form_validation->run() == false 
+            || $this->input->post('dateActual') < date('Y-m-d') 
+            || $this->input->post('dateEnd') < date('Y-m-d') 
+            || $timeActual > $timeEnd 
+            || $noParticipant > 2000
+            // || $tableNo > 100
+            // || $chairNo > 2000
+            || $validate == FALSE) {
             
             // $this->viewAddNewEventRequest();
             
             if($validate == FALSE){
                 $this->session->set_flashdata('error', 'Occupied Time and Date For Event');
-            }else{
-                $this->session->set_flashdata('error', 'Input Date and Time Properly');
+            }
+            else{
+                $this->session->set_flashdata('error', 'Validate Input Date and Time Properly, The Maximum Participant is 2000, The Maximum Chair is 2000 and Maximum Table 100');
             }
             
             redirect(base_url().'main/viewAddNewEventRequest');
@@ -497,17 +507,28 @@ class Main extends BaseController
         $jobId = $this->input->post('jobId');
         $remark = $this->input->post('remark');
         $dateTimeEnd = $this->input->post('dateTimeEnd');
-        $this->main_model->jobRequestUpdate($jobId,$dateTimeEnd,$remark);
-        $result = $this->main_model->jobRequestUpdate($jobId,$dateTimeEnd,$remark);
-        if($result == true)
-        {
+        
+
+        if( $dateTimeEnd > date('Y-m-d') ){
+            $this->session->set_flashdata('error', 'Invalid Date Input');
+            redirect(base_url().'main/viewAddJobRequestEdit?id='.$jobId);
+        }
+        else{
+            $this->main_model->jobRequestUpdate($jobId,$dateTimeEnd,$remark);
+            $result = $this->main_model->jobRequestUpdate($jobId,$dateTimeEnd,$remark);
+            if($result == true)
+            {
+                $this->session->set_flashdata('success', 'User updated successfully');
+            }
+            else
+            {
+                $this->session->set_flashdata('error', 'User updation failed');
+            }
+            $this->main_model->jobRequestNotifyOwner($jobId);
             $this->session->set_flashdata('success', 'User updated successfully');
+            redirect(base_url().'user/viewMySchedule');
         }
-        else
-        {
-            $this->session->set_flashdata('error', 'User updation failed');
-        }
-        redirect(base_url().'user/viewMySchedule');
+        
     }
 
      public function historyInsert(){

@@ -390,7 +390,7 @@
               </a>
             </li>
              <li class="treeview">
-              <a href="<?php echo base_url(); ?>User/viewTheRepairRequest">
+              <a href="<?php echo base_url(); ?>User/viewMyRepairRequest">
                 <i class="fa fa-calendar"></i>
                 <span>View My Schedule</span>
               </a>

@@ -606,7 +606,7 @@ class User_model extends CI_Model
         $this->db->limit($page, $segment);
         $query = $this->db->get();
         
-        $result = $query->result();        
+        $result = $query->result();      
         return $result;
     }
 
@@ -697,7 +697,7 @@ class User_model extends CI_Model
         $this->db->limit($page, $segment);
         $query = $this->db->get();
         
-        $result = $query->result();        
+        $result = $query->result();    
         return $result;
     }
 
@@ -1058,8 +1058,9 @@ class User_model extends CI_Model
      */
     function viewRepairRequests($searchText = '', $page, $segment)
     {
-        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateReq');
+       $this->db->select('BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location,BaseTbl.dateTimeStart,BaseTbl.dateTimeEnd, BaseTbl.dateReq');
         $this->db->from('tbl_job_request as BaseTbl');
+         $this->db->where('personAtend',$this->session->userdata('userId'));
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
                             OR  BaseTbl.location  LIKE '%".$searchText."%')";
@@ -1098,8 +1099,9 @@ class User_model extends CI_Model
      */
     function viewSummaryReport($searchText = '', $page, $segment)
     {
-        $this->db->select('BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location,BaseTbl.dateTimeStart,BaseTbl.dateTimeEnd, BaseTbl.dateReq');
+        $this->db->select('BaseTbl.itemNo, BaseTbl.workDescript, BaseTb2.name,BaseTbl.dateTimeStart,BaseTbl.dateTimeEnd, BaseTbl.dateReq');
         $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->join('tbl_location as BaseTb2','BaseTbl.location = BaseTb2.locID');
          $this->db->where('personAtend',$this->session->userdata('userId'));
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
@@ -1223,6 +1225,53 @@ class User_model extends CI_Model
         }
        
         $this->db->order_by('BaseTbl.formNo', 'DESC');
+        $this->db->limit($page, $segment);
+        $query = $this->db->get();
+        
+        $result = $query->result();        
+        return $result;
+    }
+
+    function viewMyReportCount($searchText = '')
+    {
+       $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl3.name,BaseTbl3.bldgNo,BaseTbl3.roomNo, BaseTbl.dateTimeStart, BaseTbl.dateReq, BaseTbl2.name as Resname, BaseTbl.remark');
+        $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->join('tbl_users as BaseTbl2','BaseTbl.resBy = BaseTbl2.userId');
+        $this->db->join('tbl_location as BaseTbl3','BaseTbl.location = BaseTbl3.locID');
+         $this->db->where('personAtend',$this->session->userdata('userId'));
+        $this->db->where('remark','approve');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
+                            OR  BaseTbl.location  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $query = $this->db->get();
+        
+        return $query->num_rows();
+    }
+    
+    /**on is used to get the user listing count
+     * @param string $searchText : This is optional search text
+     * @param number $page : This is pagination offset
+     * @param number $segment : This is pagination limit
+     * @return array $result : This is result
+     */
+    function viewMyReport($searchText = '', $page, $segment)
+    {
+        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl3.name,BaseTbl3.bldgNo,BaseTbl3.roomNo, BaseTbl.dateTimeStart, BaseTbl.dateReq, BaseTbl2.name as Resname, BaseTbl.remark');
+        $this->db->from('tbl_job_request as BaseTbl');
+        $this->db->join('tbl_users as BaseTbl2','BaseTbl.resBy = BaseTbl2.userId');
+        $this->db->join('tbl_location as BaseTbl3','BaseTbl.location = BaseTbl3.locID');
+         $this->db->where('personAtend',$this->session->userdata('userId'));
+        $this->db->where('remark','approve');
+        if(!empty($searchText)) {
+            $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
+                            OR  BaseTbl.location  LIKE '%".$searchText."%')";
+            $this->db->where($likeCriteria);
+        }
+       
+        $this->db->order_by('BaseTbl.jobId', 'DESC');
         $this->db->limit($page, $segment);
         $query = $this->db->get();
         
