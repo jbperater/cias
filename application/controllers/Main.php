@@ -526,6 +526,7 @@ class Main extends BaseController
                 $this->session->set_flashdata('error', 'User updation failed');
             }
             $this->main_model->jobRequestNotifyOwner($jobId);
+            $this->main_model->jobRequestUnNotifyMantenance($jobId);
             $this->session->set_flashdata('success', 'User updated successfully');
             redirect(base_url().'user/viewMySchedule');
         }

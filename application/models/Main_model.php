@@ -110,6 +110,13 @@ class Main_model extends CI_Model
         $this->db->update('tbl_notification');
     }
 
+    function jobRequestUnNotifyMantenance($id){
+        $this->db->set('assign',0);
+        $this->db->where('id',$id);
+        $this->db->where('type','maintenance');
+        $this->db->update('tbl_notification');
+    }
+
 
     
     function getVenue(){
@@ -621,9 +628,10 @@ class Main_model extends CI_Model
      */
     function viewRepairFinishedRequests($searchText = '', $page, $segment,$id)
     {
-        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTbl.location, BaseTbl.dateTimeStart, BaseTbl.remark, BaseTbl.dateReq');
+        $this->db->select('BaseTbl.jobId,BaseTbl.itemNo, BaseTbl.workDescript, BaseTb3.name, BaseTb3.bldgNo, BaseTb3.roomNo , BaseTbl.dateTimeStart, BaseTbl.remark, BaseTbl.dateReq');
         $this->db->from('tbl_job_request as BaseTbl');
         $this->db->where('remark','finished');
+        $this->db->join('tbl_location as BaseTb3','BaseTbl.location = BaseTb3.locID ');
         $this->db->where('resBy',$this->session->userdata('userId'));
         if(!empty($searchText)) {
             $likeCriteria = "(BaseTbl.workDescript  LIKE '%".$searchText."%'
