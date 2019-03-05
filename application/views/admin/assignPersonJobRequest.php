@@ -22,7 +22,7 @@
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
-                    <form role="form" id="addUser" action="<?php echo base_url() ?>Main/approveJobRequests" method="post" role="form">
+                    <form role="form" id="addUser" action="<?php echo base_url() ?>Main/approveJobRequests?id=<?php echo $id ?>" method="post" role="form">
                         <div class="box-body">
                              <div class="col-md-6">
                                         <div class="form-group">

@@ -60,10 +60,13 @@ class Main extends BaseController
     }
 
     public function approveJobRequests(){
-        $id = $this->input->post('id');
+        $id = $this->input->get('id');
         $date_actual = $this->input->post('date_actual');
         $description = $this->input->post('description');
         $personel = $this->input->post('personel');
+        echo 'try';
+        echo $id;
+        exit;
         if($date_actual <= date('Y-m-d H:i:s')){
             $this->session->set_flashdata('error', 'Input Right Date');
              redirect(base_url().'main/assignJobRequests');
