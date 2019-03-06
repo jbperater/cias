@@ -463,7 +463,10 @@ class Main extends BaseController
             $this->main_model->eventRequestInsert($data);
             $lastId = $this->main_model->getLastId();
             // $this->main_model->eventVenueInsert($lastId,$venue);
-            $this->main_model->eventEquipmentInsert($lastId,$equipment,$tableNo,$chairNo);
+            echo "una".$lastId;
+            $this->main_model->eventEquipmentInsert($lastId,$equipment);
+            echo "sec".$lastId;
+            $this->main_model->eventCHTInsert($lastId,$tableNo,$chairNo);
 
             $this->session->set_flashdata('success', 'New Event created successfully');
             // $this->viewAddNewEventRequest();

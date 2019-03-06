@@ -192,12 +192,17 @@ class Main_model extends CI_Model
 		}	
 	}
 
-	function eventEquipmentInsert($lastId,$data,$table,$chair) {
+	function eventEquipmentInsert($lastId,$data) {
 		foreach ($data as $data) {
-			$query="insert into ass_reserve_equip_need values('$lastId','$data',$table,$chair)";
+			$query="insert into ass_reserve_equip_need values('$lastId','$data')";
 			$this->db->query($query);
 		}	
 	}
+
+  function eventCHTInsert($id,$table,$chair){
+    $query="insert into tbl_event_cht values('$id',$table,$chair)";
+    $this->db->query($query);
+  }
 
   function adminEventEquipmentInsert($data) {
     $this->db->insert('tbl_event_equip',$data); 
